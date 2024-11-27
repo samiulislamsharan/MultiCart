@@ -43,18 +43,52 @@
                     processData: false,
                     success: function(response) {
                         if (response.status == 'Success') {
+                            showNotification(
+                                'success',
+                                response.status,
+                                response.message || 'Successfully submitted.'
+                            );
                         } else {
+                            showNotification(
+                                'error',
+                                response.status,
+                                response.message || 'Failed to submit.'
+                            );
                         }
                         $('#submitButton').html(btnSave);
                     },
                     error: function(xhr, status, error) {
+                        let errors = JSON.parse(xhr.responseJSON.message);
+
+                        $.each(errors, function(key, messages) {
+                            $.each(messages, function(index, message) {
+                                showNotification(
+                                    'error',
+                                    xhr.responseJSON.status,
+                                    message || 'An error occurred.'
+                                );
+                            });
+                        });
 
                         $('#submitButton').html(btnSave);
                     }
                 });
             } else {
-                alert('Failed to submit.');
+                showNotification('error', 'Validation Error', 'Please fill in the required fields.');
             }
         });
     });
+</script>
+<script>
+    function showNotification(notificationType, status, message) {
+        Lobibox.notify(notificationType, {
+            pauseDelayOnHover: true,
+            continueDelayOnInactiveTab: false,
+            position: 'top right',
+            icon: 'bx bx-error',
+            msg: '<strong>' + status + '</strong>' + ':' + ' ' + message,
+            sound: false,
+            size: 'mini'
+        });
+    }
 </script>
