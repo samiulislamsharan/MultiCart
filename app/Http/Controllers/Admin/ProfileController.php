@@ -21,7 +21,6 @@ class ProfileController extends Controller
     public function storeUser(Request $request)
     {
         try {
-            // print_r($request->all());
             $validation = Validator::make($request->all(), [
                 'name' => 'required|string|max:255|regex:/^[\pL\s\-]+$/u',
                 'email' => 'required|string|email|exists:users,email',
