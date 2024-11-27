@@ -40,8 +40,14 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="{{ asset('assets/images/avatars/avatar-2.png') }}" alt="Admin"
-                                            class="rounded-circle p-1 bg-primary" width="110">
+                                        @if (auth()->user()->image == null)
+                                            <img src="{{ asset('assets/images/avatars/user-avatar.webp') }}"
+                                                alt="profile_picture" class="rounded-circle p-1 bg-primary" width="110">
+                                        @else
+                                            <img src="{{ asset(auth()->user()->image) }}" alt="profile_picture"
+                                                class="rounded-circle p-1 bg-primary" width="110">
+                                        @endif
+
                                         <div class="mt-3">
                                             <h4>{{ auth()->user()->name }}</h4>
                                             <p class="text-secondary mb-1">Full Stack Developer</p>
