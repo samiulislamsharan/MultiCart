@@ -9,6 +9,10 @@
 <script src="{{ asset('assets/plugins/chartjs/js/Chart.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/chartjs/js/Chart.extension.js') }}"></script>
 <script src="{{ asset('assets/js/index.js') }}"></script>
+<!--notification js -->
+<script src="{{ asset('assets/plugins/notifications/js/lobibox.js') }}"></script>
+<script src="{{ asset('assets/plugins/notifications/js/messageboxes.js') }}"></script>
+<script src="{{ asset('assets/plugins/notifications/js/notifications.js') }}"></script>
 <!--app JS-->
 <script src="{{ asset('assets/js/app.js') }}"></script>
 {{-- Parsley JS --}}
