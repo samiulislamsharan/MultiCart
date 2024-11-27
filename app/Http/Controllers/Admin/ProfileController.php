@@ -55,7 +55,7 @@ class ProfileController extends Controller
                         'github_link' => $request->github_link,
                         'insta_link' => $request->insta_link,
                         'facebook_link' => $request->facebook_link,
-                        'image' => $request->hasFile('image') ? $image_name : NULL,
+                        'image' => $image_name,
                     ]
                 );
 
