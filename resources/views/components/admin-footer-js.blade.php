@@ -15,8 +15,7 @@
 <script src="{{ asset('assets/plugins/notifications/js/notifications.js') }}"></script>
 <!--app JS-->
 <script src="{{ asset('assets/js/app.js') }}"></script>
-{{-- Parsley JS --}}
-{{-- <script src="https://developercodez.com/developerCorner/parsley/parsley.min.js"></script> --}}
+<!-- Parsley JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"
     integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
