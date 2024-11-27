@@ -48,6 +48,11 @@
                                 response.status,
                                 response.message || 'Successfully submitted.'
                             );
+
+                            setTimeout(function() {
+                                location.reload();
+                            }, 5000);
+
                         } else {
                             showNotification(
                                 'error',
