@@ -40,6 +40,8 @@ class ProfileController extends Controller
                 if ($request->hasFile('image')) {
                     $image_name = 'images/' . time() . '.' . $request->image->extension();
                     $request->image->move(public_path('images/'), $image_name);
+                } else {
+                    $image_name = Auth::user()->image;
                 }
 
                 $user = User::updateOrCreate(
