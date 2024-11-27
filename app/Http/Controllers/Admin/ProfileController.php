@@ -25,7 +25,7 @@ class ProfileController extends Controller
             $validation = Validator::make($request->all(), [
                 'name' => 'required|string|max:255|regex:/^[\pL\s\-]+$/u',
                 'email' => 'required|string|email|exists:users,email',
-                'phone' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+                'phone' => 'required|string|regex:/^([0-9\s\-\+\(\)]*)$/|min:11',
                 'address' => 'required|string|max:255',
                 'github_link' => 'nullable|string',
                 'insta_link' => 'nullable|string',
