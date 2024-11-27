@@ -26,7 +26,13 @@
             if ($(this).parsley().validate()) {
                 e.preventDefault();
 
-                var formData = new FormData(this);
+                let formData = new FormData(this);
+                let btnLoader =
+                    '<button class="btn btn-primary px-4" type="button" disabled=""> <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>';
+                let btnSave =
+                    '<button class="btn btn-primary px-4" type="submit">Save Changes</button>';
+
+                $('#submitButton').html(btnLoader);
 
                 $.ajax({
                     type: "POST",
@@ -36,7 +42,14 @@
                     contentType: false,
                     processData: false,
                     success: function(response) {
-                        console.log(response);
+                        if (response.status == 'Success') {
+                        } else {
+                        }
+                        $('#submitButton').html(btnSave);
+                    },
+                    error: function(xhr, status, error) {
+
+                        $('#submitButton').html(btnSave);
                     }
                 });
             } else {
