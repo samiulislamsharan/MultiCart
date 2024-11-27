@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
+    use ApiResponse;
+
     public function index()
     {
         return view('admin.profile');
@@ -32,10 +35,7 @@ class ProfileController extends Controller
             ]);
 
             if ($validation->fails()) {
-                return response()->json([
-                    'status' => 400,
-                    'message' => $validation->errors()->first()
-                ]);
+                return $this->error($validation->errors(), 422, []);
             } else {
                 if ($request->hasFile('image')) {
                     $image_name = 'images/' . time() . '.' . $request->image->extension();
@@ -57,16 +57,10 @@ class ProfileController extends Controller
                     ]
                 );
 
-                return response()->json([
-                    'status' => 200,
-                    'message' => 'Profile updated successfully',
-                ]);
+                return $this->success([], 'Profile updated successfully.');
             }
         } catch (\Exception $e) {
-            return response()->json([
-                'status' => 500,
-                'message' => 'An error occurred: ' . $e->getMessage(),
-            ]);
+            return $this->error($e->getMessage(), 500, []);
         }
     }
 }
