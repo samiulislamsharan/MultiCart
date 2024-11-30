@@ -49,6 +49,7 @@
                             showNotification(
                                 'success',
                                 response.status,
+                                'bx bx-check',
                                 response.message || 'Successfully submitted.'
                             );
 
@@ -60,6 +61,7 @@
                             showNotification(
                                 'error',
                                 response.status,
+                                'bx bx-error',
                                 response.message || 'Failed to submit.'
                             );
                         }
@@ -73,6 +75,7 @@
                                 showNotification(
                                     'error',
                                     xhr.responseJSON.status,
+                                    'bx bx-error',
                                     message || 'An error occurred.'
                                 );
                             });
@@ -88,12 +91,12 @@
     });
 </script>
 <script>
-    function showNotification(notificationType, status, message) {
+    function showNotification(notificationType, notificationIcon, status, message) {
         Lobibox.notify(notificationType, {
             pauseDelayOnHover: true,
             continueDelayOnInactiveTab: false,
             position: 'top right',
-            icon: 'bx bx-error',
+            icon: notificationIcon,
             msg: '<strong>' + status + '</strong>' + ':' + ' ' + message,
             sound: false,
             size: 'mini'
