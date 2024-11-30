@@ -13,7 +13,7 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="{{ url('admin/dashboard') }}">
+            <a href="{{ route('admin.dashboard.index') }}">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
                 <div class="menu-title">Dashboard</div>
             </a>
