@@ -100,6 +100,18 @@
         });
     }
 </script>
+<!-- DataTable -->
+<script>
+    $(document).ready(function() {
+        var table = $('#dataTable').DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'print']
+        });
+
+        table.buttons().container()
+            .appendTo('#dataTable_wrapper .col-md-6:eq(0)');
+    });
+</script>
 <!-- Image Uploadify -->
 <script>
     $(document).ready(function() {
