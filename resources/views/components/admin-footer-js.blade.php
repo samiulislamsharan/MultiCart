@@ -48,8 +48,8 @@
                         if (response.status == 'Success') {
                             showNotification(
                                 'success',
-                                response.status,
                                 'bx bx-check',
+                                response.status,
                                 response.message || 'Successfully submitted.'
                             );
 
@@ -60,8 +60,8 @@
                         } else {
                             showNotification(
                                 'error',
-                                response.status,
                                 'bx bx-error',
+                                response.status,
                                 response.message || 'Failed to submit.'
                             );
                         }
@@ -74,8 +74,8 @@
                             $.each(messages, function(index, message) {
                                 showNotification(
                                     'error',
-                                    xhr.responseJSON.status,
                                     'bx bx-error',
+                                    xhr.responseJSON.status,
                                     message || 'An error occurred.'
                                 );
                             });
