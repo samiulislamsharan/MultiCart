@@ -43,7 +43,7 @@ class ProfileController extends Controller
                     $image_name = Auth::user()->image;
                 }
 
-                $user = User::updateOrCreate(
+                User::updateOrCreate(
                     ['id' => Auth::user()->id],
                     [
                         'name' => $request->name,
