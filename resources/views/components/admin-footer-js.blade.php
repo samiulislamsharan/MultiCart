@@ -53,9 +53,11 @@
                                 response.message || 'Successfully submitted.'
                             );
 
-                            setTimeout(function() {
-                                location.reload();
-                            }, 5000);
+                            if (response.data.reload == true) {
+                                setTimeout(function() {
+                                    window.location.href = window.location.href;
+                                }, 5000);
+                            }
 
                         } else {
                             showNotification(
