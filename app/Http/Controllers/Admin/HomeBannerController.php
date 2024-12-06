@@ -20,7 +20,7 @@ class HomeBannerController extends Controller
     {
         $data = HomeBanner::get();
 
-        return view('admin.home_banners.home-banners', get_defined_vars());
+        return view('admin.home_banners.index', get_defined_vars());
     }
 
     /**
