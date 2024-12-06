@@ -149,6 +149,60 @@
     }
 </script>
 <script>
+    function deleteData(id, table) {
+        if (confirm("Are you sure you want to delete this record?") == true) {
+            $.ajax({
+                type: "GET",
+                url: "{{ route('admin.delete') }}" + "/" + id + "/" + table,
+                data: "",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    if (response.status == 'Success') {
+                        showNotification(
+                            'success',
+                            'bx bx-check',
+                            response.status,
+                            response.message || 'Successfully submitted.'
+                        );
+
+                        if (response.data.reload == true) {
+                            setTimeout(function() {
+                                window.location.href = window.location.href;
+                            }, 5000);
+                        }
+
+                    } else {
+                        showNotification(
+                            'error',
+                            'bx bx-error',
+                            response.status,
+                            response.message || 'Failed to submit.'
+                        );
+                    }
+                },
+                error: function(xhr, status, error) {
+                    let errors = JSON.parse(xhr.responseJSON.message);
+
+                    $.each(errors, function(key, messages) {
+                        $.each(messages, function(index, message) {
+                            showNotification(
+                                'error',
+                                'bx bx-error',
+                                xhr.responseJSON.status,
+                                message || 'An error occurred.'
+                            );
+                        });
+                    });
+                }
+            });
+        } else {
+            return false;
+        }
+    }
+</script>
+<script>
     function previewImage(sourceInput, targetImage) {
         $(sourceInput).change(function(e) {
             file = this.files[0];
