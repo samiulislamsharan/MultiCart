@@ -58,7 +58,7 @@ class ProfileController extends Controller
                     ]
                 );
 
-                return $this->success([], 'Profile updated successfully.');
+                return $this->success(['reload' => true], 'Profile updated successfully.');
             }
         } catch (\Exception $e) {
             return $this->error($e->getMessage(), 500, []);
