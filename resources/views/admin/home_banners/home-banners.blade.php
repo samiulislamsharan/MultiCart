@@ -62,8 +62,13 @@
                                         <td>{{ $homeBanner->text }}</td>
                                         <td>{{ $homeBanner->link }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/' . $homeBanner->image) }}" alt="image"
-                                                style="height: 100px;">
+                                            @if ($homeBanner->image == null)
+                                                <img src="{{ asset('assets/images/no-image-placeholder.svg') }}"
+                                                    alt="image" style="height: 100px;">
+                                            @else
+                                                <img src="{{ asset('storage/' . $homeBanner->image) }}" alt="image"
+                                                    style="height: 100px;">
+                                            @endif
                                         </td>
                                         <td>
                                             <div class="row">
