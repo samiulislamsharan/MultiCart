@@ -40,7 +40,7 @@
                     <div class="table-responsive overflow-hidden">
                         <div class="my-2">
                             <button type="button" class="btn btn-warning mx-1 px-4" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
+                                data-bs-target="#exampleModal" onclick="saveData('0', '', '', '')">
                                 <i class="bx bx-plus"></i>
                                 Add Banner
                             </button>
