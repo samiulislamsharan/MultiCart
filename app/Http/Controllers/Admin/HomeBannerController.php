@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeBanner;
+use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 
 class HomeBannerController extends Controller
 {
+    use ApiResponse;
+
     /**
      * Display a listing of the resource.
      */
@@ -31,7 +36,47 @@ class HomeBannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validation = Validator::make($request->all(), [
+                'id' => 'required',
+                'text' => 'required|string|max:255',
+                'link' => 'required|string|max:255',
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            ]);
+
+            if ($validation->fails()) {
+                return $this->error($validation->errors(), 422, []);
+            } else {
+                if ($request->hasFile('image')) {
+                    if ($request->id > 0) {
+                        $image = HomeBanner::where('id', $request->id)->first();
+                        $image_path = "storage/" . $image->image;
+
+                        if (File::exists($image_path)) {
+                            File::delete($image_path);
+                        }
+                    }
+
+                    $image_name = time() . '.' . $request->image->extension();
+                    $request->image->move(public_path('storage/'), $image_name);
+                } else {
+                    $image_name = HomeBanner::where('id', $request->id)->pluck('image')->first();
+                }
+
+                HomeBanner::updateOrCreate(
+                    ['id' => $request->id],
+                    [
+                        'text' => $request->text,
+                        'link' => $request->link,
+                        'image' => $image_name,
+                    ]
+                );
+
+                return $this->success(['reload' => true], 'Banner updated successfully.');
+            }
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage(), 500, []);
+        }
     }
 
     /**
