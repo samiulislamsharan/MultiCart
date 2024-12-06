@@ -148,8 +148,10 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Close</button>
+                        <span id="submitButton">
+                            <button type="submit" class="btn btn-primary px-4">Save changes</button>
+                        </span>
                     </div>
                 </form>
             </div>
