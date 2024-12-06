@@ -137,9 +137,12 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label">Image</label>
+                                <label for="image" class="col-sm-3 col-form-label">Image</label>
                                 <div class="col-sm-9">
-                                    <input id="image-uploadify" type="file" accept="image/*" multiple required>
+                                    <input type="file" id="bannerImage" class="form-control" name="image"
+                                        accept="image/*" required />
+                                    <div id="bannerImagePreview">
+                                    </div>
                                 </div>
                             </div>
                         </div>
