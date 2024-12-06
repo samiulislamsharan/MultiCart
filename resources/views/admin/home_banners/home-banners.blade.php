@@ -81,7 +81,8 @@
                                                         Edit
                                                     </button>
 
-                                                    <button type="button" class="btn btn-outline-danger">
+                                                    <button type="button" class="btn btn-outline-danger"
+                                                        onclick="deleteData('{{ $homeBanner->id }}', 'home_banners')">
                                                         <span>
                                                             <i class='bx bx-trash'></i>
                                                         </span>
