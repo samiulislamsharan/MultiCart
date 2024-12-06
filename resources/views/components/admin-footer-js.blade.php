@@ -123,3 +123,50 @@
         $('#image-uploadify').imageuploadify();
     })
 </script>
+
+<script>
+    function saveData(id, text, link, image) {
+        $('#banner_id').val(id);
+        $('#banner_text').val(text);
+        $('#banner_link').val(link);
+
+        if (image == '') {
+            var image = "{{ URL::asset('assets/images/no-image-placeholder.svg') }}";
+            $('#bannerImage').attr('required', true);
+        } else {
+            var image = "{{ URL::asset('storage') }}/" + image;
+            $('#bannerImage').attr('required', false);
+        }
+
+        var imageElement = '<img src="' + image +
+            '" alt="banner_image" id="imgPreview" class="rounded-2" height="200px">'
+        var imageCaption = '<p class="mt-2">Current Image:</p>'
+
+        $('#bannerImagePreview').html(imageCaption);
+        $('#bannerImagePreview').append(imageElement);
+
+        previewImage('#bannerImage', '#imgPreview');
+    }
+</script>
+<script>
+    function previewImage(sourceInput, targetImage) {
+        $(sourceInput).change(function(e) {
+            file = this.files[0];
+
+            if (file) {
+                let reader = new FileReader();
+                let imageElement = document.createElement('img');
+
+                imageElement.setAttribute('id', 'imgPreview');
+                imageElement.setAttribute('class', 'rounded-2 mt-2');
+                imageElement.setAttribute('height', '200px');
+
+                reader.onload = function(e) {
+                    $(targetImage).attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+</script>
