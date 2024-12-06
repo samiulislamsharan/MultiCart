@@ -51,9 +51,7 @@
                                         <div class="mt-3">
                                             <h4>{{ auth()->user()->name }}</h4>
                                             <p class="text-secondary mb-1">Full Stack Developer</p>
-                                            <p class="text-muted font-size-sm">Gazipur, Dhaka, Bangladesh</p>
-                                            <button class="btn btn-primary">Follow</button>
-                                            <button class="btn btn-outline-primary">Message</button>
+                                            <p class="text-muted font-size-sm">{{ auth()->user()->address }}</p>
                                         </div>
                                     </div>
                                     <hr class="my-2" />
