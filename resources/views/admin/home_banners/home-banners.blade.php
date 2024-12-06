@@ -117,7 +117,8 @@
                     <h5 class="modal-title" id="exampleModalLabel">Add Banner</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('admin.home-banners.store') }}" method="POST" enctype="multipart/form-data">
+                <form id="formSubmit" action="{{ route('admin.home-banners.store') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="shadow-sm border p-4 rounded">
