@@ -117,13 +117,6 @@
             .appendTo('#dataTable_wrapper .col-md-6:eq(0)');
     });
 </script>
-<!-- Image Uploadify -->
-<script>
-    $(document).ready(function() {
-        $('#image-uploadify').imageuploadify();
-    })
-</script>
-
 <script>
     function saveData(id, text, link, image) {
         $('#banner_id').val(id);
