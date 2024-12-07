@@ -397,7 +397,7 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="javascript:;"><i
+                            <li><a class="dropdown-item" href="{{ route('admin.profile.index') }}"><i
                                         class="bx bx-user"></i><span>Profile</span></a>
                             </li>
                             <li><a class="dropdown-item" href="javascript:;"><i
