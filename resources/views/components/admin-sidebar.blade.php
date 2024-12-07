@@ -27,6 +27,20 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('admin.sizes.index') }}">
+                <div class="parent-icon"><i class='lni lni-ruler'></i>
+                </div>
+                <div class="menu-title">Manage Size</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.colors.index') }}">
+                <div class="parent-icon"><i class='lni lni-pallet'></i>
+                </div>
+                <div class="menu-title">Manage Color</div>
+            </a>
+        </li>
+        <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
