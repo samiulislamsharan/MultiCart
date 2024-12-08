@@ -2565,3 +2565,10 @@ input.search-control-2::placeholder {
         display: none;
     }
 }
+
+.color-badge {
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 5px;
+}
