@@ -40,7 +40,7 @@
                     <div class="table-responsive overflow-hidden">
                         <div class="my-2">
                             <button type="button" class="btn btn-warning mx-1 px-4" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" onclick="saveData('0', '', '', '')">
+                                data-bs-target="#exampleModal" onclick="saveData('0', '')">
                                 <i class="bx bx-plus"></i>
                                 Add Size
                             </button>
@@ -64,7 +64,7 @@
                                                     <button type="button" id="btnUpdateBannerForm"
                                                         class="btn btn-outline-primary me-1" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModal"
-                                                        onclick="saveData('{{ $size->id }}', '{{ $size->text }}', '', '')">
+                                                        onclick="saveData('{{ $size->id }}', '{{ $size->text }}')">
                                                         <i class="bx bx-edit"></i>
                                                         Edit
                                                     </button>
