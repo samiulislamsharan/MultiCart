@@ -111,9 +111,9 @@
                         <div class="shadow-sm border p-4 rounded">
                             <input type="hidden" name="id" id="size_id">
                             <div class="row mb-3">
-                                <label for="banner_text" class="col-sm-3 col-form-label">Text</label>
+                                <label for="size_text" class="col-sm-3 col-form-label">Text</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="text" class="form-control" id="banner_text"
+                                    <input type="text" name="text" class="form-control" id="size_text"
                                         placeholder="Enter Banner Text" required>
                                 </div>
                             </div>
