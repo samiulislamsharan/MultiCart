@@ -131,3 +131,12 @@
     </div>
     <!-- end Modal -->
 @endsection
+
+@section('footer-js')
+    <script>
+        function saveData(id, text, ) {
+            $('#size_id').val(id);
+            $('#size_text').val(text);
+        }
+    </script>
+@endsection
