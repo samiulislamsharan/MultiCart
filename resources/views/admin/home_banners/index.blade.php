@@ -161,3 +161,30 @@
     </div>
     {{-- end Modal --}}
 @endsection
+
+@section('footer-js')
+    <script>
+        function saveData(id, text, link, image) {
+            $('#banner_id').val(id);
+            $('#banner_text').val(text);
+            $('#banner_link').val(link);
+
+            if (image == '') {
+                var image = "{{ URL::asset('assets/images/no-image-placeholder.svg') }}";
+                $('#bannerImage').attr('required', true);
+            } else {
+                var image = "{{ URL::asset('storage') }}/" + image;
+                $('#bannerImage').attr('required', false);
+            }
+
+            var imageElement = '<img src="' + image +
+                '" alt="banner_image" id="imgPreview" class="rounded-2" height="200px">'
+            var imageCaption = '<p class="mt-2">Current Image:</p>'
+
+            $('#bannerImagePreview').html(imageCaption);
+            $('#bannerImagePreview').append(imageElement);
+
+            previewImage('#bannerImage', '#imgPreview');
+        }
+    </script>
+@endsection
