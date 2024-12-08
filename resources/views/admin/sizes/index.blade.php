@@ -109,7 +109,7 @@
                     @csrf
                     <div class="modal-body">
                         <div class="shadow-sm border p-4 rounded">
-                            <input type="hidden" name="id" id="banner_id">
+                            <input type="hidden" name="id" id="size_id">
                             <div class="row mb-3">
                                 <label for="banner_text" class="col-sm-3 col-form-label">Text</label>
                                 <div class="col-sm-9">
