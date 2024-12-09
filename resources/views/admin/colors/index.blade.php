@@ -59,7 +59,11 @@
                                     <tr>
                                         <td>{{ $color->id }}</td>
                                         <td>{{ $color->text }}</td>
-                                        <td>{{ $color->value }}</td>
+                                        <td>
+                                            <span class="color-badge" style="background-color:{{ $color->value }}">
+                                                {{ $color->value }}
+                                            </span>
+                                        </td>
                                         <td>
                                             <div class="row">
                                                 <span>
