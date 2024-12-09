@@ -51,6 +51,8 @@
                                     <th>ID</th>
                                     <th>Text</th>
                                     <th>Value</th>
+                                    <th>Created at</th>
+                                    <th>Updated at</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -64,6 +66,8 @@
                                                 {{ $color->value }}
                                             </span>
                                         </td>
+                                        <td>{{ $color->created_at }}</td>
+                                        <td>{{ $color->updated_at }}</td>
                                         <td>
                                             <div class="row">
                                                 <span>
@@ -93,6 +97,8 @@
                                     <th>ID</th>
                                     <th>Text</th>
                                     <th>Value</th>
+                                    <th>Created at</th>
+                                    <th>Updated at</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
