@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeBannerController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -20,4 +21,9 @@ Route::controller(HomeBannerController::class)->group(function () {
 Route::controller(SizeController::class)->group(function () {
     Route::get('/sizes', 'index')->name('admin.sizes.index');
     Route::post('/sizes/store', 'store')->name('admin.sizes.store');
+});
+
+Route::controller(ColorController::class)->group(function () {
+    Route::get('/colors', 'index')->name('admin.colors.index');
+    Route::post('/colors/store', 'store')->name('admin.colors.store');
 });
