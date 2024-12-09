@@ -134,3 +134,13 @@
     </div>
     <!-- end Modal -->
 @endsection
+
+@section('footer-js')
+    <script>
+        function saveData(id, text, value) {
+            $('#color_id').val(id);
+            $('#color_text').val(text);
+            $('#color_value').val(value);
+        }
+    </script>
+@endsection
