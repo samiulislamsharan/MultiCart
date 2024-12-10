@@ -21,7 +21,7 @@
         <li class="menu-label">Home</li>
         <li>
             <a href="{{ route('admin.home-banners.index') }}">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
+                <div class="parent-icon"><i class='bx bx-carousel'></i>
                 </div>
                 <div class="menu-title">Home Banner</div>
             </a>
