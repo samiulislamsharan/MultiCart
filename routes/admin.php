@@ -7,8 +7,11 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SizeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
-Route::get('/delete/{id?}/{table?}', [DashboardController::class, 'delete'])->name('admin.delete');
+
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index')->name('admin.dashboard.index');
+    Route::get('/delete/{id?}/{table?}', 'delete')->name('admin.delete');
+});
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
 Route::post('/save-profile', [ProfileController::class, 'storeUser'])->name('admin.profile.store');
