@@ -114,7 +114,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Color</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Color</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="formSubmit" action="{{ route('admin.colors.store') }}" method="POST"
