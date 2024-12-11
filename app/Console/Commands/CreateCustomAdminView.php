@@ -85,7 +85,7 @@ class CreateCustomAdminView extends Command
                             </div>
                         </div>
                         <!-- end breadcrumb -->
-                        <h6 class="mb-0 text-uppercase">All Colors List</h6>
+                        <h6 class="mb-0 text-uppercase">All CONTENT List</h6>
                         <hr />
                         <div class="card">
                             <div class="card-body">
@@ -94,7 +94,7 @@ class CreateCustomAdminView extends Command
                                         <button type="button" class="btn btn-warning mx-1 px-4" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal" onclick="saveData('0')">
                                             <i class="bx bx-plus"></i>
-                                            Add Color
+                                            CONTENT NAME
                                         </button>
                                     </div>
                                     <table id="dataTable" class="table table-striped table-bordered">
