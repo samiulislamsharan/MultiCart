@@ -115,7 +115,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Banner</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Banner</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="formSubmit" action="{{ route('admin.home-banners.store') }}" method="POST"
