@@ -53,4 +53,45 @@ class AttributeController extends Controller
         }
     }
 
+    /**
+     * Display a listing of the attribute value.
+     */
+    public function indexAttributeValue()
+    {
+        $attribute_names = Attribute::get();
+        $attribute_values = AttributeValue::with('singleAttribute')->get();
+        // dd($attribute_values);
+
+        return view('admin.attributes.index_attribute_values', get_defined_vars());
+    }
+
+    /**
+     * Store or update a newly created attribute value in storage.
+     */
+    public function storeAttributeValue(Request $request)
+    {
+        try {
+            $validation = Validator::make($request->all(), [
+                'id' => 'required',
+                'attributes_id' => 'required|exists:attributes,id',
+                'value' => 'required|string|max:255',
+            ]);
+
+            if ($validation->fails()) {
+                return $this->error($validation->errors(), 422, []);
+            } else {
+                AttributeValue::updateOrCreate(
+                    ['id' => $request->id],
+                    [
+                        'attributes_id' => $request->attributes_id,
+                        'value' => $request->value,
+                    ]
+                );
+
+                return $this->success(['reload' => true], 'Attribute value updated successfully.');
+            }
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage(), 500, []);
+        }
+    }
 }
