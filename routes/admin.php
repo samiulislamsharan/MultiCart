@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeBannerController;
@@ -29,4 +30,9 @@ Route::controller(SizeController::class)->group(function () {
 Route::controller(ColorController::class)->group(function () {
     Route::get('/colors', 'index')->name('admin.colors.index');
     Route::post('/colors/store', 'store')->name('admin.colors.store');
+});
+
+Route::controller(AttributeController::class)->group(function () {
+    Route::get('/attribute_names', 'indexAttribute')->name('admin.attribute.index');
+    Route::post('/attribute/store', 'storeAttribute')->name('admin.attribute.store');
 });
