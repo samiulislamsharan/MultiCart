@@ -35,4 +35,7 @@ Route::controller(ColorController::class)->group(function () {
 Route::controller(AttributeController::class)->group(function () {
     Route::get('/attribute_names', 'indexAttribute')->name('admin.attribute.index');
     Route::post('/attribute/store', 'storeAttribute')->name('admin.attribute.store');
+
+    Route::get('/attribute_values', 'indexAttributeValue')->name('admin.attribute_value.index');
+    Route::post('/attribute_value/store', 'storeAttributeValue')->name('admin.attribute_value.store');
 });
