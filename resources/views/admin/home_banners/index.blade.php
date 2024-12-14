@@ -173,7 +173,7 @@
                 var image = "{{ URL::asset('assets/images/no-image-placeholder.svg') }}";
                 $('#bannerImage').attr('required', true);
             } else {
-                var image = "{{ URL::asset('storage') }}/" + image;
+                var image = "/" + image;
                 $('#bannerImage').attr('required', false);
             }
 
