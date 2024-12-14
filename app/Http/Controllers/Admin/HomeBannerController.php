@@ -57,7 +57,7 @@ class HomeBannerController extends Controller
                         }
                     }
 
-                    $image_name = time() . '.' . $request->image->extension();
+                    $image_name = 'storage/' . time() . '.' . $request->image->extension();
                     $request->image->move(public_path('storage/'), $image_name);
                 } else {
                     $image_name = HomeBanner::where('id', $request->id)->pluck('image')->first();
