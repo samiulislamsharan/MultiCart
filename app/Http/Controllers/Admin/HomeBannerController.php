@@ -50,7 +50,7 @@ class HomeBannerController extends Controller
                 if ($request->hasFile('image')) {
                     if ($request->id > 0) {
                         $image = HomeBanner::where('id', $request->id)->first();
-                        $image_path = "storage/" . $image->image;
+                        $image_path = 'storage/' . $image->image;
 
                         if (File::exists($image_path)) {
                             File::delete($image_path);
