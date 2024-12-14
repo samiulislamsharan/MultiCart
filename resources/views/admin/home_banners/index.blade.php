@@ -66,7 +66,7 @@
                                                 <img src="{{ asset('assets/images/no-image-placeholder.svg') }}"
                                                     alt="image" style="height: 100px;">
                                             @else
-                                                <img src="{{ asset('storage/' . $homeBanner->image) }}" alt="image"
+                                                <img src="{{ asset($homeBanner->image) }}" alt="image"
                                                     style="height: 100px;">
                                             @endif
                                         </td>
