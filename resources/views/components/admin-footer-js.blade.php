@@ -92,7 +92,13 @@
                     }
                 });
             } else {
-                showNotification('error', 'Validation Error', 'Please fill in the required fields.');
+                showNotification(
+                    'error',
+                    'bx bx-error',
+                    'Validation Error',
+                    'Please fill in the required fields.'
+                );
+
             }
         });
     });
