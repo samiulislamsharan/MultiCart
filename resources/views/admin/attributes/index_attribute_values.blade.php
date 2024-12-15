@@ -154,11 +154,7 @@
             function saveData(id, attributeNameId, attributeValue) {
                 $('#attribute_value_id').val(id);
 
-                if (attributeNameId !== '') {
-                    $('#attribute_name_id').val(attributeNameId);
-                } else {
-                    $('#attribute_name_id').val(1);
-                }
+                showOptions('#attribute_name_id', attributeNameId)
 
                 $('#attribute_value').val(attributeValue);
             }
