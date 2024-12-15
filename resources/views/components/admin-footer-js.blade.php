@@ -204,3 +204,12 @@
         });
     }
 </script>
+<script>
+    function showOptions(dropdown_id, id) {
+        if (id !== '') {
+            $(dropdown_id).val(id);
+        } else {
+            $(dropdown_id).val(1);
+        }
+    }
+</script>
