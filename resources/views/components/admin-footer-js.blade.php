@@ -56,6 +56,8 @@
                                 response.message || 'Successfully submitted.'
                             );
 
+                            $('#exampleModal').modal('hide');
+
                             if (response.data.reload == true) {
                                 setTimeout(function() {
                                     window.location.href = window.location.href;
