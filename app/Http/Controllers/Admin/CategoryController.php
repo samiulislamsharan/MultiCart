@@ -16,7 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data = Category::get();
+
+        return view('admin.categories.index', get_defined_vars());
     }
 
     /**
