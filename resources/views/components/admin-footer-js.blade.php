@@ -61,7 +61,7 @@
                             if (response.data.reload == true) {
                                 setTimeout(function() {
                                     window.location.href = window.location.href;
-                                }, 5000);
+                                }, 1500);
                             }
 
                         } else {
