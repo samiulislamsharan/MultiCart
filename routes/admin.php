@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HomeBannerController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,4 +39,9 @@ Route::controller(AttributeController::class)->group(function () {
 
     Route::get('/attribute_values', 'indexAttributeValue')->name('admin.attribute_value.index');
     Route::post('/attribute_value/store', 'storeAttributeValue')->name('admin.attribute_value.store');
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category', 'index')->name('admin.category.index');
+    Route::post('/category/store', 'store')->name('admin.category.store');
 });
