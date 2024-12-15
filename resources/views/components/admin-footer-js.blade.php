@@ -209,7 +209,7 @@
         if (id !== '') {
             $(dropdown_id).val(id);
         } else {
-            $(dropdown_id).val(1);
+            $(dropdown_id).val('');
         }
     }
 </script>
