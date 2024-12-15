@@ -118,7 +118,8 @@
                                 <div class="row mb-3">
                                     <label for="attribute_name_id" class="col-sm-3 col-form-label">Attribute Name</label>
                                     <div class="col-sm-9">
-                                        <select class="form-select mb-3" name="attributes_id" id="attribute_name_id">
+                                        <select class="form-select mb-3" name="attributes_id" id="attribute_name_id"
+                                            {{ $attribute_names->isEmpty() ? 'disabled' : '' }}>
                                             @forelse ($attribute_names as $attribute_name)
                                                 <option value="{{ $attribute_name->id }}">
                                                     {{ $attribute_name->name }} : {{ $attribute_name->slug }}
