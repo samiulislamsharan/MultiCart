@@ -69,7 +69,7 @@ class CategoryController extends Controller
                     ]
                 );
 
-                return $this->success(['reload' => true], 'Attribute name updated successfully.');
+                return $this->success(['reload' => true], 'Category name updated successfully.');
             }
         } catch (\Exception $e) {
             return $this->error($e->getMessage(), 500, []);
