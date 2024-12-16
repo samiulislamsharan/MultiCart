@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attribute;
 use App\Models\Category;
+use App\Models\CategoryAttribute;
 use App\Traits\ApiResponse;
 use App\Traits\SaveFile;
 use Illuminate\Http\Request;
@@ -66,5 +68,17 @@ class CategoryController extends Controller
         } catch (\Exception $e) {
             return $this->error($e->getMessage(), 500, []);
         }
+    }
+
+    /**
+     * Display a listing of the Category Attributes.
+     */
+    public function indexCategoryAttribute()
+    {
+        $data = CategoryAttribute::with('attribute', 'category')->get();
+        $categories = Category::get();
+        $attributes = Attribute::get();
+
+        return view('admin.categories.index_category_attributes', get_defined_vars());
     }
 }
