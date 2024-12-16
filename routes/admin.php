@@ -44,4 +44,7 @@ Route::controller(AttributeController::class)->group(function () {
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/category', 'index')->name('admin.category.index');
     Route::post('/category/store', 'store')->name('admin.category.store');
+
+    Route::get('/category_attribute', 'indexCategoryAttribute')->name('admin.category_attribute.index');
+    Route::post('/category_attribute/store', 'storeCategoryAttribute')->name('admin.category_attribute.store');
 });
