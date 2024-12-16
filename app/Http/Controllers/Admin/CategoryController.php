@@ -81,4 +81,42 @@ class CategoryController extends Controller
 
         return view('admin.categories.index_category_attributes', get_defined_vars());
     }
+
+    /**
+     * Store a newly created Category Attribute in storage.
+     */
+    public function storeCategoryAttribute(Request $request)
+    {
+        try {
+            $validation = Validator::make($request->all(), [
+                'id' => 'required',
+                'category_id' => 'required|integer|exists:categories,id',
+                'attribute_id' => 'required|integer|exists:attributes,id',
+            ], [
+                'category_id.required' => 'The Category field is required.',
+                'category_id.integer' => 'The Category must be an integer.',
+                'category_id.exists' => 'The selected Category does not exist.',
+                'attribute_id.required' => 'The Attribute field is required.',
+                'attribute_id.integer' => 'The Attribute must be an integer.',
+                'attribute_id.exists' => 'The selected Attribute does not exist.',
+            ]);
+
+            if ($validation->fails()) {
+                return $this->error($validation->errors(), 422, []);
+            } else {
+
+                CategoryAttribute::updateOrCreate(
+                    ['id' => $request->id],
+                    [
+                        'category_id' => $request->category_id,
+                        'attribute_id' => $request->attribute_id,
+                    ]
+                );
+
+                return $this->success(['reload' => true], 'Category Attribute name updated successfully.');
+            }
+        } catch (\Exception $e) {
+            return $this->error($e->getMessage(), 500, []);
+        }
+    }
 }
