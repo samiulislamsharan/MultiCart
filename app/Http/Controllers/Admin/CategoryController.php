@@ -20,15 +20,7 @@ class CategoryController extends Controller
     {
         $data = Category::get();
 
-        return view('admin.categories.index', get_defined_vars());
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('admin.categories.index_category_names', get_defined_vars());
     }
 
     /**
