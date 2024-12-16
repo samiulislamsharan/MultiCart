@@ -37,6 +37,12 @@ class CategoryController extends Controller
                 'slug' => 'required|string|max:255',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'parent_category_id' => 'nullable|integer',
+            ], [
+                'name.required' => 'The Name is required.',
+                'slug.required' => 'The Slug is required.',
+                'image.mimes' => 'The Image must be a file of type: jpeg, png, jpg, gif, svg.',
+                'image.max' => 'The Image may not be greater than 5120 kilobytes.',
+                'parent_category_id.integer' => 'The parent category must be an integer.',
             ]);
 
             if ($validation->fails()) {
