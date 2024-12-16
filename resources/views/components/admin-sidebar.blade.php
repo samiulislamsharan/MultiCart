@@ -76,6 +76,12 @@
                         Category Name
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.category_attribute.index') }}">
+                        <i class="bx bx-right-arrow-alt"></i>
+                        Category Attribute
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="menu-label">Pages</li>
