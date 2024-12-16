@@ -10,6 +10,11 @@ class CategoryAttribute extends Model
     use HasFactory;
 
     protected $table = 'category_attributes';
+    protected $fillable = [
+        'id',
+        'category_id',
+        'attribute_id'
+    ];
 
     public function attribute()
     {
