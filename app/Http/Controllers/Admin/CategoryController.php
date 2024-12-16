@@ -24,7 +24,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Category Name in storage.
      */
     public function store(Request $request)
     {
