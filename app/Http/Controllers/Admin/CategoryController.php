@@ -14,7 +14,7 @@ class CategoryController extends Controller
     use ApiResponse, SaveFile;
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the Category Names.
      */
     public function index()
     {
