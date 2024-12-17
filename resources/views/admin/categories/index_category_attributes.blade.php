@@ -76,7 +76,7 @@
                                                     </button>
 
                                                     <button type="button" class="btn btn-outline-danger"
-                                                        onclick="deleteData('{{ $category_attribute->id }}', 'categories')">
+                                                        onclick="deleteData('{{ $category_attribute->id }}', 'category_attributes')">
                                                         <span>
                                                             <i class='bx bx-trash'></i>
                                                         </span>
