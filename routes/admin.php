@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\TaxController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -53,4 +54,9 @@ Route::controller(CategoryController::class)->group(function () {
 Route::controller(BrandController::class)->group(function () {
     Route::get('/brands', 'index')->name('admin.brands.index');
     Route::post('/brands/store', 'store')->name('admin.brands.store');
+});
+
+Route::controller(TaxController::class)->group(function () {
+    Route::get('/taxes', 'index')->name('admin.taxes.index');
+    Route::post('/taxes/store', 'store')->name('admin.taxes.store');
 });
