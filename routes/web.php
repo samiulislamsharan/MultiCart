@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(AdminAuthController::class)->group(function () {
+    Route::get('/create-admin', 'createAdmin');
+    Route::get('/create-user', 'createUser');
 });
 
 Route::controller(AuthController::class)->group(function () {
