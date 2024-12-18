@@ -108,6 +108,14 @@
                 <div class="menu-title">User Profile</div>
             </a>
         </li>
+        <li class="menu-label">Taxes</li>
+        <li>
+            <a href="{{ route('admin.taxes.index') }}">
+                <div class="parent-icon"><i class="bx bx-money"></i>
+                </div>
+                <div class="menu-title">Tax</div>
+            </a>
+        </li>
         <li class="menu-label">Others</li>
         <li>
             <a class="has-arrow" href="javascript:;">
