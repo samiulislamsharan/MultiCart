@@ -84,6 +84,22 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon">
+                    <i class='lni lni-bold'></i>
+                </div>
+                <div class="menu-title">Brand</div>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{ route('admin.brands.index') }}">
+                        <i class="bx bx-right-arrow-alt"></i>
+                        Brand Name
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-label">Pages</li>
         <li>
             <a href="{{ url('admin/profile') }}">
