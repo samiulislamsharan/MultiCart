@@ -45,7 +45,7 @@
                 <div class="parent-icon">
                     <i class='lni lni-tag'></i>
                 </div>
-                <div class="menu-title">Attributes</div>
+                <div class="menu-title">Attribute</div>
             </a>
             <ul>
                 <li>
