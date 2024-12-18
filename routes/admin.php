@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeBannerController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\BrandController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -47,4 +48,9 @@ Route::controller(CategoryController::class)->group(function () {
 
     Route::get('/category_attribute', 'indexCategoryAttribute')->name('admin.category_attribute.index');
     Route::post('/category_attribute/store', 'storeCategoryAttribute')->name('admin.category_attribute.store');
+});
+
+Route::controller(BrandController::class)->group(function () {
+    Route::get('/brands', 'index')->name('admin.brands.index');
+    Route::post('/brands/store', 'store')->name('admin.brands.store');
 });
