@@ -12,6 +12,7 @@
 <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/Drag-And-Drop/dist/imageuploadify.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/trumbowyg/trumbowyg.min.js') }}"></script>
 <!--notification js -->
 <script src="{{ asset('assets/plugins/notifications/js/lobibox.js') }}"></script>
 <script src="{{ asset('assets/plugins/notifications/js/messageboxes.js') }}"></script>
