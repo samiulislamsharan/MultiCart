@@ -10,4 +10,9 @@ class Attribute extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'slug'];
+
+    public function values()
+    {
+        return $this->hasMany(AttributeValue::class, 'attributes_id', 'id');
+    }
 }
