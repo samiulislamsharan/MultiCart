@@ -30,4 +30,39 @@ class ProductController extends Controller
 
         return view('admin.products.index', get_defined_vars());
     }
+
+    /**
+     * Create or Update the specified Product.
+     */
+    public function show(int $id = 0)
+    {
+        if ($id == 0) {
+            $product = new Product();
+            $product_attr = new ProductAttr();
+            $product_attr_images = new ProductAttrImages();
+            $category = Category::pluck('name', 'id');
+            $brand = Brand::pluck('text', 'id');
+            $color = Color::pluck('text', 'id');
+            $size = Size::get();
+            $tax = Tax::pluck('text', 'id');
+        } else {
+            $product['id'] = $id;
+
+            $validation = Validator::make($product, [
+                'id' => 'required|integer|exists:products,id',
+            ], [
+                'id.required' => 'Product ID is required',
+                'id.integer' => 'Product ID must be an integer',
+                'id.exists' => 'Product ID does not exist',
+            ]);
+
+            if ($validation->fails()) {
+                return redirect()->route('admin.products.index')->withErrors($validation->errors());
+            } else {
+                $product = Product::where('id', $id)->first();
+            }
+        }
+
+        return view('admin.products.manage', get_defined_vars());
+    }
 }
