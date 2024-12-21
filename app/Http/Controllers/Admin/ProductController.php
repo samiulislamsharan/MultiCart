@@ -65,4 +65,15 @@ class ProductController extends Controller
 
         return view('admin.products.manage', get_defined_vars());
     }
+
+    /**
+     * Get the specified attributes for a Product category.
+     */
+    public function getAttributes(Request $request)
+    {
+        $category_id = $request->category_id;
+        $data = CategoryAttribute::where('category_id', $category_id)->with('attribute', 'values')->get();
+
+        return $this->success(['data' => $data], 'Successfully fetched attributes');
+    }
 }
