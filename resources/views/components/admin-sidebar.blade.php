@@ -100,6 +100,22 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon">
+                    <i class='lni lni-producthunt'></i>
+                </div>
+                <div class="menu-title">Product</div>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{ route('admin.products.index') }}">
+                        <i class="bx bx-right-arrow-alt"></i>
+                        Product Name
+                    </a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-label">Pages</li>
         <li>
             <a href="{{ route('admin.profile.index') }}">
