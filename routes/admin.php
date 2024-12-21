@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TaxController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,4 +60,11 @@ Route::controller(BrandController::class)->group(function () {
 Route::controller(TaxController::class)->group(function () {
     Route::get('/taxes', 'index')->name('admin.taxes.index');
     Route::post('/taxes/store', 'store')->name('admin.taxes.store');
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/products', 'index')->name('admin.products.index');
+    Route::post('/products/store', 'store')->name('admin.products.store');
+    Route::get('/products/show/{id?}', 'show')->name('admin.products.show');
+    Route::post('/products/get_attributes', 'getAttributes')->name('admin.products.get_attributes');
 });
