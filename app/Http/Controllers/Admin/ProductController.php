@@ -40,11 +40,11 @@ class ProductController extends Controller
             $product = new Product();
             $product_attr = new ProductAttr();
             $product_attr_images = new ProductAttrImages();
-            $category = Category::pluck('name', 'id');
-            $brand = Brand::pluck('text', 'id');
-            $color = Color::pluck('text', 'id');
+            $category = Category::get();
+            $brand = Brand::get();
+            $color = Color::get();
             $size = Size::get();
-            $tax = Tax::pluck('text', 'id');
+            $tax = Tax::get();
         } else {
             $product['id'] = $id;
 
