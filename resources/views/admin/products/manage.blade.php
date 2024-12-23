@@ -59,8 +59,8 @@
                                     <div class="row mb-3">
                                         <label for="product_image" class="col-sm-3 col-form-label">Image</label>
                                         <div class="col-sm-9">
-                                            <input required type="file" id="image" class="form-control"
-                                                name="product_image" accept="image/*" />
+                                            <input required type="file" id="product_image" class="form-control"
+                                                name="image" accept="image/*" />
                                             <div id="product_image_preview">
                                             </div>
                                         </div>
