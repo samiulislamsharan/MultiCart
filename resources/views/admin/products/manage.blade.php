@@ -163,9 +163,9 @@
                                             <select class="form-select" name="tax" id="product_tax"
                                                 {{ $tax->isEmpty() ? 'disabled' : '' }}>
                                                 <option value="">Select Tax</option>
-                                                @forelse ($tax as $id =>$text)
-                                                    <option value="{{ $id }}">
-                                                        {{ $text }}
+                                                @forelse ($tax as $taxList)
+                                                    <option value="{{ $taxList->id }}">
+                                                        {{ $taxList->text }} %
                                                     </option>
                                                 @empty
                                                     <option value="">No Tax Found</option>
