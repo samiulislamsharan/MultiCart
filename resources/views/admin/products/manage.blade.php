@@ -142,9 +142,15 @@
                                                 {{ $color->isEmpty() ? 'disabled' : '' }}>
                                                 <option value="">Select Color</option>
                                                 @forelse ($color as $colorList)
-                                                    <option value="{{ $colorList->id }}">
-                                                        {{ $colorList->text }} : {{ $colorList->value }}
-                                                    </option>
+                                                    @if ($colorList->id == $product->color_id)
+                                                        <option selected value="{{ $colorList->id }}">
+                                                            {{ $colorList->text }} : {{ $colorList->value }}
+                                                        </option>
+                                                    @else
+                                                        <option value="{{ $colorList->id }}">
+                                                            {{ $colorList->text }} : {{ $colorList->value }}
+                                                        </option>
+                                                    @endif
                                                 @empty
                                                     <option value="">No Color Found</option>
                                                 @endforelse
