@@ -119,9 +119,9 @@
                                             <select class="form-select " name="brand" id="product_brand"
                                                 {{ $brand->isEmpty() ? 'disabled' : '' }}>
                                                 <option value="">Select Brand</option>
-                                                @forelse ($brand as $id => $text)
-                                                    <option value="{{ $id }}">
-                                                        {{ $text }}
+                                                @forelse ($brand as $brandList)
+                                                    <option value="{{ $brandList->id }}">
+                                                        {{ $brandList->text }}
                                                     </option>
                                                 @empty
                                                     <option value="">No Brand Found</option>
