@@ -88,9 +88,15 @@
                                                 id="product_category" {{ $category->isEmpty() ? 'disabled' : '' }}>
                                                 <option value="">Select Category</option>
                                                 @forelse ($category as $categoryList)
+                                                    @if ($categoryList->id == $product->category_id)
+                                                        <option selected value="{{ $categoryList->id }}">
+                                                            {{ $categoryList->name }}
+                                                        </option>
+                                                    @else
                                                         <option value="{{ $categoryList->id }}">
                                                             {{ $categoryList->name }}
                                                         </option>
+                                                    @endif
                                                 @empty
                                                     <option value="">No Category Found</option>
                                                 @endforelse
