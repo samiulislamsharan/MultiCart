@@ -87,10 +87,10 @@
                                             <select class="form-select multiple-select" name="category"
                                                 id="product_category" {{ $category->isEmpty() ? 'disabled' : '' }}>
                                                 <option value="">Select Category</option>
-                                                @forelse ($category as $id => $name)
-                                                    <option value="{{ $id }}">
-                                                        {{ $name }}
-                                                    </option>
+                                                @forelse ($category as $categoryList)
+                                                        <option value="{{ $categoryList->id }}">
+                                                            {{ $categoryList->name }}
+                                                        </option>
                                                 @empty
                                                     <option value="">No Category Found</option>
                                                 @endforelse
