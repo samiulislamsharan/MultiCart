@@ -120,9 +120,15 @@
                                                 {{ $brand->isEmpty() ? 'disabled' : '' }}>
                                                 <option value="">Select Brand</option>
                                                 @forelse ($brand as $brandList)
-                                                    <option value="{{ $brandList->id }}">
-                                                        {{ $brandList->text }}
-                                                    </option>
+                                                    @if ($brandList->id == $product->brand_id)
+                                                        <option selected value="{{ $brandList->id }}">
+                                                            {{ $brandList->text }}
+                                                        </option>
+                                                    @else
+                                                        <option value="{{ $brandList->id }}">
+                                                            {{ $brandList->text }}
+                                                        </option>
+                                                    @endif
                                                 @empty
                                                     <option value="">No Brand Found</option>
                                                 @endforelse
