@@ -164,9 +164,15 @@
                                                 {{ $tax->isEmpty() ? 'disabled' : '' }}>
                                                 <option value="">Select Tax</option>
                                                 @forelse ($tax as $taxList)
-                                                    <option value="{{ $taxList->id }}">
-                                                        {{ $taxList->text }} %
-                                                    </option>
+                                                    @if ($taxList->id == $product->tax_id)
+                                                        <option selected value="{{ $taxList->id }}">
+                                                            {{ $taxList->text }} %
+                                                        </option>
+                                                    @else
+                                                        <option value="{{ $taxList->id }}">
+                                                            {{ $taxList->text }} %
+                                                        </option>
+                                                    @endif
                                                 @empty
                                                     <option value="">No Tax Found</option>
                                                 @endforelse
