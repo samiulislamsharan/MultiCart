@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return redirect()->route('admin.dashboard.index');
+});
 
 Route::controller(AdminAuthController::class)->group(function () {
     Route::get('/create-admin', 'createAdmin');
