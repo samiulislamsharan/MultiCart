@@ -321,6 +321,10 @@
             // Decrement the counter to keep track of the number of added attributes
             counter--;
         }
+
+        function removeImgAttr(target_id) {
+            $('#' + target_id).remove();
+        }
     </script>
     <script>
         $('#product_category').change(function(e) {
