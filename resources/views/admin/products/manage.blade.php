@@ -313,6 +313,16 @@
         });
     </script>
     <script>
+        var counter = 0;
+
+        function removeAttr(target_id) {
+            $('#' + target_id + '').remove();
+
+            // Decrement the counter to keep track of the number of added attributes
+            counter--;
+        }
+    </script>
+    <script>
         $('#product_category').change(function(e) {
             var html = '';
             var category_id = $('#product_category').val();
