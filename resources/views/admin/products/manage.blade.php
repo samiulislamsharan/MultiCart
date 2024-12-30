@@ -314,6 +314,32 @@
     </script>
     <script>
         var counter = 0;
+        var image_counter = 10;
+
+        function addAttrImageInput(id) {
+            image_counter++;
+
+            var html = '';
+            html += `<div id='product_attr_image_${image_counter}'>
+                        <div class="row mb-3">
+                            <div class="col-sm-1">
+                                <button type="button" class="btn btn-danger" onclick="removeImgAttr('product_attr_image_${image_counter}')">
+                                    <span class="bx bx-trash"></span>
+                                </button>
+                            </div>
+
+                            <div class="col-sm-11">
+                                <input required type="file" id="product_attr_image_${image_counter}"
+                                    class="form-control" name="product_attr_image_${image_counter}[]"
+                                    accept="image/*"/>
+                                <div id="product_attr_image_preview_${image_counter}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+
+            $('#' + id).append(html);
+        }
 
         function removeAttr(target_id) {
             $('#' + target_id + '').remove();
