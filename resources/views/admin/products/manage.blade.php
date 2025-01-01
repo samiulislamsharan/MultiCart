@@ -367,6 +367,9 @@
 
         function removeImgAttr(target_id) {
             $('#' + target_id).remove();
+
+            // Decrement the counter to keep track of the number of added image inputs
+            image_counter--;
         }
     </script>
     <script>
