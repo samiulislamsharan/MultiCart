@@ -401,6 +401,11 @@
         }
     </script>
     <script>
+        /**
+         * Get the attributes based on the selected category
+         * using jQuery and AJAX to fetch the attributes
+         */
+
         $('#product_category').change(function(e) {
             var html = '';
             var category_id = $('#product_category').val();
