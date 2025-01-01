@@ -224,6 +224,10 @@
 
 @section('footer-js')
     <script>
+        /**
+         * Initialize the text editor using Trumbowyg
+         */
+
         $('#text_editor').trumbowyg({
             tagsToRemove: ['script']
         });
@@ -233,6 +237,12 @@
         var main_product_attr = 0;
         var main_product_attr_image = 0;
         var image_counter = 10;
+
+        /**
+         * Add attribute input fields dynamically using jQuery using
+         * the main_product_attr and main_product_attr_image
+         * track of the number of added attributes
+         */
 
         $(document).ready(function() {
             main_product_attr++;
@@ -333,6 +343,12 @@
             `);
         });
 
+        /**
+         * Add image input fields dynamically using jQuery
+         * using the image_counter to keep track of the
+         * number of added image inputs
+         */
+
         function addAttrImageInput(id) {
             image_counter++;
 
@@ -358,12 +374,24 @@
             $('#' + id).append(html);
         }
 
+        /**
+         * Remove attribute input fields dynamically using jQuery
+         * using the target_id to target the specific
+         * attribute to remove
+         */
+
         function removeAttr(target_id) {
             $('#' + target_id + '').remove();
 
             // Decrement the counter to keep track of the number of added attributes
             counter--;
         }
+
+        /**
+         * Remove image input fields dynamically using jQuery
+         * using the target_id to target the specific
+         * image to remove
+         */
 
         function removeImgAttr(target_id) {
             $('#' + target_id).remove();
