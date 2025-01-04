@@ -247,7 +247,7 @@
          * number of added image inputs
          */
 
-        function addAttrImageInput(id) {
+        function addAttrImageInput(id, counter) {
             image_counter++;
 
             var html = '';
@@ -261,7 +261,7 @@
 
                             <div class="col-sm-11">
                                 <input required type="file" id="product_attr_image_${image_counter}"
-                                    class="form-control" name="product_attr_image_${image_counter}[]"
+                                    class="form-control" name="product_attr_image_${counter}[]"
                                     accept="image/*"/>
                                 <div id="product_attr_image_preview_${image_counter}">
                                 </div>
