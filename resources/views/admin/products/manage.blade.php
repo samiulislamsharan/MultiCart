@@ -40,7 +40,8 @@
                     <div class="card border-top border-0 border-4 border-primary">
                         <div class="card-body">
                             <div class="border p-4 rounded">
-                                <form action="">
+                                <form id="formSubmit" action="{{ route('admin.products.store') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="row mb-3">
                                         <label for="product_name" class="col-sm-3 col-form-label">Product Name</label>
