@@ -36,7 +36,7 @@
 
                 let formData = new FormData(this);
                 let btnLoader =
-                    '<button class="btn btn-primary px-4" type="button" disabled=""> <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...</button>';
+                    '<button class="btn btn-primary px-4" type="button" disabled=""> <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>Loading...</button>';
                 let btnSave =
                     '<button class="btn btn-primary px-4" type="submit">Save Changes</button>';
 
