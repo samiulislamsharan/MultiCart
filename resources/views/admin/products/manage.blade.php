@@ -43,6 +43,7 @@
                                 <form id="formSubmit" action="{{ route('admin.products.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{ $product->id ?? '0' }}">
                                     <div class="row mb-3">
                                         <label for="product_name" class="col-sm-3 col-form-label">Product Name</label>
                                         <div class="col-sm-9">
