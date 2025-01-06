@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\HomeBanner;
 use App\Traits\ApiResponse;
+use App\Traits\SaveFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class HomeBannerController extends Controller
 {
-    use ApiResponse;
+    use ApiResponse, SaveFile;
 
     /**
      * Display a listing of the resource.
@@ -49,18 +50,13 @@ class HomeBannerController extends Controller
             } else {
                 if ($request->hasFile('image')) {
                     if ($request->id > 0) {
-                        $image = HomeBanner::where('id', $request->id)->first();
-                        $image_path = 'storage/' . $image->image;
-
-                        if (File::exists($image_path)) {
-                            File::delete($image_path);
-                        }
+                        $image = HomeBanner::find($request->id)->image;
+                        $image = $this->saveImage($request->image, $image, 'images/home_banners');
+                    } else {
+                        $image = $this->saveImage($request->image, null, 'images/home_banners');
                     }
-
-                    $image_name = 'storage/' . time() . '.' . $request->image->extension();
-                    $request->image->move(public_path('storage/'), $image_name);
                 } else {
-                    $image_name = HomeBanner::where('id', $request->id)->pluck('image')->first();
+                    $image = HomeBanner::where('id', $request->id)->pluck('image')->first();
                 }
 
                 HomeBanner::updateOrCreate(
@@ -68,7 +64,7 @@ class HomeBannerController extends Controller
                     [
                         'text' => $request->text,
                         'link' => $request->link,
-                        'image' => $image_name,
+                        'image' => $image,
                     ]
                 );
 
