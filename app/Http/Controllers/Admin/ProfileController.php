@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\ApiResponse;
+use App\Traits\SaveFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
-    use ApiResponse;
+    use ApiResponse, SaveFile;
 
     public function index()
     {
@@ -37,10 +38,9 @@ class ProfileController extends Controller
                 return $this->error($validation->errors(), 422, []);
             } else {
                 if ($request->hasFile('image')) {
-                    $image_name = 'images/' . time() . '.' . $request->image->extension();
-                    $request->image->move(public_path('images/'), $image_name);
+                    $image = $this->saveImage($request->image, Auth::user()->image, 'images/users');
                 } else {
-                    $image_name = Auth::user()->image;
+                    $image = Auth::user()->image;
                 }
 
                 User::updateOrCreate(
@@ -54,7 +54,7 @@ class ProfileController extends Controller
                         'github_link' => $request->github_link,
                         'insta_link' => $request->insta_link,
                         'facebook_link' => $request->facebook_link,
-                        'image' => $image_name,
+                        'image' => $image,
                     ]
                 );
 
