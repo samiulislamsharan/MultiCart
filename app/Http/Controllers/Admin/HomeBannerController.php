@@ -41,7 +41,7 @@ class HomeBannerController extends Controller
                 'id' => 'required',
                 'text' => 'required|string|max:255',
                 'link' => 'required|string|max:255',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             ]);
 
             if ($validation->fails()) {
