@@ -298,6 +298,134 @@
             // Decrement the counter to keep track of the number of added image inputs
             image_counter--;
         }
+
+        /**
+         * Add attribute input fields dynamically using jQuery
+         * using the counter and image_counter to keep track
+         * of the number of added attributes
+         */
+
+        $('#btn_add_attribute').click(function(e) {
+            var html = '';
+            var color_data = $('#product_attr_color').html();
+            var size_data = $('#product_attr_size').html();
+
+            counter++;
+            image_counter++;
+
+            html += `<span id="product_attr_${counter}">
+                        <hr class="dropdown-divider mb-2">
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <div class="col-form-label">
+                                ${counter}. Added Attributes
+                                    <span class="float-end">
+                                        <button type="button" class="btn btn-danger"
+                                            id="btn_remove_attribute" onclick="removeAttr('product_attr_${counter}')">
+                                            <span class="bx bx-trash"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 mt-2">
+                                <div class="row">
+                                    <div class="col-sm-3 mb-3">
+                                        <select class="form-select" name="attr_color[]"
+                                            id="product_attr_color_${counter}"
+                                            {{ $color->isEmpty() ? 'disabled' : '' }}>
+                                            <option value="">Select Color</option>
+                                            @forelse ($color as $colorList)
+                                                <option class="color-badge"
+                                                    style="background-color:{{ $colorList->value }}"
+                                                    value="{{ $colorList->id }}">
+                                                    {{ $colorList->text }}
+                                                </option>
+                                            @empty
+                                                <option value="">No Colors</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <select class="form-select" name="size[]" id="product_attr_size_${counter}"
+                                            {{ $size->isEmpty() ? 'disabled' : '' }}>
+                                            <option value="">Select Size</option>
+                                            @forelse ($size as $sizeList)
+                                                <option value="{{ $sizeList->id }}">
+                                                    {{ $sizeList->text }}
+                                                </option>
+                                            @empty
+                                                <option value="">No Colors</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="sku[]" class="form-control"
+                                            id="product_sku_${counter}" placeholder="Enter SKU">
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="mrp[]" class="form-control"
+                                            id="product_mrp_${counter}" placeholder="Enter MRP">
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="price[]" class="form-control"
+                                            id="product_price_${counter}" placeholder="Enter Price">
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="quantity[]" class="form-control"
+                                            id="product_quantity_${counter}" placeholder="Enter Quantity">
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="length[]" class="form-control"
+                                            id="product_length_${counter}" placeholder="Enter Length">
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="breadth[]" class="form-control"
+                                            id="product_breadth_${counter}" placeholder="Enter Breadth">
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="height[]" class="form-control"
+                                            id="product_height_${counter}" placeholder="Enter Height">
+                                    </div>
+                                    <div class="col-sm-3 mb-3">
+                                        <input type="text" name="weight[]" class="form-control"
+                                            id="product_weight_${counter}" placeholder="Enter Weight">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input type="hidden" name="image_value[]" value="${counter}">
+                                        <div class="col-sm-3">
+                                            <button type="button" class="btn btn-primary w-100"
+                                                id="btn_add_attribute_image_${counter}" onclick="addAttrImageInput('product_attr_images_${counter}', '${counter}')">
+                                                <i class="bx bx-plus mr-1"></i>
+                                                Add Image
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div id='product_attr_images_${counter}'>
+                                        <div id='product_attr_image_${image_counter}'>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-1">
+                                                    <button type="button" class="btn btn-danger" onclick="removeImgAttr('product_attr_image_${image_counter}')">
+                                                        <span class="bx bx-trash"></span>
+                                                    </button>
+                                                </div>
+
+                                                <div class="col-sm-11">
+                                                    <input required type="file" id="product_attr_image_${image_counter}"
+                                                        class="form-control" name="product_attr_image_${counter}[]"
+                                                        accept="image/*"/>
+                                                    <div id="product_attr_image_preview_${image_counter}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>`
+
+            $('#add_attribute').append(html);
+        });
     </script>
     <script>
         /**
