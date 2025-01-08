@@ -113,8 +113,11 @@
                             <div class="row mb-3">
                                 <label for="tax_amount" class="col-sm-3 col-form-label">Amount</label>
                                 <div class="col-sm-9">
-                                    <input type="number" name="text" class="form-control" id="tax_amount"
-                                        placeholder="Enter Tax Amount" required>
+                                    <div class="input-group">
+                                        <input type="number" name="text" class="form-control" id="tax_amount"
+                                            placeholder="Enter Tax Amount" required>
+                                        <span class="input-group-text">%</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
