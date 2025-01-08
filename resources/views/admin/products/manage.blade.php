@@ -363,31 +363,31 @@
                                             id="product_sku_${counter}" placeholder="Enter SKU">
                                     </div>
                                     <div class="col-sm-3 mb-3">
-                                        <input type="text" name="mrp[]" class="form-control"
+                                        <input type="number" name="mrp[]" class="form-control"
                                             id="product_mrp_${counter}" placeholder="Enter MRP">
                                     </div>
                                     <div class="col-sm-3 mb-3">
-                                        <input type="text" name="price[]" class="form-control"
+                                        <input type="number" name="price[]" class="form-control"
                                             id="product_price_${counter}" placeholder="Enter Price">
                                     </div>
                                     <div class="col-sm-3 mb-3">
-                                        <input type="text" name="quantity[]" class="form-control"
+                                        <input type="number" name="quantity[]" class="form-control"
                                             id="product_quantity_${counter}" placeholder="Enter Quantity">
                                     </div>
                                     <div class="col-sm-3 mb-3">
-                                        <input type="text" name="length[]" class="form-control"
+                                        <input type="number" name="length[]" class="form-control"
                                             id="product_length_${counter}" placeholder="Enter Length">
                                     </div>
                                     <div class="col-sm-3 mb-3">
-                                        <input type="text" name="breadth[]" class="form-control"
+                                        <input type="number" name="breadth[]" class="form-control"
                                             id="product_breadth_${counter}" placeholder="Enter Breadth">
                                     </div>
                                     <div class="col-sm-3 mb-3">
-                                        <input type="text" name="height[]" class="form-control"
+                                        <input type="number" name="height[]" class="form-control"
                                             id="product_height_${counter}" placeholder="Enter Height">
                                     </div>
                                     <div class="col-sm-3 mb-3">
-                                        <input type="text" name="weight[]" class="form-control"
+                                        <input type="number" name="weight[]" class="form-control"
                                             id="product_weight_${counter}" placeholder="Enter Weight">
                                     </div>
                                     <div class="col-12 mb-3">
