@@ -372,7 +372,7 @@
                                     </div>
                                     <div class="col-sm-3 mb-3">
                                         <input type="number" name="quantity[]" class="form-control"
-                                            id="product_quantity_${counter}" placeholder="Enter Quantity">
+                                            id="product_quantity_${counter}" placeholder="Enter Quantity" min="1">
                                     </div>
                                     <div class="col-sm-3 mb-3">
                                         <input type="number" name="length[]" class="form-control"
