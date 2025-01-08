@@ -115,7 +115,7 @@
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="number" name="text" class="form-control" id="tax_amount"
-                                            placeholder="Enter Tax Amount" required>
+                                            placeholder="Enter Tax Amount" min="1" required>
                                         <span class="input-group-text">%</span>
                                     </div>
                                 </div>
