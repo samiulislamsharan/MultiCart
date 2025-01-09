@@ -15,6 +15,7 @@ use App\Models\Tax;
 use App\Traits\ApiResponse;
 use App\Traits\SaveFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
@@ -64,6 +65,100 @@ class ProductController extends Controller
         }
 
         return view('admin.products.manage', get_defined_vars());
+    }
+
+    /**
+     * Store or update a newly created Product in storage.
+     */
+    public function store(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $validation  = Validator::make($request->all(), [
+                'id' => 'required',
+                'name' => 'required|string|max:255',
+                'slug' => 'required|string|max:255',
+                'image' => 'image|mimes:jpeg,png,jpg|max:5120',
+                'item_code' => 'required|string|max:255',
+                'keywords' => 'required|string|max:255',
+                'category' => 'required|integer|exists:categories,id',
+                'brand' => 'required|integer|exists:brands,id',
+                'color' => 'required|integer|exists:colors,id',
+                'tax' => 'required|integer|exists:taxes,id',
+                'description' => 'required|string',
+            ], [
+                'id.required' => 'Product ID is required',
+                'name.required' => 'Product name is required',
+                'name.string' => 'Product name must be a string',
+                'name.max' => 'Product name must not exceed 255 characters',
+                'slug.required' => 'Product slug is required',
+                'slug.string' => 'Product slug must be a string',
+                'slug.max' => 'Product slug must not exceed 255 characters',
+                'image.image' => 'Product image must be an image',
+                'image.mimes' => 'Product image must be a jpeg, png or jpg file',
+                'image.max' => 'Product image must not exceed 5120 KB',
+                'item_code.required' => 'Product item code is required',
+                'item_code.string' => 'Product item code must be a string',
+                'item_code.max' => 'Product item code must not exceed 255 characters',
+                'keywords.required' => 'Product keywords are required',
+                'keywords.string' => 'Product keywords must be a string',
+                'keywords.max' => 'Product keywords must not exceed 255 characters',
+                'category.required' => 'Product category ID is required',
+                'category.integer' => 'Product category ID must be an integer',
+                'category.exists' => 'Product category ID does not exist',
+                'brand.required' => 'Product brand ID is required',
+                'brand.integer' => 'Product brand ID must be an integer',
+                'brand.exists' => 'Product brand ID does not exist',
+                'color.required' => 'Product color ID is required',
+                'color.integer' => 'Product color ID must be an integer',
+                'color.exists' => 'Product color ID does not exist',
+                'tax.required' => 'Product tax ID is required',
+                'tax.integer' => 'Product tax ID must be an integer',
+                'tax.exists' => 'Product tax ID does not exist',
+                'description.required' => 'Product description is required',
+                'description.string' => 'Product description must be a string',
+            ]);
+
+            if ($validation->fails()) {
+                return $this->error($validation->errors(), 422, []);
+            } else {
+                if ($request->hasFile('image')) {
+                    if ($request->id > 0) {
+                        $image = Product::find($request->id)->image;
+                        $image = $this->saveImage($request->image, $image, 'images/products');
+                    } else {
+                        $image = $this->saveImage($request->image, null, 'images/products');
+                    }
+                } else {
+                    $image = Product::where('id', $request->id)->pluck('image')->first();
+                }
+
+                $product = Product::updateOrCreate(
+                    ['id' => $request->id],
+                    [
+                        'name' => $request->name,
+                        'slug' => $request->slug,
+                        'image' => $image,
+                        'item_code' => $request->item_code,
+                        'keywords' => $request->keywords,
+                        'category_id' => $request->category,
+                        'brand_id' => $request->brand,
+                        'color_id' => $request->color,
+                        'tax_id' => $request->tax,
+                        'description' => $request->description,
+                    ]
+                );
+
+
+            DB::commit();
+
+            return $this->success(['reload' => true], 'Product saved successfully');
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return $this->error($e->getMessage(), 500, []);
+        }
     }
 
     /**
