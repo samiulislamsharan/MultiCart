@@ -37,15 +37,16 @@ class ProductController extends Controller
      */
     public function show(int $id = 0)
     {
+        $category = Category::get();
+        $brand    = Brand::get();
+        $color    = Color::get();
+        $size     = Size::get();
+        $tax      = Tax::get();
+
         if ($id == 0) {
             $product = new Product();
             $product_attr = new ProductAttr();
             $product_attr_images = new ProductAttrImages();
-            $category = Category::get();
-            $brand = Brand::get();
-            $color = Color::get();
-            $size = Size::get();
-            $tax = Tax::get();
         } else {
             $product['id'] = $id;
 
