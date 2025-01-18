@@ -22,4 +22,9 @@ class ProductAttr extends Model
         'height',
         'weight',
     ];
+
+    public function images()
+    {
+        return $this->hasMany(ProductAttrImages::class, 'product_attr_id', 'id');
+    }
 }
