@@ -14,4 +14,9 @@ class ProductAttribute extends Model
         'category_id',
         'attribute_value_id',
     ];
+
+    public function attribute_values()
+    {
+        return $this->hasOne(AttributeValue::class, 'id', 'attribute_value_id');
+    }
 }
