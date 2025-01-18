@@ -33,7 +33,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Create or Update the specified Product.
+     * Show the form data for creating or editing a Product.
      */
     public function show(int $id = 0)
     {
