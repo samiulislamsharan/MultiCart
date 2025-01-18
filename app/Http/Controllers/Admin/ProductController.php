@@ -154,7 +154,7 @@ class ProductController extends Controller
 
             DB::commit();
 
-            return $this->success(['reload' => true], 'Product saved successfully');
+            return $this->success(['reload' => true], 'Product and attribute saved successfully');
         } catch (\Exception $e) {
             DB::rollBack();
 
