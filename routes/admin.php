@@ -57,9 +57,9 @@ Route::controller(BrandController::class)->group(function () {
     Route::post('/brands/store', 'store')->name('admin.brands.store');
 });
 
-Route::controller(TaxController::class)->group(function () {
-    Route::get('/taxes', 'index')->name('admin.taxes.index');
-    Route::post('/taxes/store', 'store')->name('admin.taxes.store');
+Route::controller(TaxController::class)->prefix('/taxes')->group(function () {
+    Route::get('/', 'index')->name('admin.taxes.index');
+    Route::post('/store', 'store')->name('admin.taxes.store');
 });
 
 Route::controller(ProductController::class)->prefix('/products')->group(function () {
