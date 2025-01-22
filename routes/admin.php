@@ -21,9 +21,9 @@ Route::controller(DashboardController::class)->group(function () {
 Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
 Route::post('/save-profile', [ProfileController::class, 'storeUser'])->name('admin.profile.store');
 
-Route::controller(HomeBannerController::class)->group(function () {
-    Route::get('/home-banners', 'index')->name('admin.home-banners.index');
-    Route::post('/home-banners/store', 'store')->name('admin.home-banners.store');
+Route::prefix('home-banners')->controller(HomeBannerController::class)->group(function () {
+    Route::get('/', 'index')->name('admin.home-banners.index');
+    Route::post('/store', 'store')->name('admin.home-banners.store');
 });
 
 Route::prefix('sizes')->controller(SizeController::class)->group(function () {
