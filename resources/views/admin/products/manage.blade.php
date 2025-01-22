@@ -280,7 +280,7 @@
          */
 
         function removeAttr(target_id) {
-            $('#' + target_id + '').remove();
+            $('#' + target_id).remove();
 
             // Decrement the counter to keep track of the number of added attributes
             counter--;
