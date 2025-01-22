@@ -57,7 +57,7 @@ Route::prefix('brands')->controller(BrandController::class)->group(function () {
     Route::post('/store', 'store')->name('admin.brands.store');
 });
 
-Route::controller(TaxController::class)->prefix('/taxes')->group(function () {
+Route::prefix('taxes')->controller(TaxController::class)->group(function () {
     Route::get('/', 'index')->name('admin.taxes.index');
     Route::post('/store', 'store')->name('admin.taxes.store');
 });
