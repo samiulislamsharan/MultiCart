@@ -52,9 +52,9 @@ Route::controller(CategoryController::class)->group(function () {
     Route::post('/category_attribute/store', 'storeCategoryAttribute')->name('admin.category_attribute.store');
 });
 
-Route::controller(BrandController::class)->group(function () {
-    Route::get('/brands', 'index')->name('admin.brands.index');
-    Route::post('/brands/store', 'store')->name('admin.brands.store');
+Route::prefix('brands')->controller(BrandController::class)->group(function () {
+    Route::get('/', 'index')->name('admin.brands.index');
+    Route::post('/store', 'store')->name('admin.brands.store');
 });
 
 Route::controller(TaxController::class)->prefix('/taxes')->group(function () {
