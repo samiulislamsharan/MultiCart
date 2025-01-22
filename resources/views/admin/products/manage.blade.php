@@ -450,7 +450,7 @@
                 success: function(response) {
                     if (response.status == 'Success') {
                         html +=
-                            `<select multiple class="form-select" id="attribute" name="attribute[]" {{ $category->isEmpty() ? 'disabled' : '' }} > < option value = "" > Select Any Category First < /option>`
+                            `<select multiple class="form-select" id="attribute" name="attribute[]" {{ $category->isEmpty() ? 'disabled' : '' }} > <option value="" >Select Any Category First</option>`
 
                         $.each(response.data.data, function(key, value) {
                             $.each(value.values, function(attr_key, attr_value) {
