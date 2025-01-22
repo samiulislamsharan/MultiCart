@@ -26,9 +26,9 @@ Route::controller(HomeBannerController::class)->group(function () {
     Route::post('/home-banners/store', 'store')->name('admin.home-banners.store');
 });
 
-Route::controller(SizeController::class)->group(function () {
-    Route::get('/sizes', 'index')->name('admin.sizes.index');
-    Route::post('/sizes/store', 'store')->name('admin.sizes.store');
+Route::prefix('sizes')->controller(SizeController::class)->group(function () {
+    Route::get('/', 'index')->name('admin.sizes.index');
+    Route::post('/store', 'store')->name('admin.sizes.store');
 });
 
 Route::prefix('colors')->controller(ColorController::class)->group(function () {
