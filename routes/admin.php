@@ -62,9 +62,9 @@ Route::controller(TaxController::class)->group(function () {
     Route::post('/taxes/store', 'store')->name('admin.taxes.store');
 });
 
-Route::controller(ProductController::class)->group(function () {
-    Route::get('/products', 'index')->name('admin.products.index');
-    Route::post('/products/store', 'store')->name('admin.products.store');
-    Route::get('/products/show/{id?}', 'show')->name('admin.products.show');
-    Route::post('/products/get_attributes', 'getAttributes')->name('admin.products.get_attributes');
+Route::controller(ProductController::class)->prefix('/products')->group(function () {
+    Route::get('/', 'index')->name('admin.products.index');
+    Route::post('/store', 'store')->name('admin.products.store');
+    Route::get('/show/{id?}', 'show')->name('admin.products.show');
+    Route::post('/get_attributes', 'getAttributes')->name('admin.products.get_attributes');
 });
