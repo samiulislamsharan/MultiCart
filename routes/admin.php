@@ -31,9 +31,9 @@ Route::controller(SizeController::class)->group(function () {
     Route::post('/sizes/store', 'store')->name('admin.sizes.store');
 });
 
-Route::controller(ColorController::class)->group(function () {
-    Route::get('/colors', 'index')->name('admin.colors.index');
-    Route::post('/colors/store', 'store')->name('admin.colors.store');
+Route::prefix('colors')->controller(ColorController::class)->group(function () {
+    Route::get('/', 'index')->name('admin.colors.index');
+    Route::post('/store', 'store')->name('admin.colors.store');
 });
 
 Route::controller(AttributeController::class)->group(function () {
