@@ -116,9 +116,22 @@
                                         <label for="attribute" class="col-sm-3 col-form-label">Attribute</label>
                                         <div class="col-sm-9">
                                             <span id="attribute_selector">
-                                                <select class="form-select " name="attribute" id="attribute" disabled>
-                                                    <option value="">Select Any Category First</option>
-                                                </select>
+                                                @if (isset($product['attribute'][0]->id))
+                                                    <select multiple class="form-select" id="attribute"
+                                                        name="attribute[]" {{ $category->isEmpty() ? 'disabled' : '' }}>
+                                                        @foreach ($product['attribute'] as $attributeList)
+                                                            <option selected
+                                                                value="{{ $attributeList['attribute_values']->id }}">
+                                                                {{ $attributeList['attribute_values']->value }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                @else
+                                                    <select class="form-select " name="attribute" id="attribute"
+                                                        disabled>
+                                                        <option>Select Any Category First</option>
+                                                    </select>
+                                                @endif
                                             </span>
                                         </div>
                                     </div>
@@ -237,6 +250,15 @@
     <script>
         $(document).ready(function() {
             previewImage('#product_image', '#productImgPreview');
+
+            $('#attribute').multiSelect({
+                'containerHTML': '<div class="multi-select-container" style="width: 100%;">',
+                'menuHTML': '<div class="multi-select-menu mt-2 ml-0 mb-2 mr-0 position-absolute z-1 float-start border border-1 shadow bg-white">',
+                'buttonHTML': '<span class="form-select multiple-select">',
+                'menuItemsHTML': '<div class="form-check rounded-4 ">',
+                'menuItemHTML': '<label class="multi-select-menuitem">',
+                'noneText': 'Select Attributes',
+            });
         });
 
         /**
