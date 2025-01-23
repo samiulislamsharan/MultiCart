@@ -716,5 +716,53 @@
                 }
             });
         });
+
+        function removeAttrId(id) {
+            var url = "{{ route('admin.products.remove_attr') }}";
+
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                url: url,
+                data: {
+                    'id': id
+                },
+                success: function(response) {
+                    if (response.status == 'Success') {
+                        showNotification(
+                            'success',
+                            'bx bx-check',
+                            response.status,
+                            response.message || 'Successfully submitted.'
+                        );
+                    } else {
+                        console.log(response);
+                        showNotification(
+                            'error',
+                            'bx bx-error',
+                            response.status,
+                            response.message || 'Failed to submit.'
+                        );
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log(xhr.responseJSON);
+                    let errors = JSON.parse(xhr.responseJSON.message);
+
+                    $.each(errors, function(key, messages) {
+                        $.each(messages, function(index, message) {
+                            showNotification(
+                                'error',
+                                'bx bx-error',
+                                xhr.responseJSON.status,
+                                message || 'An error occurred.'
+                            );
+                        });
+                    });
+                }
+            });
+        }
     </script>
 @endsection
