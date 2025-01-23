@@ -235,6 +235,10 @@
 
 @section('footer-js')
     <script>
+        $(document).ready(function() {
+            previewImage('#product_image', '#productImgPreview');
+        });
+
         /**
          * Initialize the text editor using Trumbowyg
          */
