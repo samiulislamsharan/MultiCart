@@ -362,6 +362,7 @@
                             </div>
                             <div class="col-sm-9 mt-2">
                                 <div class="row">
+                                    <input type="hidden" name="product_attr_id[]" value="0">
                                     <div class="col-sm-3 mb-3">
                                         <select class="form-select" name="attr_color[]"
                                             id="product_attr_color_${counter}"
