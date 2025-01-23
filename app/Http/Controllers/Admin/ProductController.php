@@ -189,6 +189,25 @@ class ProductController extends Controller
                             'weight' => $request->weight[$key],
                         ]
                     );
+
+                    $product_attr_id = $product_attr->id;
+
+                    $image_val = 'product_attr_image_' . $request->image_value[$key];
+
+                    if ($request->$image_val) {
+                        foreach ($request->$image_val as $key => $value) {
+                            $image = 'images/product_attrs/' . $this->getRandomValue() . '_' . $request->name . '_' . time() . '.' . $value->extension();
+                            $value->move(public_path('images/product_attrs/'), $image);
+
+                            ProductAttrImages::updateOrCreate(
+                                [
+                                    'product_id' => $product_id,
+                                    'product_attr_id' => $product_attr_id,
+                                    'image' => $image,
+                                ]
+                            );
+                        }
+                    }
                 }
             }
 
@@ -211,5 +230,10 @@ class ProductController extends Controller
         $data = CategoryAttribute::where('category_id', $category_id)->with('attribute', 'values')->get();
 
         return $this->success(['data' => $data], 'Successfully fetched attributes');
+    }
+
+    public function getRandomValue()
+    {
+        return rand(111111, 999999);
     }
 }
