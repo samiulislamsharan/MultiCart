@@ -478,7 +478,7 @@
                 },
                 url: url,
                 data: {
-                    category_id: category_id
+                    'category_id': category_id
                 },
                 success: function(response) {
                     if (response.status == 'Success') {
