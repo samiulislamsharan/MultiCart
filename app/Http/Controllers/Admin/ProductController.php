@@ -172,6 +172,24 @@ class ProductController extends Controller
                     );
                 }
 
+                foreach ($request->sku as $key => $value) {
+                    $product_attr = ProductAttr::updateOrCreate(
+                        ['id' => $request->product_attr_id[$key]],
+                        [
+                            'product_id' => $product_id,
+                            'color_id' => $request->attr_color[$key],
+                            'size_id' => $request->size[$key],
+                            'sku' => $request->sku[$key],
+                            'mrp' => $request->mrp[$key],
+                            'price' => $request->price[$key],
+                            'quantity' => $request->quantity[$key],
+                            'length' => $request->length[$key],
+                            'breadth' => $request->breadth[$key],
+                            'height' => $request->height[$key],
+                            'weight' => $request->weight[$key],
+                        ]
+                    );
+                }
             }
 
             DB::commit();
