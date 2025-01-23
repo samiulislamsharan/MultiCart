@@ -504,11 +504,15 @@
          * image to remove
          */
 
-        function removeImgAttr(target_id) {
-            $('#' + target_id).remove();
-
-            // Decrement the counter to keep track of the number of added image inputs
-            image_counter--;
+        function removeImgAttr(target_id, attr_img_id = '') {
+            if (attr_img_id != '') {
+                removeAttrImg(attr_img_id);
+                $('#' + target_id).remove();
+                image_counter--;
+            } else {
+                $('#' + target_id).remove();
+                image_counter--;
+            }
         }
 
         /**
