@@ -36,12 +36,12 @@ Route::prefix('colors')->controller(ColorController::class)->group(function () {
     Route::post('/store', 'store')->name('admin.colors.store');
 });
 
-Route::controller(AttributeController::class)->group(function () {
-    Route::get('/attribute_names', 'indexAttribute')->name('admin.attribute.index');
-    Route::post('/attribute/store', 'storeAttribute')->name('admin.attribute.store');
+Route::prefix('attribute')->controller(AttributeController::class)->group(function () {
+    Route::get('/names', 'indexAttribute')->name('admin.attribute.index');
+    Route::post('/store', 'storeAttribute')->name('admin.attribute.store');
 
-    Route::get('/attribute_values', 'indexAttributeValue')->name('admin.attribute_value.index');
-    Route::post('/attribute_value/store', 'storeAttributeValue')->name('admin.attribute_value.store');
+    Route::get('/values', 'indexAttributeValue')->name('admin.attribute_value.index');
+    Route::post('/value/store', 'storeAttributeValue')->name('admin.attribute_value.store');
 });
 
 Route::prefix('category')->controller(CategoryController::class)->group(function () {
