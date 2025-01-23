@@ -236,4 +236,17 @@ class ProductController extends Controller
     {
         return rand(111111, 999999);
     }
+
+    public function removeAttr(Request $request)
+    {
+        $product_attr_id = $request->id;
+
+        if (!empty($product_attr_id) && $product_attr_id > 0) {
+            ProductAttr::where('id', $product_attr_id)->delete();
+
+            return $this->success(['reload' => false], 'Attribute removed successfully');
+        } else {
+            return $this->error('Invalid request', 400, []);
+        }
+    }
 }
