@@ -9,6 +9,7 @@ use App\Models\CategoryAttribute;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductAttr;
+use App\Models\ProductAttribute;
 use App\Models\ProductAttrImages;
 use App\Models\Size;
 use App\Models\Tax;
@@ -151,6 +152,27 @@ class ProductController extends Controller
                     ]
                 );
 
+                $product_id = $product->id;
+
+                // Delete all attributes for the product and insert new ones
+                ProductAttribute::where('product_id', $product_id)->delete();
+
+                foreach ($request->attribute as $key => $value) {
+                    ProductAttribute::updateOrCreate(
+                        [
+                            'product_id' => $product_id,
+                            'category_id' => $request->category,
+                            'attribute_value_id' => $value,
+                        ],
+                        [
+                            'product_id' => $product_id,
+                            'category_id' => $request->category,
+                            'attribute_value_id' => $value,
+                        ]
+                    );
+                }
+
+            }
 
             DB::commit();
 
