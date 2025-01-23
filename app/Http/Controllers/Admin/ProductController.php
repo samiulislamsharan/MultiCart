@@ -249,4 +249,17 @@ class ProductController extends Controller
             return $this->error('Invalid request', 400, []);
         }
     }
+
+    public function removeAttrImg(Request $request)
+    {
+        $product_attr_img_id = $request->id;
+
+        if (!empty($product_attr_img_id) && $product_attr_img_id > 0) {
+            ProductAttrImages::where('id', $product_attr_img_id)->delete();
+
+            return $this->success(['reload' => false], 'Attribute image removed successfully');
+        } else {
+            return $this->error('Invalid request', 400, []);
+        }
+    }
 }
