@@ -44,12 +44,12 @@ Route::controller(AttributeController::class)->group(function () {
     Route::post('/attribute_value/store', 'storeAttributeValue')->name('admin.attribute_value.store');
 });
 
-Route::controller(CategoryController::class)->group(function () {
-    Route::get('/category', 'index')->name('admin.category.index');
-    Route::post('/category/store', 'store')->name('admin.category.store');
+Route::prefix('category')->controller(CategoryController::class)->group(function () {
+    Route::get('/', 'index')->name('admin.category.index');
+    Route::post('/store', 'store')->name('admin.category.store');
 
-    Route::get('/category_attribute', 'indexCategoryAttribute')->name('admin.category_attribute.index');
-    Route::post('/category_attribute/store', 'storeCategoryAttribute')->name('admin.category_attribute.store');
+    Route::get('/attribute', 'indexCategoryAttribute')->name('admin.category_attribute.index');
+    Route::post('/attribute/store', 'storeCategoryAttribute')->name('admin.category_attribute.store');
 });
 
 Route::prefix('brands')->controller(BrandController::class)->group(function () {
