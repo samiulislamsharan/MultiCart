@@ -487,11 +487,15 @@
          * attribute to remove
          */
 
-        function removeAttr(target_id) {
-            $('#' + target_id).remove();
-
-            // Decrement the counter to keep track of the number of added attributes
-            counter--;
+        function removeAttr(target_id, attr_id = '') {
+            if (attr_id != '') {
+                removeAttrId(attr_id);
+                $('#' + target_id).remove();
+                counter--;
+            } else {
+                $('#' + target_id).remove();
+                counter--;
+            }
         }
 
         /**
