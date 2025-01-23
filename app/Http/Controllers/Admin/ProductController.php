@@ -61,7 +61,7 @@ class ProductController extends Controller
             if ($validation->fails()) {
                 return redirect()->route('admin.products.index')->withErrors($validation->errors());
             } else {
-                $product = Product::where('id', $id)->first();
+                $product = Product::where('id', $id)->with('attribute', 'productAttributes')->first();
             }
         }
 
