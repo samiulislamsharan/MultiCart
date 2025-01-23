@@ -507,7 +507,6 @@
                             'noneText': 'Select Attributes',
                         });
 
-                        // alert(response.message);
                         showNotification(
                             'success',
                             'bx bx-check',
@@ -516,7 +515,6 @@
                         );
                     } else {
                         console.log(response);
-                        // alert(response.message);
                         showNotification(
                             'error',
                             'bx bx-error',
@@ -527,7 +525,6 @@
                 },
                 error: function(xhr, status, error) {
                     console.log(xhr.responseJSON);
-                    // alert(xhr.responseJSON.message);
                     let errors = JSON.parse(xhr.responseJSON.message);
 
                     $.each(errors, function(key, messages) {
