@@ -40,10 +40,14 @@ class AuthController extends Controller
                         'url' => 'admin/dashboard',
                     ]);
                 } else {
-                    return response()->json([
-                        'status' => 200,
-                        'message' => 'General User',
-                    ]);
+                    $user = User::where('id', Auth::User()->id)->first();
+                    $user['token'] = $user->createToken('API Token')->plainTextToken;
+
+                    return $this->success(
+                        ['user' => $user],
+                        'Login successful',
+                        200
+                    );
                 }
             } else {
                 return $this->error('Invalid email or password', 404);
