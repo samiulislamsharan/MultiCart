@@ -84,6 +84,30 @@ class AuthController extends Controller
             }
         }
     }
+
+    public function updateUser(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'name' => 'required|string|max:255|regex:/^[\pL\s\-]+$/u',
+            'email' => 'required|string|email|unique:users,email,' . Auth::user()->id . '|max:255'
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400);
+        } else {
+            User::updateOrCreate(
+                ['id' => Auth::user()->id],
+                [
+                    'name' => $request->name,
+                    'email' => $request->email
+                ]
+            );
+
+            return $this->success(
+                ['user' => $request->user()],
+                'User updated successfully',
+                200
+            );
         }
     }
 
