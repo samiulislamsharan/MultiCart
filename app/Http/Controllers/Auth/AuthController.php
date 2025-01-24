@@ -36,7 +36,7 @@ class AuthController extends Controller
                 if (Auth::user()->hasRole('admin')) {
                     return response()->json([
                         'status' => 200,
-                        'message' => 'Admin User',
+                        'message' => 'Admin User Login Successful',
                         'url' => 'admin/dashboard',
                     ]);
                 } else {
