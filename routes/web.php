@@ -29,3 +29,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'loginUser')->name('loginPost');
     Route::get('/logout', 'logout')->name('logout');
 });
+
+Route::get('/api_docs', function () {
+    return view('api-docs');
+});
