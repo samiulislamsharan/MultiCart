@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
+use App\Models\User;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,6 +17,34 @@ class AuthController extends Controller
     public function index()
     {
         return view('auth/signin');
+    }
+
+    public function registerUser(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'name' => 'required|string|max:255|regex:/^[\pL\s\-]+$/u',
+            'email' => 'required|string|email|unique:users,email|max:255',
+            'password' => 'required|string|min:6'
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400);
+        } else {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password)
+            ]);
+
+            $role = Role::where('slug', 'customer')->first();
+            $user->roles()->attach($role);
+
+            return $this->success(
+                ['token' => $user->createToken('API Token')->plainTextToken],
+                'User created successfully',
+                201
+            );
+        }
     }
 
     public function loginUser(Request $request)
