@@ -116,4 +116,11 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login.index');
     }
+
+    public function logoutUser(Request $request)
+    {
+        $request->user()->tokens()->delete();
+
+        return $this->success('Logout successful', 200);
+    }
 }
