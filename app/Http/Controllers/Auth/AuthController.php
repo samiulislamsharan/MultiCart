@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    use ApiResponse;
+
     public function index()
     {
         return view('auth/signin');
@@ -43,11 +46,10 @@ class AuthController extends Controller
                     ]);
                 }
             } else {
-                return response()->json([
-                    'status' => 404,
-                    'message' => 'Invalid email or password',
-                ]);
+                return $this->error('Invalid email or password', 404);
             }
+        }
+    }
         }
     }
 
