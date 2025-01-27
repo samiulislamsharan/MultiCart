@@ -1,0 +1,116 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 25/01/2021 03:46
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-menu-button-of-three-horizontal-lines:before { content: "\f100"; }
+.flaticon-search-interface-symbol:before { content: "\f101"; }
+.flaticon-shopping-bag:before { content: "\f102"; }
+.flaticon-heart-shape-outline:before { content: "\f103"; }
+.flaticon-headphones:before { content: "\f104"; }
+.flaticon-delivery-truck:before { content: "\f105"; }
+.flaticon-money:before { content: "\f106"; }
+.flaticon-rotate:before { content: "\f107"; }
+.flaticon-user-profile:before { content: "\f108"; }
+.flaticon-search:before { content: "\f109"; }
+.flaticon-user:before { content: "\f10a"; }
+.flaticon-menu:before { content: "\f10b"; }
+.flaticon-shopping-cart:before { content: "\f10c"; }
+.flaticon-cart:before { content: "\f10d"; }
+.flaticon-heart:before { content: "\f10e"; }
+.flaticon-compare:before { content: "\f10f"; }
+.flaticon-diamond:before { content: "\f110"; }
+.flaticon-premium-quality:before { content: "\f111"; }
+.flaticon-customer-support:before { content: "\f112"; }
+.flaticon-open-24-hours:before { content: "\f113"; }
+.flaticon-debit-card:before { content: "\f114"; }
+.flaticon-recycle-sign:before { content: "\f115"; }
+.flaticon-warehouse:before { content: "\f116"; }
+.flaticon-truck:before { content: "\f117"; }
+.flaticon-box:before { content: "\f118"; }
+.flaticon-data:before { content: "\f119"; }
+.flaticon-balance:before { content: "\f11a"; }
+.flaticon-phone-call:before { content: "\f11b"; }
+.flaticon-email:before { content: "\f11c"; }
+.flaticon-place:before { content: "\f11d"; }
+.flaticon-error:before { content: "\f11e"; }
+.flaticon-close:before { content: "\f11f"; }
+.flaticon-delete-button:before { content: "\f120"; }
+.flaticon-gross-dark-cross:before { content: "\f121"; }
+.flaticon-targeting-cross:before { content: "\f122"; }
+.flaticon-box-1:before { content: "\f123"; }
+.flaticon-trash:before { content: "\f124"; }
+.flaticon-checked:before { content: "\f125"; }
+    
+    $font-Flaticon-menu-button-of-three-horizontal-lines: "\f100";
+    $font-Flaticon-search-interface-symbol: "\f101";
+    $font-Flaticon-shopping-bag: "\f102";
+    $font-Flaticon-heart-shape-outline: "\f103";
+    $font-Flaticon-headphones: "\f104";
+    $font-Flaticon-delivery-truck: "\f105";
+    $font-Flaticon-money: "\f106";
+    $font-Flaticon-rotate: "\f107";
+    $font-Flaticon-user-profile: "\f108";
+    $font-Flaticon-search: "\f109";
+    $font-Flaticon-user: "\f10a";
+    $font-Flaticon-menu: "\f10b";
+    $font-Flaticon-shopping-cart: "\f10c";
+    $font-Flaticon-cart: "\f10d";
+    $font-Flaticon-heart: "\f10e";
+    $font-Flaticon-compare: "\f10f";
+    $font-Flaticon-diamond: "\f110";
+    $font-Flaticon-premium-quality: "\f111";
+    $font-Flaticon-customer-support: "\f112";
+    $font-Flaticon-open-24-hours: "\f113";
+    $font-Flaticon-debit-card: "\f114";
+    $font-Flaticon-recycle-sign: "\f115";
+    $font-Flaticon-warehouse: "\f116";
+    $font-Flaticon-truck: "\f117";
+    $font-Flaticon-box: "\f118";
+    $font-Flaticon-data: "\f119";
+    $font-Flaticon-balance: "\f11a";
+    $font-Flaticon-phone-call: "\f11b";
+    $font-Flaticon-email: "\f11c";
+    $font-Flaticon-place: "\f11d";
+    $font-Flaticon-error: "\f11e";
+    $font-Flaticon-close: "\f11f";
+    $font-Flaticon-delete-button: "\f120";
+    $font-Flaticon-gross-dark-cross: "\f121";
+    $font-Flaticon-targeting-cross: "\f122";
+    $font-Flaticon-box-1: "\f123";
+    $font-Flaticon-trash: "\f124";
+    $font-Flaticon-checked: "\f125";
