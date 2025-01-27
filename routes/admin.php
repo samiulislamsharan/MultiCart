@@ -67,6 +67,6 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
     Route::post('/store', 'store')->name('admin.products.store');
     Route::get('/show/{id?}', 'show')->name('admin.products.show');
     Route::post('/get_attributes', 'getAttributes')->name('admin.products.get_attributes');
-    Route::post('/remove_attr', 'removeAttribute')->name('admin.products.remove_attr');
+    Route::post('/remove_attr', 'removeAttr')->name('admin.products.remove_attr');
     Route::post('/remove_attr_img', 'removeAttributeImage')->name('admin.products.remove_attr_img');
 });
