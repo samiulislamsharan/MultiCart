@@ -232,11 +232,6 @@ class ProductController extends Controller
         return $this->success(['data' => $data], 'Successfully fetched attributes');
     }
 
-    public function getRandomValue()
-    {
-        return rand(111111, 999999);
-    }
-
     public function removeAttr(Request $request)
     {
         $product_attr_id = $request->id;
@@ -262,4 +257,15 @@ class ProductController extends Controller
             return $this->error('Invalid request', 400, []);
         }
     }
+
+    /**
+     * Utility functions
+     */
+
+    public function getRandomValue()
+    {
+        return rand(111111, 999999);
+    }
+
+
 }
