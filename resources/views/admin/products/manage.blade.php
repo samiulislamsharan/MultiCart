@@ -63,7 +63,7 @@
                                         <div class="col-sm-9">
                                             <input type="file" id="product_image" class="form-control" name="image"
                                                 accept="image/*" />
-                                            @if ($product->image)
+                                            @if ($product->image != url('/'))
                                                 <div id="product_image_preview">
                                                     <p class="my-2">Current Image:</p>
                                                     <img src="{{ asset($product->image) }}" alt="product_image"
