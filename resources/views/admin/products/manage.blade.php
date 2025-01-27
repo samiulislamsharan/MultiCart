@@ -370,22 +370,22 @@
                                             <div class="col-sm-3 mb-3">
                                                 <input type="number" name="length[]" class="form-control"
                                                     id="product_length_${counter}" placeholder="Enter Length"
-                                                    value="${attr_length}">
+                                                    value="${attr_length}" step="any">
                                             </div>
                                             <div class="col-sm-3 mb-3">
                                                 <input type="number" name="breadth[]" class="form-control"
                                                     id="product_breadth_${counter}" placeholder="Enter Breadth"
-                                                    value="${attr_breadth}">
+                                                    value="${attr_breadth}" step="any">
                                             </div>
                                             <div class="col-sm-3 mb-3">
                                                 <input type="number" name="height[]" class="form-control"
                                                     id="product_height_${counter}" placeholder="Enter Height"
-                                                    value="${attr_height}">
+                                                    value="${attr_height}" step="any">
                                             </div>
                                             <div class="col-sm-3 mb-3">
                                                 <input type="number" name="weight[]" class="form-control"
                                                     id="product_weight_${counter}" placeholder="Enter Weight"
-                                                    value="${attr_weight}">
+                                                    value="${attr_weight}" step="any">
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <input type="hidden" name="image_value[]" value="${counter}">
@@ -593,19 +593,19 @@
                                     </div>
                                     <div class="col-sm-3 mb-3">
                                         <input type="number" name="length[]" class="form-control"
-                                            id="product_length_${counter}" placeholder="Enter Length">
+                                            id="product_length_${counter}" placeholder="Enter Length" step="any">
                                     </div>
                                     <div class="col-sm-3 mb-3">
                                         <input type="number" name="breadth[]" class="form-control"
-                                            id="product_breadth_${counter}" placeholder="Enter Breadth">
+                                            id="product_breadth_${counter}" placeholder="Enter Breadth" step="any">
                                     </div>
                                     <div class="col-sm-3 mb-3">
                                         <input type="number" name="height[]" class="form-control"
-                                            id="product_height_${counter}" placeholder="Enter Height">
+                                            id="product_height_${counter}" placeholder="Enter Height" step="any">
                                     </div>
                                     <div class="col-sm-3 mb-3">
                                         <input type="number" name="weight[]" class="form-control"
-                                            id="product_weight_${counter}" placeholder="Enter Weight">
+                                            id="product_weight_${counter}" placeholder="Enter Weight" step="any">
                                     </div>
                                     <div class="col-12 mb-3">
                                         <input type="hidden" name="image_value[]" value="${counter}">
