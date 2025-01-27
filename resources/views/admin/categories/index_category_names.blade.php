@@ -208,7 +208,7 @@
                 var image = "{{ URL::asset('assets/images/no-image-placeholder.svg') }}";
                 $('#categoryImage').attr('required', true);
             } else {
-                var image = "/" + image;
+                var image = image;
                 $('#categoryImage').attr('required', false);
             }
 
