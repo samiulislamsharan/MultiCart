@@ -32,5 +32,5 @@
     {{-- jQuery JS --}}
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 
-    <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+    <title>MultiCart-Admin Center</title>
 </head>
