@@ -232,6 +232,9 @@ class ProductController extends Controller
         return $this->success(['data' => $data], 'Successfully fetched attributes');
     }
 
+    /**
+     * Remove the specified attribute from a Product.
+     */
     public function removeAttr(Request $request)
     {
         $product_attr_id = $request->id;
