@@ -120,7 +120,7 @@
                 var image = "{{ URL::asset('assets/images/no-image-placeholder.svg') }}";
                 $('#brand_image').attr('required', true);
             } else {
-                var image = "/" + image;
+                var image = image;
                 $('#brand_image').attr('required', false);
             }
 
