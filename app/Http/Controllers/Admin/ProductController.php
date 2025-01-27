@@ -191,12 +191,12 @@ class ProductController extends Controller
                     );
 
                     $product_attr_id = $product_attr->id;
-
+                    $sanitized_name = $this->clean($request->name);
                     $image_val = 'product_attr_image_' . $request->image_value[$key];
 
                     if ($request->$image_val) {
                         foreach ($request->$image_val as $key => $value) {
-                            $image = 'images/product_attrs/' . $this->getRandomValue() . '_' . $request->name . '_' . time() . '.' . $value->extension();
+                            $image = 'images/product_attrs/' . $this->getRandomValue() . '_' . $sanitized_name . '_' . time() . '.' . $value->extension();
                             $value->move(public_path('images/product_attrs/'), $image);
 
                             ProductAttrImages::updateOrCreate(
@@ -267,5 +267,11 @@ class ProductController extends Controller
         return rand(111111, 999999);
     }
 
+    public function clean($string)
+    {
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 
+        return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
+    }
 }
