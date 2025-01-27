@@ -248,6 +248,9 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * Remove the specified attribute image from a Product.
+     */
     public function removeAttrImg(Request $request)
     {
         $product_attr_img_id = $request->id;
