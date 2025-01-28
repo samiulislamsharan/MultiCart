@@ -430,7 +430,7 @@
                                                 class="form-control" name="product_attr_image_${counter}[]"
                                                 accept="image/*"/>
                                             <div id="product_attr_image_preview_${image_counter}">
-                                                <img src="{{ asset('${attr_image_data.image}') }}" alt="product_image"
+                                                <img src="${attr_image_data.image}" alt="product_image"
                                                     id="productImgPreview" class="rounded-2 my-2" height="200px">
                                             </div>
                                         </div>
@@ -450,6 +450,7 @@
                 });
             }
         });
+
         /**
          * Add image input fields dynamically using jQuery
          * using the image_counter to keep track of the
