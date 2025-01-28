@@ -32,10 +32,10 @@ class BrandController extends Controller
             $validation = Validator::make($request->all(), [
                 'id' => 'required',
                 'text' => 'required|string|max:255',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
             ], [
                 'text.required' => 'The Name is required.',
-                'image.mimes' => 'The Image must be a file of type: jpeg, png, jpg, gif, svg.',
+                'image.mimes' => 'The Image must be a file of type: jpeg, png, jpg, gif, svg, webp, avif.',
                 'image.max' => 'The Image may not be greater than 5120 kilobytes.',
             ]);
 
