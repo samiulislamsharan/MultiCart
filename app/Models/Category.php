@@ -18,6 +18,16 @@ class Category extends Model
         'parent_category_id'
     ];
 
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
+    }
+
+    public function subcategories()
+    {
+        return $this->hasMany(Category::class, 'parent_category_id', 'id');
+    }
+
     protected function Image(): Attribute
     {
         return Attribute::make(function ($value) {
