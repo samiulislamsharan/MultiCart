@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Front\HomePageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user/update', [AuthController::class, 'updateUser']);
     Route::post('/auth/logout', [AuthController::class, 'logoutUser']);
 });
+
+// Frontend data
+Route::get('/home', [HomePageController::class, 'index']);
