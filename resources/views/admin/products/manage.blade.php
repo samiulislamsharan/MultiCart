@@ -263,14 +263,10 @@
                     'noneText': 'Select Attributes',
                 });
             }
-        });
 
-        /**
-         * Initialize the text editor using Trumbowyg
-         */
-
-        $('#text_editor').trumbowyg({
-            tagsToRemove: ['script']
+            $('#text_editor').trumbowyg({
+                tagsToRemove: ['script']
+            });
         });
     </script>
     <script>
