@@ -215,3 +215,11 @@
         }
     }
 </script>
+
+<script>
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        $('html').removeClass('dark-theme');
+    } else {
+        $('html').attr('class', 'dark-theme');
+    }
+</script>
