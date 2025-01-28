@@ -278,176 +278,179 @@
         $(document).ready(function() {
             // Backend passes existing product attribute data as JSON:
             var existing_attributes = {!! json_encode($product ?? []) !!};
+            var attr_exists = existing_attributes.id;
 
             existing_attributes = existing_attributes.product_attributes;
 
-            // Function to render an attribute row (similar to the #btn_add_attribute logic).
-            function renderExistingAttribute(attr_data, index) {
-                // Increase counters
-                counter++;
-                image_counter++;
+            if (attr_exists > 0 && existing_attributes.length > 0) {
+                // Function to render an attribute row (similar to the #btn_add_attribute logic).
+                function renderExistingAttribute(attr_data, index) {
+                    // Increase counters
+                    counter++;
+                    image_counter++;
 
-                // Extract any relevant data from attr_data (color_id, size_id, sku, etc.)
-                let attr_id = attr_data.id || '';
-                let attr_color = attr_data.color_id || '';
-                let attr_size = attr_data.size_id || '';
-                let attr_sku = attr_data.sku || '';
-                let attr_mrp = attr_data.mrp || '';
-                let attr_price = attr_data.price || '';
-                let attr_quantity = attr_data.quantity || '';
-                let attr_length = attr_data.length || '';
-                let attr_breadth = attr_data.breadth || '';
-                let attr_height = attr_data.height || '';
-                let attr_weight = attr_data.weight || '';
+                    // Extract any relevant data from attr_data (color_id, size_id, sku, etc.)
+                    let attr_id = attr_data.id || '';
+                    let attr_color = attr_data.color_id || '';
+                    let attr_size = attr_data.size_id || '';
+                    let attr_sku = attr_data.sku || '';
+                    let attr_mrp = attr_data.mrp || '';
+                    let attr_price = attr_data.price || '';
+                    let attr_quantity = attr_data.quantity || '';
+                    let attr_length = attr_data.length || '';
+                    let attr_breadth = attr_data.breadth || '';
+                    let attr_height = attr_data.height || '';
+                    let attr_weight = attr_data.weight || '';
 
-                // Attribute image
-                let image = attr_data.images || '';
+                    // Attribute image
+                    let image = attr_data.images || '';
 
-                // Build the markup
-                var html = `
-                            <span id="product_attr_${counter}">
-                                <hr class="dropdown-divider mb-2">
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <div class="col-form-label">
-                                            ${counter}. Added Attributes
-                                            <span class="float-end">
-                                                <button type="button" class="btn btn-danger" onclick="removeAttr('product_attr_${counter}', ${attr_id})">
-                                                    <span class="bx bx-trash"></span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-9 mt-2">
-                                        <div class="row">
-                                            <input type="hidden" name="product_attr_id[]" value="${attr_id}">
-                                            <div class="col-sm-3 mb-3">
-                                                <select class="form-select" name="attr_color[]" id="product_attr_color_${counter}">
-                                                    <option value="">Select Color</option>
-                                                    @forelse ($color as $colorList)
-                                                        <option class="color-badge"
-                                                            style="background-color:{{ $colorList->value }}"
-                                                            value="{{ $colorList->id }}">
-                                                            {{ $colorList->text }}
-                                                        </option>
-                                                    @empty
-                                                        <option value="">No Colors</option>
-                                                    @endforelse
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <select class="form-select" name="size[]" id="product_attr_size_${counter}">
-                                                    <option value="">Select Size</option>
-                                                    @forelse ($size as $sizeList)
-                                                        <option value="{{ $sizeList->id }}">
-                                                            {{ $sizeList->text }}
-                                                        </option>
-                                                    @empty
-                                                        <option value="">No Sizes</option>
-                                                    @endforelse
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="text" name="sku[]" class="form-control"
-                                                    id="product_sku_${counter}" placeholder="Enter SKU"
-                                                    value="${attr_sku}">
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="number" name="mrp[]" class="form-control"
-                                                    id="product_mrp_${counter}" placeholder="Enter MRP"
-                                                    value="${attr_mrp}">
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="number" name="price[]" class="form-control"
-                                                    id="product_price_${counter}" placeholder="Enter Price"
-                                                    value="${attr_price}">
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="number" name="quantity[]" class="form-control"
-                                                    id="product_quantity_${counter}" placeholder="Enter Quantity"
-                                                    value="${attr_quantity}" min="1">
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="number" name="length[]" class="form-control"
-                                                    id="product_length_${counter}" placeholder="Enter Length"
-                                                    value="${attr_length}" step="any">
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="number" name="breadth[]" class="form-control"
-                                                    id="product_breadth_${counter}" placeholder="Enter Breadth"
-                                                    value="${attr_breadth}" step="any">
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="number" name="height[]" class="form-control"
-                                                    id="product_height_${counter}" placeholder="Enter Height"
-                                                    value="${attr_height}" step="any">
-                                            </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <input type="number" name="weight[]" class="form-control"
-                                                    id="product_weight_${counter}" placeholder="Enter Weight"
-                                                    value="${attr_weight}" step="any">
-                                            </div>
-                                            <div class="col-12 mb-3">
-                                                <input type="hidden" name="image_value[]" value="${counter}">
-                                                <div class="col-sm-3">
-                                                    <button type="button" class="btn btn-primary w-100"
-                                                        id="btn_add_attribute_image_${counter}" onclick="addAttrImageInput('product_attr_images_${counter}', '${counter}')">
-                                                        <i class="bx bx-plus mr-1"></i>
-                                                        Add Image
+                    // Build the markup
+                    var html = `
+                                <span id="product_attr_${counter}">
+                                    <hr class="dropdown-divider mb-2">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <div class="col-form-label">
+                                                ${counter}. Added Attributes
+                                                <span class="float-end">
+                                                    <button type="button" class="btn btn-danger" onclick="removeAttr('product_attr_${counter}', ${attr_id})">
+                                                        <span class="bx bx-trash"></span>
                                                     </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9 mt-2">
+                                            <div class="row">
+                                                <input type="hidden" name="product_attr_id[]" value="${attr_id}">
+                                                <div class="col-sm-3 mb-3">
+                                                    <select class="form-select" name="attr_color[]" id="product_attr_color_${counter}">
+                                                        <option value="">Select Color</option>
+                                                        @forelse ($color as $colorList)
+                                                            <option class="color-badge"
+                                                                style="background-color:{{ $colorList->value }}"
+                                                                value="{{ $colorList->id }}">
+                                                                {{ $colorList->text }}
+                                                            </option>
+                                                        @empty
+                                                            <option value="">No Colors</option>
+                                                        @endforelse
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <select class="form-select" name="size[]" id="product_attr_size_${counter}">
+                                                        <option value="">Select Size</option>
+                                                        @forelse ($size as $sizeList)
+                                                            <option value="{{ $sizeList->id }}">
+                                                                {{ $sizeList->text }}
+                                                            </option>
+                                                        @empty
+                                                            <option value="">No Sizes</option>
+                                                        @endforelse
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="text" name="sku[]" class="form-control"
+                                                        id="product_sku_${counter}" placeholder="Enter SKU"
+                                                        value="${attr_sku}">
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="number" name="mrp[]" class="form-control"
+                                                        id="product_mrp_${counter}" placeholder="Enter MRP"
+                                                        value="${attr_mrp}">
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="number" name="price[]" class="form-control"
+                                                        id="product_price_${counter}" placeholder="Enter Price"
+                                                        value="${attr_price}">
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="number" name="quantity[]" class="form-control"
+                                                        id="product_quantity_${counter}" placeholder="Enter Quantity"
+                                                        value="${attr_quantity}" min="1">
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="number" name="length[]" class="form-control"
+                                                        id="product_length_${counter}" placeholder="Enter Length"
+                                                        value="${attr_length}" step="any">
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="number" name="breadth[]" class="form-control"
+                                                        id="product_breadth_${counter}" placeholder="Enter Breadth"
+                                                        value="${attr_breadth}" step="any">
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="number" name="height[]" class="form-control"
+                                                        id="product_height_${counter}" placeholder="Enter Height"
+                                                        value="${attr_height}" step="any">
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <input type="number" name="weight[]" class="form-control"
+                                                        id="product_weight_${counter}" placeholder="Enter Weight"
+                                                        value="${attr_weight}" step="any">
+                                                </div>
+                                                <div class="col-12 mb-3">
+                                                    <input type="hidden" name="image_value[]" value="${counter}">
+                                                    <div class="col-sm-3">
+                                                        <button type="button" class="btn btn-primary w-100"
+                                                            id="btn_add_attribute_image_${counter}" onclick="addAttrImageInput('product_attr_images_${counter}', '${counter}')">
+                                                            <i class="bx bx-plus mr-1"></i>
+                                                            Add Image
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div id='product_attr_images_${counter}'>
                                                 </div>
                                             </div>
-                                            <div id='product_attr_images_${counter}'>
-                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </span>
-                        `;
-                $('#add_attribute').append(html);
+                                </span>
+                            `;
+                    $('#add_attribute').append(html);
 
-                // Set the selects to the correct values
-                $(`#product_attr_color_${counter}`).val(attr_color);
-                $(`#product_attr_size_${counter}`).val(attr_size);
+                    // Set the selects to the correct values
+                    $(`#product_attr_color_${counter}`).val(attr_color);
+                    $(`#product_attr_size_${counter}`).val(attr_size);
 
 
-                // render each image using the image_counter and append it to the product_attr_images_${counter} div
-                if (image.length > 0) {
-                    image.forEach(function(attr_image_data, index) {
+                    // render each image using the image_counter and append it to the product_attr_images_${counter} div
+                    if (image.length > 0) {
+                        image.forEach(function(attr_image_data, index) {
 
-                        image_counter++;
-                        var html = '';
-                        html += `<div id='product_attr_image_${image_counter}'>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-danger" onclick="removeImgAttr('product_attr_image_${image_counter}', ${attr_image_data.id})">
-                                                <span class="bx bx-trash"></span>
-                                            </button>
-                                        </div>
+                            image_counter++;
+                            var html = '';
+                            html += `<div id='product_attr_image_${image_counter}'>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-1">
+                                                <button type="button" class="btn btn-danger" onclick="removeImgAttr('product_attr_image_${image_counter}', ${attr_image_data.id})">
+                                                    <span class="bx bx-trash"></span>
+                                                </button>
+                                            </div>
 
-                                        <div class="col-sm-11">
-                                            <input type="file" id="product_attr_image_${image_counter}"
-                                                class="form-control" name="product_attr_image_${counter}[]"
-                                                accept="image/*"/>
-                                            <div id="product_attr_image_preview_${image_counter}">
-                                                <img src="${attr_image_data.image}" alt="product_image"
-                                                    id="productImgPreview" class="rounded-2 my-2" height="200px">
+                                            <div class="col-sm-11">
+                                                <input type="file" id="product_attr_image_${image_counter}"
+                                                    class="form-control" name="product_attr_image_${counter}[]"
+                                                    accept="image/*"/>
+                                                <div id="product_attr_image_preview_${image_counter}">
+                                                    <img src="${attr_image_data.image}" alt="product_image"
+                                                        id="productImgPreview" class="rounded-2 my-2" height="200px">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>`
+                                    </div>`
 
-                        $(`#product_attr_images_${counter}`).append(html);
-                    });
+                            $(`#product_attr_images_${counter}`).append(html);
+                        });
+                    }
+
                 }
 
-            }
-
-            // Loop through existing attributes and render them
-            if (existing_attributes.length > 0) {
-                existing_attributes.forEach(function(attr_data, index) {
-                    renderExistingAttribute(attr_data, index);
-                });
+                // Loop through existing attributes and render them
+                if (existing_attributes.length > 0) {
+                    existing_attributes.forEach(function(attr_data, index) {
+                        renderExistingAttribute(attr_data, index);
+                    });
+                }
             }
         });
 
