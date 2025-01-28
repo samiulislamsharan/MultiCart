@@ -22,4 +22,12 @@ class HomePageController extends Controller
 
         return $this->success(['data' => $data], 'Home Data fetched successfully');
     }
+
+    public function categories()
+    {
+        $data = [];
+        $data['categories'] = Category::with('subcategories')->where('parent_category_id', null)->get();
+
+        return $this->success(['data' => $data], 'Categories fetched successfully');
+    }
 }
