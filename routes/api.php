@@ -29,3 +29,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
 // Frontend data
 Route::get('/home', [HomePageController::class, 'index']);
+Route::get('/categories', [HomePageController::class, 'categories']);
