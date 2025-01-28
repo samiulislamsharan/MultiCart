@@ -248,17 +248,21 @@
 
 @section('footer-js')
     <script>
-        $(document).ready(function() {
-            previewImage('#product_image', '#productImgPreview');
+        var existing_product = {!! json_encode($product ?? []) !!};
 
-            $('#attribute').multiSelect({
-                'containerHTML': '<div class="multi-select-container" style="width: 100%;">',
-                'menuHTML': '<div class="multi-select-menu mt-2 ml-0 mb-2 mr-0 position-absolute z-1 float-start border border-1 shadow bg-white">',
-                'buttonHTML': '<span class="form-select multiple-select">',
-                'menuItemsHTML': '<div class="form-check rounded-4 ">',
-                'menuItemHTML': '<label class="multi-select-menuitem">',
-                'noneText': 'Select Attributes',
-            });
+        $(document).ready(function() {
+            if (existing_product.id > 0) {
+                previewImage('#product_image', '#productImgPreview');
+
+                $('#attribute').multiSelect({
+                    'containerHTML': '<div class="multi-select-container" style="width: 100%;">',
+                    'menuHTML': '<div class="multi-select-menu mt-2 ml-0 mb-2 mr-0 position-absolute z-1 float-start border border-1 shadow bg-white">',
+                    'buttonHTML': '<span class="form-select multiple-select">',
+                    'menuItemsHTML': '<div class="form-check rounded-4 ">',
+                    'menuItemHTML': '<label class="multi-select-menuitem">',
+                    'noneText': 'Select Attributes',
+                });
+            }
         });
 
         /**
