@@ -303,6 +303,259 @@
         }
     },
     "definitions": {
+        "attribute": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "attribute_value": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "attributes_id": {
+                    "type": "number"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "brand": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "category": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "parent_category_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "category_attribute": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "category_id": {
+                    "type": "number"
+                },
+                "attribute_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "color": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "home_banner": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "link": {
+                    "type": "string"
+                }
+            }
+        },
+        "product": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "category_id": {
+                    "type": "number"
+                },
+                "brand_id": {
+                    "type": "number"
+                },
+                "item_code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "string"
+                },
+                "tax_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "product_attribute": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "product_id": {
+                    "type": "number"
+                },
+                "category_id": {
+                    "type": "number"
+                },
+                "attribute_value_id": {
+                    "type": "number"
+                }
+            }
+        },
+        "product_attr": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "product_id": {
+                    "type": "number"
+                },
+                "color_id": {
+                    "type": "number"
+                },
+                "size_id": {
+                    "type": "number"
+                },
+                "sku": {
+                    "type": "string"
+                },
+                "mrp": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "length": {
+                    "type": "number"
+                },
+                "breadth": {
+                    "type": "number"
+                },
+                "height": {
+                    "type": "number"
+                },
+                "weight": {
+                    "type": "number"
+                }
+            }
+        },
+        "product_attr_image": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "product_id": {
+                    "type": "number"
+                },
+                "product_attr_id": {
+                    "type": "number"
+                },
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "role": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            }
+        },
+        "size": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "tax": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
         "user": {
             "type": "object",
             "properties": {
