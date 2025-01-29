@@ -3,7 +3,7 @@
     "info": {
         "description": "\n\nHeader -> api_key :  \n\n",
         "version": "1.0.0",
-        "title": "MultiCart"
+        "title": "MultiCart API"
     },
     "host": "127.0.0.1:8000",
     "basePath": "/api",
