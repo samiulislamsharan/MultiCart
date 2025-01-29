@@ -314,6 +314,27 @@
                 },
                 "email": {
                     "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "facebook_link": {
+                    "type": "string"
+                },
+                "twitter_link": {
+                    "type": "string"
+                },
+                "insta_link": {
+                    "type": "string"
+                },
+                "github_link": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
                 }
             }
         }
