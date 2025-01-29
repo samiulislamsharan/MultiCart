@@ -15,6 +15,10 @@
         {
             "name": "User",
             "description": "All User Operations"
+        },
+        {
+            "name": "Home Page",
+            "description": "All Home Page Data"
         }
     ],
     "paths": {
