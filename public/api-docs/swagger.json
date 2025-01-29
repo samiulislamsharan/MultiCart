@@ -267,6 +267,32 @@
                     }
                 }
             }
+        },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Home Page"
+                ],
+                "summary": "Categories Data",
+                "operationId": "categories_data",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "APIKeyHeader": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Request Success"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
         }
     },
     "securityDefinitions": {
