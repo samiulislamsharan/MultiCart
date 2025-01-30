@@ -17,7 +17,7 @@ class HomePageController extends Controller
     {
         $data = [];
         $data['banner'] = HomeBanner::get();
-        $data['categories'] = Category::with('products')->get();
+        $data['categories'] = Category::with('products:id,category_id,name,slug,image,item_code')->get();
         $data['brands'] = Brand::get();
 
         return $this->success(['data' => $data], 'Home Data fetched successfully');
