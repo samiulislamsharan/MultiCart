@@ -273,7 +273,7 @@
                 "tags": [
                     "Home Page"
                 ],
-                "summary": "Categories Data",
+                "summary": "Navbar/Header categories data",
                 "operationId": "categories_data",
                 "produces": [
                     "application/json"
