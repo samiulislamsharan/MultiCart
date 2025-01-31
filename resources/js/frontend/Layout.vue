@@ -57,44 +57,23 @@
                                         <li class="active">
                                             <a href="/">Home</a>
                                         </li>
-                                        <li class="has--mega--menu"><a href="#">Shop</a>
+                                        <li v-for="item in headerCategories" :key="item.id" class="has--mega--menu">
+                                            <a href="#">{{ item.name }}</a>
                                             <ul class="mega-menu">
                                                 <li class="mega-menu-wrap">
                                                     <ul class="mega-menu-col">
-                                                        <li class="mega-title"><a href="shop.html">SHOP PAGES</a></li>
-                                                        <li><a href="shop-sidebar.html">Right Sidebar</a></li>
-                                                        <li><a href="shop-sidebar.html">Left Sidebar</a></li>
-                                                        <li><a href="shop.html">Hidden sidebar</a></li>
-                                                        <li><a href="shop.html">Filters area</a></li>
-                                                        <li><a href="shop-details.html">Shop Details</a></li>
-                                                        <li><a href="cart.html">Cart Page</a></li>
-                                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                                    </ul>
-                                                    <ul class="mega-menu-col">
-                                                        <li class="mega-title"><a href="#">FEATURES</a></li>
-                                                        <li><a href="shop-sidebar.html">Variable Product</a></li>
-                                                        <li><a href="shop-sidebar.html">External Product</a></li>
-                                                        <li><a href="shop-sidebar.html">Other Shop Pages</a></li>
-                                                        <li><a href="shop-sidebar.html">Categories</a></li>
-                                                        <li><a href="shop-sidebar.html">Collection</a></li>
-                                                        <li><a href="shop-sidebar.html">LookBook</a></li>
-                                                        <li><a href="cart.html">Shopping Cart</a></li>
-                                                    </ul>
-                                                    <ul class="mega-menu-col sub-cat-post">
-                                                        <li>
-                                                            <a href="shop-sidebar.html">
-                                                                <img src="/front_assets/img/product/sub_menu_img01.jpg"
-                                                                    alt="">
-                                                                <span class="btn">Man Shop</span>
-                                                            </a>
+                                                        <li class="mega-title">
+                                                            <a href="shop.html">{{ item.name }}</a>
+                                                        </li>
+                                                        <li v-for="subitem in item.subcategories" :key="subitem.id">
+                                                            <a href="shop-sidebar.html">{{ subitem.name }}</a>
                                                         </li>
                                                     </ul>
                                                     <ul class="mega-menu-col sub-cat-post">
                                                         <li>
                                                             <a href="shop-sidebar.html">
-                                                                <img src="/front_assets/img/product/sub_menu_img02.jpg"
-                                                                    alt="">
-                                                                <span class="btn">Women’s Shop</span>
+                                                                <img :src="item.image" alt="">
+                                                                <span class="btn">ALL {{ item.name }}</span>
                                                             </a>
                                                         </li>
                                                     </ul>
