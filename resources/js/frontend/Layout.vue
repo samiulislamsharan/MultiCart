@@ -389,8 +389,17 @@
 
 <!-- JS here -->
 <script>
+import axios from 'axios';
+import getUrlList from '../provider.js';
+
 export default {
     name: 'Layout',
+    data() {
+        return {
+            result: [],
+            headerCategories: [],
+        }
+    },
     mounted() {
         var src = [
             'front_assets/js/popper.min.js',
@@ -417,6 +426,24 @@ export default {
             script.async = false;
             document.getElementById('scripts').appendChild(script);
         }
+
+        this.getCategories();
     },
+    methods: {
+        async getCategories() {
+            try {
+                let data = await axios.get(getUrlList().header_categories);
+
+                if (data.status == 200 && data.data.data.data.categories.length > 0) {
+                    this.headerCategories = data.data.data.data.categories;
+                    console.log('Header category data assigned successfully');
+                } else {
+                    console.log('No data found');
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
 }
 </script>
