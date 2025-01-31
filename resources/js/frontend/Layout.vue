@@ -165,13 +165,13 @@
                                         <li class="active">
                                             <a href="/">Home</a>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="#">Shop</a>
+                                        <li v-for="item in headerCategories" :key="item.id"
+                                            class="menu-item-has-children">
+                                            <a href="#">{{ item.name }}</a>
                                             <ul class="submenu">
-                                                <li><a href="shop.html">Shop Page</a></li>
-                                                <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Cart Page</a></li>
-                                                <li><a href="cart.html">Checkout Page</a></li>
+                                                <li v-for="subitem in item.subcategories" :key="subitem.id">
+                                                    <a href="shop.html">{{ subitem.name }}</a>
+                                                </li>
                                             </ul>
                                         </li>
                                         <li><a href="about-us.html">About Us</a></li>
