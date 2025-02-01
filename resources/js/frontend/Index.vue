@@ -2189,11 +2189,40 @@
 
 <script>
 import Layout from './Layout.vue';
+import axios from 'axios';
+import getUrlList from '../provider';
 
 export default {
     name: "Index",
     components: {
         Layout
+    },
+    data() {
+        return {
+            homeBanner: [],
+            homeCategories: [],
+            homeBrands: [],
+            homeProducts: [],
+        }
+    },
+    methods: {
+        async getHomeData() {
+            try {
+                let data = await axios.get(getUrlList().home);
+
+                console.log(data);
+                if (data.status == 200 && data.data.data.data.banner.length > 0) {
+                    this.homeBanner = data.data.data.data.banner;
+                    this.homeCategories = data.data.data.data.categories;
+                    this.homeBrands = data.data.data.data.brands;
+                    this.homeProducts = data.data.data.data.products;
+                } else {
+                    console.log('No data found');
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        },
     }
 }
 </script>
