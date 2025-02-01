@@ -2226,6 +2226,15 @@ export default {
                 console.log(error);
             }
         },
+        showActiveClass(type, index) {
+            if (type == 1 && index == 0) {
+                return 'active';
+            } else if (type == 2 && index == 0) {
+                return 'show active';
+            } else {
+                return '';
+            }
+        }
     }
 }
 </script>
