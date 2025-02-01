@@ -38,48 +38,22 @@
             </section>
             <!-- slider-area-end -->
 
-            <!-- shoes-category-area -->
+            <!-- category-area -->
             <div class="shoes-category-area pt-80 pb-30">
                 <div class="container custom-container-two">
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6 col-sm-9">
+                        <div v-for="item in homeCategories.slice(0, 3)" :key="item.id"
+                            class="col-lg-4 col-md-6 col-sm-9">
                             <div class="shoes-cat-item mb-50">
                                 <div class="thumb mb-30">
-                                    <a href="shop-sidebar.html"><img src="front_assets/img/images/shoes_cat_img01.jpg"
-                                            alt=""></a>
+                                    <a href="shop-sidebar.html">
+                                        <img :src="item.image" alt="" style="height: 15rem;">
+                                    </a>
                                 </div>
                                 <div class="content">
                                     <ul>
-                                        <li><a href="shop-sidebar.html">Women Shoes</a></li>
+                                        <li><a href="shop-sidebar.html">{{ item.name }}</a></li>
                                         <li><span>18</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="shoes-cat-item mb-50">
-                                <div class="thumb mb-30">
-                                    <a href="shop-sidebar.html"><img src="front_assets/img/images/shoes_cat_img02.jpg"
-                                            alt=""></a>
-                                </div>
-                                <div class="content">
-                                    <ul>
-                                        <li><a href="shop-sidebar.html">Travelling Shoes</a></li>
-                                        <li><span>24</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-9">
-                            <div class="shoes-cat-item mb-50">
-                                <div class="thumb mb-30">
-                                    <a href="shop-sidebar.html"><img src="front_assets/img/images/shoes_cat_img03.jpg"
-                                            alt=""></a>
-                                </div>
-                                <div class="content">
-                                    <ul>
-                                        <li><a href="shop-sidebar.html">Man Shoes</a></li>
-                                        <li><span>09</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -87,7 +61,7 @@
                     </div>
                 </div>
             </div>
-            <!-- shoes-category-area-end -->
+            <!-- category-area-end -->
 
             <!-- trending-product-area -->
             <section class="trending-product-area trending-product-two gray-bg pt-95 pb-100">
