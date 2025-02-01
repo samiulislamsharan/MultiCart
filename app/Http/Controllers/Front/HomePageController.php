@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\HomeBanner;
+use App\Models\Product;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,17 @@ class HomePageController extends Controller
             )
             ->get();
         $data['brands'] = Brand::get();
+        $data['products'] = Product::query()
+            ->with('productAttributes')
+            ->select(
+                'id',
+                'category_id',
+                'name',
+                'slug',
+                'image',
+                'item_code',
+            )
+            ->get();
 
         return $this->success(['data' => $data], 'Home Data fetched successfully');
     }
