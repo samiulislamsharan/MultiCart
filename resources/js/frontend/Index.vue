@@ -2205,6 +2205,9 @@ export default {
             homeProducts: [],
         }
     },
+    mounted() {
+        this.getHomeData();
+    },
     methods: {
         async getHomeData() {
             try {
