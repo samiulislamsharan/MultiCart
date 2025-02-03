@@ -58,7 +58,7 @@
                                             <a href="/">Home</a>
                                         </li>
                                         <li v-for="item in headerCategories" :key="item.id" class="has--mega--menu">
-                                            <a href="#">{{ item.name }}</a>
+                                            <RouterLink :to="'/category/' + item.slug">{{ item.name }}</RouterLink>
                                             <ul class="mega-menu">
                                                 <li class="mega-menu-wrap">
                                                     <ul class="mega-menu-col">
@@ -66,7 +66,8 @@
                                                             <a href="shop.html">{{ item.name }}</a>
                                                         </li>
                                                         <li v-for="subitem in item.subcategories" :key="subitem.id">
-                                                            <a href="shop-sidebar.html">{{ subitem.name }}</a>
+                                                            <RouterLink :to="'/category/' + subitem.slug">{{
+                                                                subitem.name }}</RouterLink>
                                                         </li>
                                                     </ul>
                                                     <ul class="mega-menu-col sub-cat-post">
