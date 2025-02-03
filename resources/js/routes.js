@@ -4,7 +4,7 @@ import Category from './frontend/Category.vue';
 
 const routes = [
     {
-        name: 'index',
+        name: 'Index',
         path: '/',
         component: Index
     },
