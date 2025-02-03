@@ -317,7 +317,7 @@ import axios from 'axios';
 import getUrlList from '../provider';
 
 export default {
-    name: "Index",
+    name: 'Index',
     components: {
         Layout
     },
