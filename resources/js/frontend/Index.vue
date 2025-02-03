@@ -337,7 +337,6 @@ export default {
             try {
                 let data = await axios.get(getUrlList().home);
 
-                console.log(data);
                 if (data.status == 200 && data.data.data.data.banner.length > 0) {
                     this.homeBanner = data.data.data.data.banner;
                     this.homeCategories = data.data.data.data.categories;
