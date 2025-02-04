@@ -24,6 +24,9 @@
             "name": "Category Page",
             "description": "All Category Page Data"
         },
+        {
+            "name": "Product Page",
+            "description": "All Product Page Data"
         }
     ],
     "paths": {
@@ -357,6 +360,34 @@
                 }
             }
         },
+        "/product": {
+            "get": {
+                "tags": [
+                    "Product Page"
+                ],
+                "summary": "Product page data",
+                "operationId": "Product_page_data",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "APIKeyHeader": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Request Success"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     },
     "securityDefinitions": {
