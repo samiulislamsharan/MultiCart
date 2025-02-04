@@ -5,7 +5,7 @@
             <section class="slider-area position-relative">
                 <div class="third-slider-active">
                     <div v-for="item in homeBanner" :key="item.id" class="third-slider-item third-slider-bg"
-                        data-background="front_assets/img/slider/third_slider_bg.jpg">
+                        data-background="/front_assets/img/slider/third_slider_bg.jpg">
                         <div class="container custom-container-two">
                             <div class="third-slider-wrap">
                                 <div class="row align-items-center">
@@ -22,7 +22,7 @@
                                     <div class="col-lg-6">
                                         <div class="third-slider-img">
                                             <div class="img-shape"
-                                                data-background="front_assets/img/slider/third_slide_shape.png"
+                                                data-background="/front_assets/img/slider/third_slide_shape.png"
                                                 data-animation-in="zoomIn" data-delay-in="1" data-duration-in="1.5">
                                             </div>
                                             <img :src="item.image" alt="" class="main-img"
@@ -210,7 +210,7 @@
             <section class="shoes-banner-area">
                 <div class="container">
                     <div class="shoes-banner-active">
-                        <div class="shoes-banner-bg" data-background="front_assets/img/bg/shoes-banner_bg.jpg">
+                        <div class="shoes-banner-bg" data-background="/front_assets/img/bg/shoes-banner_bg.jpg">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="shoes-banner-content">
@@ -220,7 +220,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="shoes-banner-bg" data-background="front_assets/img/bg/shoes-banner_bg.jpg">
+                        <div class="shoes-banner-bg" data-background="/front_assets/img/bg/shoes-banner_bg.jpg">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="shoes-banner-content">
@@ -230,7 +230,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="shoes-banner-bg" data-background="front_assets/img/bg/shoes-banner_bg.jpg">
+                        <div class="shoes-banner-bg" data-background="/front_assets/img/bg/shoes-banner_bg.jpg">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="shoes-banner-content">
@@ -251,7 +251,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 col-md-6 col-sm-8">
                             <div class="promo-services-item mb-40">
-                                <div class="icon"><img src="front_assets/img/icon/promo_icon01.png" alt=""></div>
+                                <div class="icon"><img src="/front_assets/img/icon/promo_icon01.png" alt=""></div>
                                 <div class="content">
                                     <h6>payment & delivery</h6>
                                     <p>Delivered, when you receive arrives</p>
@@ -260,7 +260,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-8">
                             <div class="promo-services-item mb-40">
-                                <div class="icon"><img src="front_assets/img/icon/promo_icon02.png" alt=""></div>
+                                <div class="icon"><img src="/front_assets/img/icon/promo_icon02.png" alt=""></div>
                                 <div class="content">
                                     <h6>Return Product</h6>
                                     <p>Retail, a Product Return Process</p>
@@ -269,7 +269,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-8">
                             <div class="promo-services-item mb-40">
-                                <div class="icon"><img src="front_assets/img/icon/promo_icon03.png" alt=""></div>
+                                <div class="icon"><img src="/front_assets/img/icon/promo_icon03.png" alt=""></div>
                                 <div class="content">
                                     <h6>money back guarantee</h6>
                                     <p>Options Including 24/7</p>
@@ -278,7 +278,7 @@
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-8">
                             <div class="promo-services-item mb-40">
-                                <div class="icon"><img src="front_assets/img/icon/promo_icon04.png" alt=""></div>
+                                <div class="icon"><img src="/front_assets/img/icon/promo_icon04.png" alt=""></div>
                                 <div class="content">
                                     <h6>Quality support</h6>
                                     <p>Support Options Including 24/7</p>
