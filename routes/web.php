@@ -33,3 +33,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('/api_docs', function () {
     return view('api-docs');
 });
+
+Route::get('/{vue_capture?}', function () {
+    return view('index');
+})->where('vue_capture', '[\/\w\.-]*');
