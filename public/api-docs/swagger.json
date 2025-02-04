@@ -19,6 +19,11 @@
         {
             "name": "Home Page",
             "description": "All Home Page Data"
+        },
+        {
+            "name": "Category Page",
+            "description": "All Category Page Data"
+        },
         }
     ],
     "paths": {
@@ -314,6 +319,44 @@
                     }
                 }
             }
+        },
+        "/category/{slug}": {
+            "get": {
+                "tags": [
+                    "Category Page"
+                ],
+                "summary": "Category page data",
+                "operationId": "category_page_data",
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "APIKeyHeader": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "description": "Enter Category Slug",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request Success"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         }
     },
     "securityDefinitions": {
