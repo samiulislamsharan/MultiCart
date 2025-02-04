@@ -101,23 +101,9 @@
             </section>
             <!-- promo-services-end -->
 
-            <!-- instagram-post-area -->
-            <div class="instagram-post-area">
-                <div class="container-fluid p-0 fix">
-                    <div class="row no-gutters insta-active">
-                        <div v-for="item in homeBrands" :key="item.id" class="col">
-                            <div class="insta-post-item">
-                                <a href="#">
-                                    <i class="fab fa-instagram"></i>
-                                    <img :src="item.image" :alt="item.text + '_image'"
-                                        style="height: 20rem ; object-fit: contain;">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- instagram-post-area-end -->
+            <!-- brand-area -->
+            <HomeBrands :homeBrands="homeBrands" />
+            <!-- brand-area-end -->
         </template>
     </Layout>
 </template>
@@ -129,6 +115,7 @@ import axios from 'axios';
 import getUrlList from '../provider';
 
 import HomeBanner from './components/HomeBanner.vue';
+import HomeBrands from './components/HomeBrands.vue';
 import HomeCategories from './components/HomeCategories.vue';
 import TrendingProducts from './components/TrendingProducts.vue';
 import NewArrivalProducts from './components/NewArrivalProducts.vue';
@@ -138,6 +125,7 @@ export default {
     components: {
         Layout,
         HomeBanner,
+        HomeBrands,
         HomeCategories,
         TrendingProducts,
         NewArrivalProducts,
