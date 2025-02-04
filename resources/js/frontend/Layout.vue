@@ -55,7 +55,7 @@
                                 <div class="navbar-wrap main-menu d-none d-lg-flex">
                                     <ul class="navigation">
                                         <li class="active">
-                                            <a href="/">Home</a>
+                                            <RouterLink :to="'/'">Home</RouterLink>
                                         </li>
                                         <li v-for="item in headerCategories" :key="item.id" class="has--mega--menu">
                                             <RouterLink :to="'/category/' + item.slug">{{ item.name }}</RouterLink>
