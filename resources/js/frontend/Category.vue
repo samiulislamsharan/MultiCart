@@ -30,6 +30,11 @@ export default {
             categoriesProductCount: [],
         }
     },
+    watch: {
+        '$route'() {
+            this.getProducts();
+        }
+    },
     mounted() {
         this.getProducts();
     },
