@@ -4,6 +4,7 @@ export function getUrlList() {
     return {
         header_categories: baseUrl + 'header_categories',
         home: baseUrl + 'home',
+        category: baseUrl + 'category',
     }
 }
 
