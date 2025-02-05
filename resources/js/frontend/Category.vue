@@ -14,6 +14,21 @@ export default {
     name: 'Category',
     components: {
         Layout
+    },
+    data() {
+        return {
+            categories: [],
+            products: [],
+            brands: [],
+            colors: [],
+            sizes: [],
+            slug: '',
+            category: '',
+            lowPrice: '',
+            highPrice: '',
+            categoriesProductCount: [],
+        }
+    },
     }
 }
 </script>
