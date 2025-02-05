@@ -59,11 +59,13 @@ class CategoryController extends Controller
                     $image = Category::where('id', $request->id)->pluck('image')->first();
                 }
 
+                $slug = replace_slug_str($request->name);
+
                 Category::updateOrCreate(
                     ['id' => $request->id],
                     [
                         'name' => $request->name,
-                        'slug' => $request->slug,
+                        'slug' => $slug,
                         'image' => $image,
                         'parent_category_id' => $request->parent_category_id,
                     ]
