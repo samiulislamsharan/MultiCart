@@ -38,11 +38,13 @@ class AttributeController extends Controller
             if ($validation->fails()) {
                 return $this->error($validation->errors(), 422, []);
             } else {
+                $slug = replace_slug_str($request->name);
+
                 Attribute::updateOrCreate(
                     ['id' => $request->id],
                     [
                         'name' => $request->name,
-                        'slug' => $request->slug,
+                        'slug' => $slug,
                     ]
                 );
 
