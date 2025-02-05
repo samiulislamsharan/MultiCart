@@ -136,11 +136,13 @@ class ProductController extends Controller
                     $image = Product::where('id', $request->id)->pluck('image')->first();
                 }
 
+                $slug = replace_slug_str($request->name);
+
                 $product = Product::updateOrCreate(
                     ['id' => $request->id],
                     [
                         'name' => $request->name,
-                        'slug' => $request->slug,
+                        'slug' => $slug,
                         'image' => $image,
                         'item_code' => $request->item_code,
                         'keywords' => $request->keywords,
