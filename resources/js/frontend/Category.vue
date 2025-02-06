@@ -139,9 +139,11 @@
                                     <h4 class="widget-title">Product Brand</h4>
                                     <div class="sidebar-brand-list">
                                         <ul>
-                                            <li>
-                                                <a href="#">
-                                                    New Arrivals
+                                            <li v-for="item in brands" :key="item.id"
+                                                v-on:click="addDataAttr('brand', item.id)">
+                                                <a :class="this.brand.includes(item.id) ? brandColor : ''"
+                                                    href="javascript:void(0);">
+                                                    {{ item.text }}
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </li>
