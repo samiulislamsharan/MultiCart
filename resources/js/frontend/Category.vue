@@ -227,6 +227,9 @@ export default {
             lowPrice: '',
             highPrice: '',
             categoriesProductCount: [],
+            brand: [],
+            size: [],
+            color: [],
         }
     },
     watch: {
@@ -238,6 +241,43 @@ export default {
         this.getProducts();
     },
     methods: {
+        addDataAttr(type, value) {
+            if (type == 'brand') {
+                if (this.checkArray(type, value)) {
+                    this.brand.splice(this.brand.indexOf(value), 1);
+                } else {
+                    this.brand.push(value);
+                }
+                console.log(this.brand);
+            }
+            else if (type == 'size') {
+                if (this.checkArray(type, value)) {
+                    this.size.splice(this.size.indexOf(value), 1);
+                } else {
+                    this.size.push(value);
+                }
+                console.log(this.size);
+            }
+            else if (type == 'color') {
+                if (this.checkArray(type, value)) {
+                    this.color.splice(this.color.indexOf(value), 1);
+                } else {
+                    this.color.push(value);
+                }
+                console.log(this.color);
+            }
+        },
+        checkArray(type, value) {
+            if (type == 'brand') {
+                return this.brand.includes(value);
+            }
+            else if (type == 'size') {
+                return this.size.includes(value);
+            }
+            else if (type == 'color') {
+                return this.color.includes(value);
+            }
+        },
         async getProducts() {
             try {
                 const route = useRoute();
