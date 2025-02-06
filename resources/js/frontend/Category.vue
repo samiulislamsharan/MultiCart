@@ -130,7 +130,8 @@
                                         <div id="slider-range"></div>
                                         <div class="price_slider_amount">
                                             <span>Price :</span>
-                                            <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                            <input v-model="priceRange" type="text" id="amount" name="price"
+                                                placeholder="Add Your Price" />
                                         </div>
                                     </div>
                                 </div>
@@ -227,6 +228,7 @@ export default {
             lowPrice: '',
             highPrice: '',
             categoriesProductCount: [],
+            priceRange: '',
             brand: [],
             size: [],
             color: [],
