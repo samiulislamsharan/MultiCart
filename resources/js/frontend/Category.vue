@@ -255,6 +255,8 @@ export default {
                         this.colors = data.data.data.data.colors;
                         this.sizes = data.data.data.data.sizes;
                         this.categoriesProductCount = data.data.data.data.categories_product_count;
+                        this.lowPrice = data.data.data.data.lowPrice;
+                        this.highPrice = data.data.data.data.highPrice;
                     } else {
                         console.log('No data found');
                     }
