@@ -678,11 +678,14 @@
     /*=============================================
         =    	 Slider Range Active  	         =
     =============================================*/
+    var lowPrice = parseInt($('#lowPrice').val());
+    var highPrice = parseInt($('#highPrice').val());
+
     $("#slider-range").slider({
         range: true,
-        min: 40,
-        max: 700,
-        values: [120, 570],
+        min: lowPrice,
+        max: highPrice,
+        values: [lowPrice, highPrice],
         slide: function (event, ui) {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
         }
