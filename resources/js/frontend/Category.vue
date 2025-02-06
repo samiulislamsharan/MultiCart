@@ -155,7 +155,13 @@
                                         <h4 class="widget-title">Product Size</h4>
                                         <div class="shop-size-list">
                                             <ul>
-                                                <li><a href="#">S</a></li>
+                                                <li v-for="item in sizes" :key="item.id"
+                                                    v-on:click="addDataAttr('size', item.id)" class="shadow">
+                                                    <a :class="this.size.includes(item.id) ? sizeColor : ''"
+                                                        href="javascript:void(0);">
+                                                        {{ item.text }}
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
