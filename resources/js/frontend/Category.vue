@@ -178,6 +178,13 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <div class="cart-coupon mt-4">
+                                        <form action="#">
+                                            <button class="btn w-100 shadow-lg">
+                                                <span class="fas fa-filter"></span> Filter
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                                 <div class="widget">
                                     <h4 class="widget-title">Top Items</h4>
