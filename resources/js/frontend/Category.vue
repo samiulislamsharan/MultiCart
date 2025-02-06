@@ -169,10 +169,12 @@
                                         <h4 class="widget-title">Color</h4>
                                         <div class="shop-color-list">
                                             <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
+                                                <li v-for="item in colors" :key="item.id"
+                                                    v-on:click="addDataAttr('color', item.id)"
+                                                    :style="{ backgroundColor: item.value }"
+                                                    :class="this.color.includes(item.id) ? colorColor + ' shadow m-1 p-3' : 'border shadow m-1 p-3'"
+                                                    :title="item.text">
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
