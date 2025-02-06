@@ -687,10 +687,10 @@
         max: highPrice,
         values: [lowPrice, highPrice],
         slide: function (event, ui) {
-            $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            $("#amount").val("BDT" + ui.values[0] + " - BDT" + ui.values[1]);
         }
     });
-    $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+    $("#amount").val("BDT" + $("#slider-range").slider("values", 0) + " - BDT" + $("#slider-range").slider("values", 1));
 
 
     /*=============================================
