@@ -230,6 +230,9 @@ export default {
             brand: [],
             size: [],
             color: [],
+            brandColor: 'brand-color',
+            sizeColor: 'size-color',
+            colorColor: 'color-color',
         }
     },
     watch: {
@@ -308,3 +311,20 @@ export default {
     }
 }
 </script>
+
+<style>
+.brand-color::before {
+    background-color: #ff5400;
+}
+
+.size-color {
+    background-color: #ff5400;
+    border-color: #ff5400 !important;
+    color: white !important;
+}
+
+.color-color {
+    border: #ff5400 1.5px solid;
+    transition: all 0.2s ease;
+}
+</style>
