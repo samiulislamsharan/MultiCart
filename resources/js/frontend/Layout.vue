@@ -63,7 +63,7 @@
                                                 <li class="mega-menu-wrap">
                                                     <ul class="mega-menu-col">
                                                         <li class="mega-title">
-                                                            <a href="shop.html">{{ item.name }}</a>
+                                                            <RouterLink :to="'/category/' + item.slug">{{ item.name }}</RouterLink>
                                                         </li>
                                                         <li v-for="subitem in item.subcategories" :key="subitem.id">
                                                             <RouterLink :to="'/category/' + subitem.slug">{{
