@@ -324,7 +324,7 @@
             }
         },
         "/category/{slug}": {
-            "get": {
+            "post": {
                 "tags": [
                     "Category Page"
                 ],
