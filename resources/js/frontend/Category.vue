@@ -375,4 +375,11 @@ export default {
     border: #ff5400 1.5px solid;
     transition: all 0.2s ease;
 }
+
+.price-range-form {
+    border: none;
+    background: #ecf0f1;
+    color: #878686;
+    padding: 10px 20px;
+}
 </style>
