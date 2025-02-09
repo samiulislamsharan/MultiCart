@@ -150,6 +150,21 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <div v-for="item in attributes" :key="item.id" class="widget">
+                                    <h4 class="widget-title">{{ item.attribute.name }}</h4>
+                                    <div class="sidebar-brand-list">
+                                        <ul>
+                                            <li v-for="subitem in item.attribute.values" :key="subitem.id"
+                                                v-on:click="addDataAttr('attribute', subitem.id)">
+                                                <a :class="this.attribute.includes(subitem.id) ? brandColor : ''"
+                                                    href="javascript:void(0);">
+                                                    {{ subitem.value }}
+                                                    <i class="fas fa-angle-double-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <div class="widget has-border">
                                     <div class="sidebar-product-size mb-30">
                                         <h4 class="widget-title">Product Size</h4>
