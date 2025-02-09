@@ -339,7 +339,15 @@ export default {
                 const route = useRoute();
                 this.slug = this.$route.params.slug;
 
-                let data = await axios.get(getUrlList().category + '/' + this.slug);
+                let data = await axios.post(getUrlList().category, {
+                    "slug": this.slug,
+                    "attribute": this.attribute,
+                    "lowPrice": this.$refs.lowPrice.value,
+                    "highPrice": this.$refs.highPrice.value,
+                    "brand": this.brand,
+                    "size": this.size,
+                    "color": this.color,
+                });
 
                 if (this.slug == '' || this.slug == undefined || this.slug == null) {
                     this.$router.push({ name: 'Index' });
