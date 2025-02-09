@@ -52,25 +52,23 @@ class HomePageController extends Controller
         return $this->success(['data' => $data], 'Categories fetched successfully');
     }
 
-    public function categoryIndex($slug = '')
+    public function categoryIndex(Request $request, $slug = '')
     {
+        $slug       = $request->slug;
+        $attribute  = $request->attribute;
+        $brand      = $request->brand;
+        $size       = $request->size;
+        $color      = $request->color;
+        $highPrice  = $request->highPrice;
+        $lowPrice   = $request->lowPrice;
+
         if (!empty($slug)) {
             $slug_category = Category::query()
                 ->where('slug', $slug)
                 ->first();
 
             if (isset($slug_category)) {
-                $products = Product::query()
-                    ->where('category_id', $slug_category->id)
-                    ->with('productAttributes')
-                    ->select(
-                        'id',
-                        'name',
-                        'slug',
-                        'image',
-                        'item_code',
-                    )
-                    ->paginate(12);
+                $products = $this->getFilterProducts($slug_category->id, $attribute, $brand, $size, $color, $highPrice, $lowPrice);
 
                 $data = Category::query()
                     ->where('slug', $slug)
