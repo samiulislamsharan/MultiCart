@@ -136,4 +136,50 @@ class HomePageController extends Controller
             return $this->error('Category not found', 404);
         }
     }
+
+    public function getFilterProducts($category_id, $attribute, $brand, $size, $color, $highPrice, $lowPrice)
+    {
+        $products = Product::where('category_id', $category_id);
+
+        if (sizeof($brand) > 0) {
+            $products = $products->whereIn('brand_id', $brand);
+        }
+
+        if (sizeof($attribute) > 0) {
+            $products = $products->withWhereHas('attribute', function ($query) use ($attribute) {
+                $query->whereIn('attribute_value_id', $attribute);
+            });
+        }
+
+        if (sizeof($size) > 0) {
+            $products = $products->withWhereHas('productAttributes', function ($query) use ($size) {
+                $query->whereIn('size_id', $size);
+            });
+        }
+
+        if (sizeof($color) > 0) {
+            $products = $products->withWhereHas('productAttributes', function ($query) use ($color) {
+                $query->whereIn('color_id', $color);
+            });
+        }
+
+        if ($lowPrice != '' && $lowPrice != null && $highPrice != '') {
+            $products = $products->withWhereHas('productAttributes', function ($query) use ($lowPrice, $highPrice) {
+                $query->whereBetween('price', [$lowPrice, $highPrice]);
+            });
+        }
+
+        $products = $products
+            ->with('productAttributes')
+            ->select(
+                'id',
+                'name',
+                'slug',
+                'image',
+                'item_code',
+            )
+            ->paginate(12);
+
+        return $products;
+    }
 }
