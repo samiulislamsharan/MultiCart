@@ -130,8 +130,11 @@
                                         <div id="slider-range"></div>
                                         <div class="price_slider_amount">
                                             <span>Price :</span>
-                                            <input v-model="priceRange" type="text" id="amount" name="price"
-                                                placeholder="Add Your Price" />
+                                            <input ref="lowPrice" @keypress="isNumber($event)" type="text" id="lowPrice"
+                                                class="price-range-form" placeholder="Min" />
+                                            <span class="px-2">&#45;</span>
+                                            <input ref="highPrice" @keypress="isNumber($event)" type="text"
+                                                id="highPrice" class="price-range-form" placeholder="Max" />
                                         </div>
                                     </div>
                                 </div>
