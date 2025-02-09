@@ -240,6 +240,7 @@ export default {
             brands: [],
             colors: [],
             sizes: [],
+            attributes: [],
             slug: '',
             category: '',
             lowPrice: '',
@@ -249,6 +250,7 @@ export default {
             brand: [],
             size: [],
             color: [],
+            attribute: [],
             brandColor: 'brand-color',
             sizeColor: 'size-color',
             colorColor: 'color-color',
@@ -316,6 +318,7 @@ export default {
                         this.brands = data.data.data.data.brands;
                         this.colors = data.data.data.data.colors;
                         this.sizes = data.data.data.data.sizes;
+                        this.attributes = data.data.data.data.attributes;
                         this.$refs.lowPrice.value = data.data.data.data.lowPrice;
                         this.$refs.highPrice.value = data.data.data.data.highPrice;
                         this.categoriesProductCount = data.data.data.data.categories_product_count;
