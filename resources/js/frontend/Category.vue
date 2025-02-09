@@ -305,6 +305,14 @@ export default {
                 }
                 console.log(this.color);
             }
+            else if (type == 'attribute') {
+                if (this.checkArray(type, value)) {
+                    this.attribute.splice(this.attribute.indexOf(value), 1);
+                } else {
+                    this.attribute.push(value);
+                }
+                console.log(this.attribute);
+            }
         },
         checkArray(type, value) {
             if (type == 'brand') {
@@ -315,6 +323,9 @@ export default {
             }
             else if (type == 'color') {
                 return this.color.includes(value);
+            }
+            else if (type == 'attribute') {
+                return this.attribute.includes(value);
             }
         },
         async getProducts() {
