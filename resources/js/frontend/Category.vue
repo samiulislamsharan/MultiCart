@@ -115,10 +115,6 @@
                                         <ul>
                                             <li v-for="(item, index) in categories" :key="item.id">
                                                 <RouterLink :to="'/category/' + item.slug">{{ item.name }}</RouterLink>
-                                                <!-- <span v-if="categoriesProductCount[index]"
-                                                    :key="categoriesProductCount[index].id">
-                                                    {{ '(' + categoriesProductCount[index].products_count + ')' }}
-                                                </span> -->
                                                 <span>(0)</span>
                                             </li>
                                         </ul>
