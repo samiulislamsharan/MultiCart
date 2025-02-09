@@ -316,9 +316,9 @@ export default {
                         this.brands = data.data.data.data.brands;
                         this.colors = data.data.data.data.colors;
                         this.sizes = data.data.data.data.sizes;
+                        this.$refs.lowPrice.value = data.data.data.data.lowPrice;
+                        this.$refs.highPrice.value = data.data.data.data.highPrice;
                         this.categoriesProductCount = data.data.data.data.categories_product_count;
-                        this.lowPrice = data.data.data.data.lowPrice;
-                        this.highPrice = data.data.data.data.highPrice;
                     } else {
                         console.log('No data found');
                     }
