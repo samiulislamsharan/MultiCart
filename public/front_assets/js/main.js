@@ -688,6 +688,8 @@
         values: [lowPrice, highPrice],
         slide: function (event, ui) {
             $("#amount").val("BDT" + ui.values[0] + " - BDT" + ui.values[1]);
+            $("#lowPrice").val(ui.values[0]);
+            $("#highPrice").val(ui.values[1]);
         }
     });
     $("#amount").val("BDT" + $("#slider-range").slider("values", 0) + " - BDT" + $("#slider-range").slider("values", 1));
