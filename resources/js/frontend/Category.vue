@@ -198,7 +198,7 @@
                                     </div>
                                     <div class="cart-coupon mt-4">
                                         <form action="#">
-                                            <button class="btn w-100 shadow-lg">
+                                            <button v-on:click="getProducts" type="button" class="btn w-100 shadow-lg">
                                                 <span class="fas fa-filter"></span> Filter
                                             </button>
                                         </form>
