@@ -141,7 +141,7 @@
                                 <label for="category_slug" class="col-sm-3 col-form-label">Slug</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="slug" class="form-control" id="category_slug"
-                                        placeholder="Enter Slug" required>
+                                        placeholder="Enter Slug">
                                 </div>
                             </div>
                             <div class="row mb-3">
