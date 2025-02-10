@@ -158,28 +158,6 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="product_color" class="col-sm-3 col-form-label">Color</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-select" name="color" id="product_color"
-                                                {{ $color->isEmpty() ? 'disabled' : '' }}>
-                                                <option value="">Select Color</option>
-                                                @forelse ($color as $colorList)
-                                                    @if ($colorList->id == $product->color_id)
-                                                        <option selected value="{{ $colorList->id }}">
-                                                            {{ $colorList->text }} : {{ $colorList->value }}
-                                                        </option>
-                                                    @else
-                                                        <option value="{{ $colorList->id }}">
-                                                            {{ $colorList->text }} : {{ $colorList->value }}
-                                                        </option>
-                                                    @endif
-                                                @empty
-                                                    <option value="">No Color Found</option>
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
                                         <label for="product_tax" class="col-sm-3 col-form-label">Tax</label>
                                         <div class="col-sm-9">
                                             <select class="form-select" name="tax" id="product_tax"
