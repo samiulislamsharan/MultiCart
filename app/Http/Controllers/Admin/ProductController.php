@@ -86,7 +86,6 @@ class ProductController extends Controller
                 'keywords' => 'required|string|max:255',
                 'category' => 'required|integer|exists:categories,id',
                 'brand' => 'required|integer|exists:brands,id',
-                'color' => 'required|integer|exists:colors,id',
                 'tax' => 'required|integer|exists:taxes,id',
                 'description' => 'required|string',
             ], [
@@ -112,9 +111,6 @@ class ProductController extends Controller
                 'brand.required' => 'Product brand ID is required',
                 'brand.integer' => 'Product brand ID must be an integer',
                 'brand.exists' => 'Product brand ID does not exist',
-                'color.required' => 'Product color ID is required',
-                'color.integer' => 'Product color ID must be an integer',
-                'color.exists' => 'Product color ID does not exist',
                 'tax.required' => 'Product tax ID is required',
                 'tax.integer' => 'Product tax ID must be an integer',
                 'tax.exists' => 'Product tax ID does not exist',
