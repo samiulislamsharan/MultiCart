@@ -114,7 +114,7 @@
                                 <label for="size_text" class="col-sm-3 col-form-label">Text</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="text" class="form-control" id="size_text"
-                                        placeholder="Enter Banner Text" required>
+                                        placeholder="Enter Size Text" required>
                                 </div>
                             </div>
                         </div>
