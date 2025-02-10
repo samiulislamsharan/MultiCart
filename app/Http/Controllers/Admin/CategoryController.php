@@ -34,7 +34,7 @@ class CategoryController extends Controller
             $validation = Validator::make($request->all(), [
                 'id' => 'required',
                 'name' => 'required|string|max:255',
-                'slug' => 'required|string|max:255',
+                'slug' => 'nullable|string|max:255',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'parent_category_id' => 'nullable|integer',
             ], [
