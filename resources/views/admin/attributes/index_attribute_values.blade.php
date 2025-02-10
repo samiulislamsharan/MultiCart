@@ -42,7 +42,7 @@
                                 <button type="button" class="btn btn-warning mx-1 px-4" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" onclick="saveData('0', '', '')">
                                     <i class="bx bx-plus"></i>
-                                    Attribute Value
+                                    Add Attribute Value
                                 </button>
                             </div>
                             <table id="dataTable" class="table table-striped table-bordered">
