@@ -88,7 +88,7 @@ class HomePageController extends Controller
                         ->get();
                 }
             } else {
-                $slug_category = Category::where('slug', $slug)->first();
+                $slug_category = Category::first();
 
                 $products = Product::query()
                     ->where('category_id', $slug_category->id)
