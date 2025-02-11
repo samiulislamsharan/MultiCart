@@ -135,7 +135,7 @@ class HomePageController extends Controller
         }
     }
 
-    public function getFilterProducts($category_id, $attribute, $brand, $size, $color, $highPrice, $lowPrice)
+    public function getFilterProducts($category_id, $attribute = [], $brand = [], $size = [], $color = [], $highPrice, $lowPrice)
     {
         $products = Product::where('category_id', $category_id);
 
