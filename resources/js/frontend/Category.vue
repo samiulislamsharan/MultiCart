@@ -335,7 +335,6 @@ export default {
         },
         async getProducts() {
             try {
-                const route = useRoute();
                 this.slug = this.$route.params.slug;
 
                 let data = await axios.post(getUrlList().category, {
