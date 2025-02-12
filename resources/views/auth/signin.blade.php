@@ -111,23 +111,21 @@
         // Parsley Form Validation
         $("#formSubmit").submit(function(e) {
             e.preventDefault()
-            if ($(this).parsley().validate()) {
-                var url = "{{ url('login') }}";
-                $.ajax({
-                    url: url,
-                    data: $('#formSubmit').serialize(),
-                    type: 'post',
-                    success: function(result) {
-                        if (result.status == 200) {
-                            window.location.href = result.url;
-                        } else {
-                            alert('Wrong Credentials!');
-                        }
+
+            var url = "{{ url('login') }}";
+
+            $.ajax({
+                url: url,
+                data: $('#formSubmit').serialize(),
+                type: 'post',
+                success: function(result) {
+                    if (result.status == 200) {
+                        window.location.href = result.url;
+                    } else {
+                        alert('Wrong Credentials!');
                     }
-                });
-            } else {
-                alert('Failed to submit.');
-            }
+                }
+            });
         });
     </script>
 </body>
