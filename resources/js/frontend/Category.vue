@@ -83,7 +83,8 @@
                                         </div>
                                         <div class="content">
                                             <h5><a href="shop-details.html">{{ item.name }}</a></h5>
-                                            <span class="price">{{ 'BDT ' + item.product_attributes[0].price }}</span>
+                                            <span class="price">{{ 'BDT ' +
+                                                formatPrice(item.product_attributes[0].price) }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -279,6 +280,9 @@ export default {
         this.getProducts();
     },
     methods: {
+        formatPrice(value) {
+            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
         isNumber(event) {
             const charCode = (event.which) ? event.which : event.keyCode;
             if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46) {
