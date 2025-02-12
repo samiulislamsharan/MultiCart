@@ -140,7 +140,10 @@ class HomePageController extends Controller
         $products = Product::where('category_id', $category_id);
 
         if (sizeof($brand) > 0) {
-            $products = $products->whereIn('brand_id', $brand);
+            $products = Product::query()
+                ->whereIn('brand_id', $brand)
+                ->whereIn('id', $products->pluck('id'))
+                ->get();
         }
 
         if (sizeof($attribute) > 0) {
