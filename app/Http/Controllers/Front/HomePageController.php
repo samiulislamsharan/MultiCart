@@ -11,6 +11,7 @@ use App\Models\Size;
 use App\Models\Color;
 use App\Models\ProductAttr;
 use App\Models\CategoryAttribute;
+use App\Models\ProductAttribute;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
@@ -147,9 +148,14 @@ class HomePageController extends Controller
         }
 
         if (sizeof($attribute) > 0) {
-            $products = $products->withWhereHas('attribute', function ($query) use ($attribute) {
-                $query->whereIn('attribute_value_id', $attribute);
-            });
+            $products = ProductAttribute::query()
+                ->whereIn('attribute_value_id', $attribute)
+                ->whereIn('product_id', $products->pluck('id'))
+                ->get();
+
+            $products = Product::query()
+                ->whereIn('id', $products->pluck('product_id'))
+                ->get();
         }
 
         if (sizeof($size) > 0) {
