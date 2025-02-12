@@ -365,6 +365,7 @@ export default {
                         this.$refs.highPrice.value = data.data.data.data.highPrice;
                         this.categoriesProductCount = data.data.data.data.categories_product_count;
                     } else {
+                        this.products = [];
                         console.log('No data found');
                     }
                 }
