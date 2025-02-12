@@ -175,7 +175,8 @@ class HomePageController extends Controller
                 ->get();
         }
 
-        $products = $products
+        $data = Product::query()
+            ->whereIn('id', $data->pluck('product_id'))
             ->with('productAttributes')
             ->select(
                 'id',
@@ -186,6 +187,6 @@ class HomePageController extends Controller
             )
             ->paginate(12);
 
-        return $products;
+        return $data;
     }
 }
