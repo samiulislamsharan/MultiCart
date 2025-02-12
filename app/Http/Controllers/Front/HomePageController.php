@@ -158,22 +158,21 @@ class HomePageController extends Controller
                 ->get();
         }
 
+        $data = ProductAttr::whereIn('product_id', $products->pluck('id'))->get();
+
         if (sizeof($size) > 0) {
-            $products = $products->withWhereHas('productAttributes', function ($query) use ($size) {
-                $query->whereIn('size_id', $size);
-            });
+            $data = ProductAttr::whereIn('size_id', $size)->whereIn('id', $data->pluck('id'))->get();
         }
 
         if (sizeof($color) > 0) {
-            $products = $products->withWhereHas('productAttributes', function ($query) use ($color) {
-                $query->whereIn('color_id', $color);
-            });
+            $data = ProductAttr::whereIn('color_id', $color)->whereIn('id', $data->pluck('id'))->get();
         }
 
         if ($lowPrice != '' && $lowPrice != null && $highPrice != '') {
-            $products = $products->withWhereHas('productAttributes', function ($query) use ($lowPrice, $highPrice) {
-                $query->whereBetween('price', [$lowPrice, $highPrice]);
-            });
+            $data = ProductAttr::query()
+                ->whereBetween('price', [$lowPrice, $highPrice])
+                ->whereIn('id', $data->pluck('id'))
+                ->get();
         }
 
         $products = $products
