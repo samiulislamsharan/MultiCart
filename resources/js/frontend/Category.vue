@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div v-if="products.length > 0" class="row">
                                 <div v-for="item in products" :key="item.id" class="col-xl-4 col-sm-6">
                                     <div class="new-arrival-item text-center mb-50">
                                         <div class="thumb mb-25">
@@ -88,6 +88,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div v-else class="center-div ">
+                                <h1>Woops! Found Nothing.</h1>
                             </div>
                             <div class="pagination-wrap">
                                 <ul>
@@ -398,5 +401,12 @@ export default {
     background: #ecf0f1;
     color: #878686;
     padding: 10px 20px;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
 }
 </style>
