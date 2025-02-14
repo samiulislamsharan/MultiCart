@@ -136,6 +136,17 @@ class HomePageController extends Controller
         }
     }
 
+    public function changeSlug()
+    {
+        $data = Product::get();
+
+        foreach ($data as $list) {
+            $result = Product::find($list->id);
+            $result->slug = replace_slug_str($list->name);
+            $result->save();
+        }
+    }
+
     public function getFilterProducts($category_id, $attribute = [], $brand = [], $size = [], $color = [], $highPrice, $lowPrice)
     {
         $products = Product::where('category_id', $category_id);
