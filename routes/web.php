@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Front\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,8 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('/api_docs', function () {
     return view('api-docs');
 });
+
+Route::get('/change_slug',[HomePageController::class, 'changeSlug']);
 
 Route::get('/{vue_capture?}', function () {
     return view('index');
