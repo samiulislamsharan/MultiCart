@@ -418,10 +418,10 @@ export default {
                     this.headerCategories = data.data.data.data.categories;
                     console.log('Header category data assigned successfully');
                 } else {
-                    console.log('No data found');
+                    console.error('No data found');
                 }
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         }
     }
