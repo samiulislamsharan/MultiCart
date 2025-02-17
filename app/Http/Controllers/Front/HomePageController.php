@@ -12,6 +12,7 @@ use App\Models\Color;
 use App\Models\ProductAttr;
 use App\Models\CategoryAttribute;
 use App\Models\ProductAttribute;
+use App\Models\TempUser;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
@@ -200,4 +201,46 @@ class HomePageController extends Controller
 
         return $data;
     }
+
+    public function getUserData(Request $request)
+    {
+        $token = $request->token;
+        $checkUser = TempUser::where('token', $token)->first();
+
+        if (isset($checkUser->id)) {
+            $data['user_type'] = $checkUser->user_type;
+            $data['token'] = $checkUser->token;
+
+            if (checkTokenExpiryInMinutes($checkUser->updated_at, 60)) {
+                $token = generateRandomString();
+
+                $checkUser->token = $token;
+                $checkUser->updated_at = date('Y-m-d h:i:s a', time());
+                $checkUser->save();
+
+                $data['token'] = $token;
+
+                return $this->success(['data' => $data], 'User data with new token fetched successfully');
+            } else {
+                return $this->success(['data' => $data], 'User data fetched successfully');
+            }
+        } else {
+            $user_id = rand(100000, 999999);
+            $token = generateRandomString();
+            $time = date('Y-m-d h:i:s a', time());
+
+            TempUser::create([
+                'user_id' => $user_id,
+                'token' => $token,
+                'created_at' => $time,
+                'updated_at' => $time,
+            ]);
+
+            $data['user_type'] = 2;
+            $data['token'] = $token;
+
+            return $this->success(['data' => $data], 'User data fetched successfully');
+        }
+    }
+
 }
