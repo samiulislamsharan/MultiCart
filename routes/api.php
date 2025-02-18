@@ -31,3 +31,4 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/home', [HomePageController::class, 'index']);
 Route::get('/header_categories', [HomePageController::class, 'categories']);
 Route::post('/category', [HomePageController::class, 'categoryIndex']);
+Route::post('/get_user_data', [HomePageController::class, 'getUserData']);
