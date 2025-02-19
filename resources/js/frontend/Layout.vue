@@ -37,7 +37,9 @@
             <div class="container custom-container-two">
                 <div class="row">
                     <div class="col-12">
-                        <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                        <div class="mobile-nav-toggler">
+                            <i class="fas fa-bars"></i>
+                        </div>
                         <div class="menu-wrap">
                             <nav class="menu-nav show">
                                 <!-- brand logo -->
@@ -63,7 +65,8 @@
                                                 <li class="mega-menu-wrap">
                                                     <ul class="mega-menu-col">
                                                         <li class="mega-title">
-                                                            <RouterLink :to="'/category/' + item.slug">{{ item.name }}</RouterLink>
+                                                            <RouterLink :to="'/category/' + item.slug">{{ item.name }}
+                                                            </RouterLink>
                                                         </li>
                                                         <li v-for="subitem in item.subcategories" :key="subitem.id">
                                                             <RouterLink :to="'/category/' + subitem.slug">{{
@@ -95,7 +98,8 @@
                                                 <i class="flaticon-search"></i>
                                             </a>
                                         </li>
-                                        <li class="header-shop-cart"><a href="#">
+                                        <li class="header-shop-cart">
+                                            <a href="#">
                                                 <i class="flaticon-shopping-bag"></i>
                                                 <span>0</span>
                                             </a>
@@ -119,8 +123,9 @@
                                                 </li>
                                                 <li class="d-flex align-items-start">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="/front_assets/img/product/cart_p02.jpg"
-                                                                alt=""></a>
+                                                        <a href="#">
+                                                            <img src="/front_assets/img/product/cart_p02.jpg" alt="">
+                                                        </a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h4><a href="#">Winter Jackets For Women</a></h4>
@@ -158,8 +163,10 @@
                         <div class="mobile-menu">
                             <div class="close-btn"><i class="flaticon-targeting-cross"></i></div>
                             <nav class="menu-box">
-                                <div class="nav-logo"><a href="index.html"><img src="/front_assets/img/logo/logo.png"
-                                            alt="" title=""></a>
+                                <div class="nav-logo">
+                                    <a href="index.html">
+                                        <img src="/front_assets/img/logo/logo.png" alt="" title="">
+                                    </a>
                                 </div>
                                 <div class="menu-outer">
                                     <ul class="navigation">
@@ -211,8 +218,11 @@
         <!-- Modal Search-end -->
 
         <!-- off-canvas-start -->
-        <div class="sidebar-toggle-btn"><a href="#" class="navSidebar-button"><img
-                    src="/front_assets/img/icon/sidebar_toggle_icon.png" alt=""></a></div>
+        <div class="sidebar-toggle-btn">
+            <a href="#" class="navSidebar-button">
+                <img src="/front_assets/img/icon/sidebar_toggle_icon.png" alt="">
+            </a>
+        </div>
         <div class="sidebar-off-canvas info-group">
             <div class="off-canvas-overlay"></div>
             <div class="off-canvas-widget scroll">
@@ -235,11 +245,18 @@
                                 <div class="contact-info">
                                     <h4 class="title">CONTACT US</h4>
                                     <ul>
-                                        <li><span class="flaticon-phone-call"></span><a href="tel:123456789">+880 1716
-                                                571811</a></li>
-                                        <li><span class="flaticon-email"></span><a
-                                                href="mailto:multicart@info.com">multicart@info.com</a></li>
-                                        <li><span class="flaticon-place"></span>71 Park Lan Street 2355 NY</li>
+                                        <a>
+                                            <span class="flaticon-phone-call"></span>
+                                            <a href="tel:123456789">+880 1716 571811</a>
+                                        </a>
+                                        <li>
+                                            <span class="flaticon-email"></span>
+                                            <a href="mailto:multicart@info.com">multicart@info.com</a>
+                                        </li>
+                                        <li>
+                                            <span class="flaticon-place"></span>
+                                            71 Park Lan Street 2355 NY
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="oc-newsletter">
