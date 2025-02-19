@@ -142,6 +142,9 @@ export default {
         this.getHomeData();
     },
     methods: {
+        formatPrice(value) {
+            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
         async getHomeData() {
             try {
                 let data = await axios.get(getUrlList().home);
