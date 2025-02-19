@@ -433,7 +433,6 @@ export default {
 
                 if (data.status == 200 && data.data.data.data.categories.length > 0) {
                     this.headerCategories = data.data.data.data.categories;
-                    console.log('Header category data assigned successfully');
                 } else {
                     console.error('No data found');
                 }
