@@ -10,7 +10,8 @@
             <!-- category-area-end -->
 
             <!-- trending-product-area -->
-            <TrendingProducts :homeCategories="homeCategories" />
+            <TrendingProducts :homeCategories="homeCategories" :showActiveClass="showActiveClass"
+                :formatPrice="formatPrice" />
             <!-- trending-product-area-end -->
 
             <!-- new-arrival-area -->
