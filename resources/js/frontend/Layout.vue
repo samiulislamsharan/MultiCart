@@ -395,6 +395,13 @@ export default {
         return {
             result: [],
             headerCategories: [],
+            user_info: {
+                'user_id': '',
+                'auth': false
+            },
+            cartCount: 0,
+            cartProducts: [],
+            cartTotal: 0,
         }
     },
     mounted() {
