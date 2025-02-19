@@ -63,7 +63,8 @@
                                                 <i class="far fa-star"></i>
                                             </div>
                                             <h5><a href="shop-details.html">{{ item.name }}</a></h5>
-                                            <p class="price">{{ 'BDT ' + item.product_attributes[0].price }}
+                                            <p class="price">{{ 'BDT ' + formatPrice(item.product_attributes[0].price)
+                                                }}
                                             </p>
                                             <div class="features-product-bottom">
                                                 <ul>
@@ -98,17 +99,14 @@ export default {
         homeCategories: {
             type: Array,
             required: true
-        }
-    },
-    methods: {
-        showActiveClass(type, index) {
-            if (type == 1 && index == 0) {
-                return 'active';
-            } else if (type == 2 && index == 0) {
-                return 'show active';
-            } else {
-                return '';
-            }
+        },
+        showActiveClass: {
+            type: Function,
+            required: true
+        },
+        formatPrice: {
+            type: Function,
+            required: true
         }
     }
 }
