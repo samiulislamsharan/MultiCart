@@ -260,4 +260,37 @@ class HomePageController extends Controller
             return $this->success(['data' => $data], 'Cart data fetched successfully');
         }
     }
+
+    public function addToCart(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'token'             => 'required|exists:temp_users,token',
+            'product_id'        => 'required|exists:products,id',
+            'product_attr_id'   => 'required|exists:product_attrs,id',
+            'quantity'          => 'required|numeric|min:0|not_in:0',
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400, []);
+        } else {
+            $user = TempUser::where('token', $request->token)->first();
+
+            Cart::updateOrCreate(
+                [
+                    'user_id'           => $user->user_id,
+                    'product_id'        => $request->product_id,
+                    'product_attr_id'   => $request->product_attr_id,
+                ],
+                [
+                    'user_id'           => $user->user_id,
+                    'product_id'        => $request->product_id,
+                    'product_attr_id'   => $request->product_attr_id,
+                    'quantity'          => $request->quantity,
+                    'user_type'         => $user->user_type,
+                ]
+            );
+
+            return $this->success(['data' => ''], 'Product added to cart successfully');
+        }
+    }
 }
