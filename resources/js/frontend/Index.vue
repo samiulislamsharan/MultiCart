@@ -14,7 +14,8 @@
             <!-- trending-product-area-end -->
 
             <!-- new-arrival-area -->
-            <NewArrivalProducts :homeProducts="homeProducts" :homeCategories="homeCategories" />
+            <NewArrivalProducts :homeProducts="homeProducts" :homeCategories="homeCategories"
+                :showActiveClass="showActiveClass" :formatPrice="formatPrice" />
             <!-- new-arrival-area-end -->
 
             <!-- shoes-banner-area -->
