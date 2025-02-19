@@ -434,6 +434,37 @@ export default {
         this.getCategories();
     },
     methods: {
+        async getUserData() {
+            try {
+                let userData = await axios.post(
+                    getUrlList().get_user_data,
+                    {
+                        'token': this.user_info.user_id
+                    }
+                );
+
+                if (userData.status == 200) {
+                    if (userData.data.data.data.user_type == 1) {
+                        this.user_info.auth = true;
+                        this.user_info.user_id = userData.data.data.data.token;
+
+                        localStorage.setItem('user_info', JSON.stringify(this.user_info));
+                    }
+                    else {
+                        this.user_info.auth = false;
+                        this.user_info.user_id = userData.data.data.data.token;
+
+                        localStorage.setItem('user_info', JSON.stringify(this.user_info));
+                    }
+                }
+                else {
+                    console.error('No data found');
+                }
+            }
+            catch (error) {
+                console.error(error);
+            }
+        },
         async getCategories() {
             try {
                 let data = await axios.get(getUrlList().header_categories);
