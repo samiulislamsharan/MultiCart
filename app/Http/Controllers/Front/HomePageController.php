@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\HomeBanner;
 use App\Models\Product;
@@ -15,6 +16,7 @@ use App\Models\ProductAttribute;
 use App\Models\TempUser;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class HomePageController extends Controller
 {
@@ -243,4 +245,19 @@ class HomePageController extends Controller
         }
     }
 
+    public function getCartData(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'token' => 'required|exists:temp_users,token',
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400, []);
+        } else {
+            $userToken = TempUser::where('token', $request->token)->first();
+            $data = Cart::where('user_id', $userToken->user_id)->with('products')->get();
+
+            return $this->success(['data' => $data], 'Cart data fetched successfully');
+        }
+    }
 }
