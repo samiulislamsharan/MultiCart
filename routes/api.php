@@ -33,3 +33,4 @@ Route::get('/header_categories', [HomePageController::class, 'categories']);
 Route::post('/category', [HomePageController::class, 'categoryIndex']);
 Route::post('/get_user_data', [HomePageController::class, 'getUserData']);
 Route::post('/get_cart_data', [HomePageController::class, 'getCartData']);
+Route::post('/add_to_cart', [HomePageController::class, 'addToCart']);
