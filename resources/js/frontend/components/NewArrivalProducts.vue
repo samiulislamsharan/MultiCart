@@ -43,6 +43,12 @@
                                             <i class="far fa-eye"></i>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a @click="addToCart(item.id, item.product_attributes[0].id, 1)"
+                                            href="javascript:void(0)" title="Add to cart">
+                                            <i class="fa fa fa-cart-plus"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -78,6 +84,10 @@ export default {
             required: true
         },
         formatPrice: {
+            type: Function,
+            required: true
+        },
+        addToCart: {
             type: Function,
             required: true
         }
