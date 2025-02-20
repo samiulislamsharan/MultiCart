@@ -245,10 +245,10 @@
                                 <div class="contact-info">
                                     <h4 class="title">CONTACT US</h4>
                                     <ul>
-                                        <a>
+                                        <li>
                                             <span class="flaticon-phone-call"></span>
-                                            <a href="tel:123456789">+880 1716 571811</a>
-                                        </a>
+                                            <a href="tel:+880-1716-571811">+880 1716 571811</a>
+                                        </li>
                                         <li>
                                             <span class="flaticon-email"></span>
                                             <a href="mailto:multicart@info.com">multicart@info.com</a>
