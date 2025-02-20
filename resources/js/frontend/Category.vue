@@ -75,7 +75,7 @@
                                                     </li>
                                                     <li>
                                                         <a href="shop-details.html" title="Add to cart">
-                                                            <i class="flaticon-shopping-bag"></i>
+                                                            <i class="fa fa-cart-plus"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
