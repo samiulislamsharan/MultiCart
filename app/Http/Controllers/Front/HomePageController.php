@@ -293,4 +293,42 @@ class HomePageController extends Controller
             return $this->success(['data' => ''], 'Product added to cart successfully');
         }
     }
+
+    public function removeFromCart(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'token'             => 'required|exists:temp_users,token',
+            'product_id'        => 'required|exists:products,id',
+            'product_attr_id'   => 'required|exists:product_attrs,id',
+            'quantity'          => 'required|numeric|min:0|not_in:0',
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400, []);
+        } else {
+            $user = TempUser::where('token', $request->token)->first();
+            $cart = Cart::where(
+                [
+                    'user_id'           => $user->user_id,
+                    'product_id'        => $request->product_id,
+                    'product_attr_id'   => $request->product_attr_id,
+                ]
+            )->first();
+
+            if (isset($cart->id)) {
+                $quantity = $request->quantity;
+
+                if ($cart->quantity == $quantity) {
+                    $cart->delete();
+                } elseif ($cart->quantity > $quantity) {
+                    $cart->quantity -= $quantity;
+                    $cart->save();
+                } else {
+                    $cart->delete();
+                }
+            }
+
+            return $this->success(['data' => ''], 'Product added to cart successfully');
+        }
+    }
 }
