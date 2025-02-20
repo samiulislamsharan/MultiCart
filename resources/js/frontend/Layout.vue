@@ -316,7 +316,7 @@
 
     <!-- main-area -->
     <main>
-        <slot name="content" :addToCart="addToCart"></slot>
+        <slot name="content" :addToCart="addToCart" :formatPrice="formatPrice"></slot>
     </main>
     <!-- main-area-end -->
 
@@ -436,6 +436,9 @@ export default {
         this.getCartData();
     },
     methods: {
+        formatPrice(value) {
+            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
         async removeFromCart(product_id, product_attr_id, quantity) {
             try {
                 let data = await axios.post(
