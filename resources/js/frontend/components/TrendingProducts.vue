@@ -65,8 +65,8 @@
                                                 <i class="far fa-star"></i>
                                             </div>
                                             <h5><a href="shop-details.html">{{ item.name }}</a></h5>
-                                            <p class="price">{{ 'BDT ' + formatPrice(item.product_attributes[0].price)
-                                                }}
+                                            <p class="price">
+                                                {{ 'BDT ' + formatPrice(item.product_attributes[0].price) }}
                                             </p>
                                             <div class="features-product-bottom">
                                                 <ul>
