@@ -44,12 +44,12 @@
                             <nav class="menu-nav show">
                                 <!-- brand logo -->
                                 <div class="logo">
-                                    <a href="index.html" class="main-logo">
+                                    <router-link :to="'/'" class="main-logo">
                                         <img src="/front_assets/img/logo/fw_logo.png" alt="Logo">
-                                    </a>
-                                    <a href="index.html" class="sticky-logo">
-                                        <img src="/front_assets/img/logo/logo.png" alt="Logo">
-                                    </a>
+                                    </router-link>
+                                    <router-link :to="'/'" class="sticky-logo">
+                                        <img src="/front_assets/img/logo/fw_logo.png" alt="Logo">
+                                    </router-link>
                                 </div>
                                 <!-- brand logo end -->
 
