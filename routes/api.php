@@ -28,9 +28,11 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // Frontend data
-Route::get('/home', [HomePageController::class, 'index']);
-Route::get('/header_categories', [HomePageController::class, 'categories']);
-Route::post('/category', [HomePageController::class, 'categoryIndex']);
-Route::post('/get_user_data', [HomePageController::class, 'getUserData']);
-Route::post('/get_cart_data', [HomePageController::class, 'getCartData']);
-Route::post('/add_to_cart', [HomePageController::class, 'addToCart']);
+Route::controller(HomePageController::class)->group(function () {
+    Route::get('/home', 'index');
+    Route::get('/header_categories', 'categories');
+    Route::post('/category', 'categoryIndex');
+    Route::post('/get_user_data', 'getUserData');
+    Route::post('/get_cart_data', 'getCartData');
+    Route::post('/add_to_cart', 'addToCart');
+});
