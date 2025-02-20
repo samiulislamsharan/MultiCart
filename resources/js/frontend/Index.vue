@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <template v-slot:content>
+        <template v-slot:content="slotProps">
 
             <!-- home-banner-area -->
             <HomeBanner :homeBanner="homeBanner" />
@@ -11,12 +11,12 @@
 
             <!-- trending-product-area -->
             <TrendingProducts :homeCategories="homeCategories" :showActiveClass="showActiveClass"
-                :formatPrice="formatPrice" />
+                :formatPrice="slotProps.formatPrice" :addToCart="slotProps.addToCart" />
             <!-- trending-product-area-end -->
 
             <!-- new-arrival-area -->
             <NewArrivalProducts :homeProducts="homeProducts" :homeCategories="homeCategories"
-                :showActiveClass="showActiveClass" :formatPrice="formatPrice" />
+                :showActiveClass="showActiveClass" :formatPrice="slotProps.formatPrice" :addToCart="slotProps.addToCart" />
             <!-- new-arrival-area-end -->
 
             <!-- shoes-banner-area -->
