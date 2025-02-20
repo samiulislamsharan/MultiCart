@@ -7,6 +7,8 @@ export function getUrlList() {
         category: baseUrl + 'category',
         get_user_data: baseUrl + 'get_user_data',
         get_cart_data: baseUrl + 'get_cart_data',
+        add_to_cart: baseUrl + 'add_to_cart',
+        remove_from_cart: baseUrl + 'remove_from_cart',
     }
 }
 
