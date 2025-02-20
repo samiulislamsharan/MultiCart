@@ -403,6 +403,15 @@ export default {
             cartTotal: 0,
         }
     },
+    watch: {
+        cartProducts(value) {
+            this.cartTotal = 0;
+
+            for (var item in value) {
+                this.cartTotal += value[item].quantity * value[item].products[0].product_attributes[0].price;
+            }
+        }
+    },
     mounted() {
         var src = [
             '/front_assets/js/popper.min.js',
