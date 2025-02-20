@@ -17,15 +17,23 @@
         }
     }
 
-    $(window).on('load', function () {
+    // $(window).on('load', function () {
+    //     preloader();
+    //     mainSliderActive();
+    //     thirdSlider();
+    //     h9Slider();
+    //     wowAnimation();
+    // });
+
+    function loadFrame() {
         preloader();
         mainSliderActive();
         thirdSlider();
         h9Slider();
         wowAnimation();
-    });
+    }
 
-
+    window.onload = loadFrame();
 
     /*=============================================
         =    		Mobile Menu			      =
