@@ -83,8 +83,9 @@
                                         </div>
                                         <div class="content">
                                             <h5><a href="shop-details.html">{{ item.name }}</a></h5>
-                                            <span class="price">{{ 'BDT ' +
-                                                formatPrice(item.product_attributes[0].price) }}</span>
+                                            <span class="price">
+                                                {{ 'BDT ' + formatPrice(item.product_attributes[0].price) }}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
