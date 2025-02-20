@@ -57,20 +57,20 @@
                                 <div class="navbar-wrap main-menu d-none d-lg-flex">
                                     <ul class="navigation">
                                         <li class="active">
-                                            <RouterLink :to="'/'">Home</RouterLink>
+                                            <router-link :to="'/'">Home</router-link>
                                         </li>
                                         <li v-for="item in headerCategories" :key="item.id" class="has--mega--menu">
-                                            <RouterLink :to="'/category/' + item.slug">{{ item.name }}</RouterLink>
+                                            <router-link :to="'/category/' + item.slug">{{ item.name }}</router-link>
                                             <ul class="mega-menu">
                                                 <li class="mega-menu-wrap">
                                                     <ul class="mega-menu-col">
                                                         <li class="mega-title">
-                                                            <RouterLink :to="'/category/' + item.slug">{{ item.name }}
-                                                            </RouterLink>
+                                                            <router-link :to="'/category/' + item.slug">{{ item.name }}
+                                                            </router-link>
                                                         </li>
                                                         <li v-for="subitem in item.subcategories" :key="subitem.id">
-                                                            <RouterLink :to="'/category/' + subitem.slug">{{
-                                                                subitem.name }}</RouterLink>
+                                                            <router-link :to="'/category/' + subitem.slug">{{
+                                                                subitem.name }}</router-link>
                                                         </li>
                                                     </ul>
                                                     <ul class="mega-menu-col sub-cat-post">
