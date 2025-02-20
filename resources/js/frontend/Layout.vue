@@ -316,7 +316,7 @@
 
     <!-- main-area -->
     <main>
-        <slot name="content"></slot>
+        <slot name="content" :addToCart="addToCart"></slot>
     </main>
     <!-- main-area-end -->
 
