@@ -101,47 +101,46 @@
                                         <li class="header-shop-cart">
                                             <a href="#">
                                                 <i class="flaticon-shopping-bag"></i>
-                                                <span>0</span>
+                                                <span>{{ cartCount }}</span>
                                             </a>
                                             <ul class="minicart">
-                                                <li class="d-flex align-items-start">
+                                                <li v-if="cartCount > 0" v-for="item in cartProducts" :key="item.id"
+                                                    class="d-flex align-items-start">
                                                     <div class="cart-img">
                                                         <a href="#">
-                                                            <img src="/front_assets/img/product/cart_p01.jpg" alt="">
+                                                            <img :src="item.products[0].image"
+                                                                :alt="item.products[0].slug + '_image'"
+                                                                style="height: 5rem; object-fit: cover;">
                                                         </a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h4><a href="#">Exclusive Winter Jackets</a></h4>
+                                                        <h4><a href="#">{{ item.products[0].name }}</a></h4>
                                                         <div class="cart-price">
-                                                            <span class="new">$229.9</span>
-                                                            <span><del>$229.9</del></span>
+                                                            <span class="new">{{
+                                                                '&#2547; ' +
+                                                                formatPrice(item.products[0].product_attributes[0].price)
+                                                                }}</span>
+                                                            <span>
+                                                                <del>
+                                                                    {{ '&#2547; ' +
+                                                                        formatPrice(item.products[0].product_attributes[0].mrp)
+                                                                    }}
+                                                                </del>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div class="del-icon">
-                                                        <a href="#"><i class="far fa-trash-alt"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="cart-img">
-                                                        <a href="#">
-                                                            <img src="/front_assets/img/product/cart_p02.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h4><a href="#">Winter Jackets For Women</a></h4>
-                                                        <div class="cart-price">
-                                                            <span class="new">$229.9</span>
-                                                            <span><del>$229.9</del></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="del-icon">
-                                                        <a href="#"><i class="far fa-trash-alt"></i></a>
+                                                        <a @click="removeFromCart(item.products[0].id, item.products[0].product_attributes[0].id, 1)"
+                                                            href="javascript:void(0)"><i
+                                                                class="far fa-trash-alt"></i></a>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="total-price">
                                                         <span class="f-left">Total:</span>
-                                                        <span class="f-right">$239.9</span>
+                                                        <span class="f-right">
+                                                            {{ '&#2547; ' + formatPrice(cartTotal) }}
+                                                        </span>
                                                     </div>
                                                 </li>
                                                 <li>
