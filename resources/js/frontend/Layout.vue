@@ -436,6 +436,30 @@ export default {
         this.getCartData();
     },
     methods: {
+        async removeFromCart(product_id, product_attr_id, quantity) {
+            try {
+                let data = await axios.post(
+                    getUrlList().remove_from_cart,
+                    {
+                        'token': this.user_info.user_id,
+                        'auth': this.user_info.auth,
+                        'product_id': product_id,
+                        'product_attr_id': product_attr_id,
+                        'quantity': quantity,
+                    }
+                );
+
+                if (data.status == 200) {
+                    this.getCartData();
+                }
+                else {
+                    console.error('No data found');
+                }
+            }
+            catch (error) {
+                console.error(error);
+            }
+        },
         async addToCart(product_id, product_attr_id, quantity) {
             try {
                 let data = await axios.post(
