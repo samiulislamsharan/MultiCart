@@ -82,7 +82,8 @@
                                             </div>
                                         </div>
                                         <div class="features-product-cart">
-                                            <a href="javascript:void(0)">add to cart</a>
+                                            <a @click="addToCart(item.id, item.product_attributes[0].id, 1)"
+                                                href="javascript:void(0)">add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -107,6 +108,10 @@ export default {
             required: true
         },
         formatPrice: {
+            type: Function,
+            required: true
+        },
+        addToCart: {
             type: Function,
             required: true
         }
