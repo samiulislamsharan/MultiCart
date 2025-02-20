@@ -47,9 +47,11 @@
                                             </a>
                                             <div class="product-overlay-action">
                                                 <ul>
-                                                    <li><a href="cart.html"><i class="far fa-heart"></i></a>
+                                                    <li>
+                                                        <a href="cart.html"><i class="far fa-heart"></i></a>
                                                     </li>
-                                                    <li><a href="shop-details.html"><i class="far fa-eye"></i></a>
+                                                    <li>
+                                                        <a href="shop-details.html"><i class="far fa-eye"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -73,14 +75,14 @@
                                                         <span class="cyan"></span>
                                                         <span class="orange"></span>
                                                     </li>
-                                                    <li class="limited-time"><a href="#">Limited-Time
-                                                            Offer!</a>
+                                                    <li class="limited-time">
+                                                        <a href="#">Limited-Time Offer!</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="features-product-cart"><a href="cart.html">add to
-                                                cart</a>
+                                        <div class="features-product-cart">
+                                            <a href="javascript:void(0)">add to cart</a>
                                         </div>
                                     </div>
                                 </div>
