@@ -111,7 +111,7 @@
                 <li>
                     <a href="{{ route('admin.products.index') }}">
                         <i class="bx bx-right-arrow-alt"></i>
-                        Product Name
+                        Product List
                     </a>
                 </li>
             </ul>
