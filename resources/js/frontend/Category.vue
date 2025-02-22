@@ -251,6 +251,8 @@ import { useRoute } from 'vue-router';
 export default {
     name: 'Category',
     components: {
+        Layout,
+    },
     props: {
         addToCart: {
             type: Function,
