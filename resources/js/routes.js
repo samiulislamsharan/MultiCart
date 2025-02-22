@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Index from './frontend/Index.vue';
 import Category from './frontend/Category.vue';
+import Product from './frontend/Product.vue';
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         name: 'Category',
         path: '/category/:slug?',
         component: Category
+    },
+    {
+        name: 'Product',
+        path: '/product/:item_code?/:slug?',
+        component: Product
     },
 ];
 
