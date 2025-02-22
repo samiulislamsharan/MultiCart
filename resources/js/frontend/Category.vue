@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <template v-slot:content>
+        <template v-slot:content="slotProps">
             <!-- breadcrumb-area -->
             <section class="breadcrumb-area breadcrumb-bg" data-background="/front_assets/img/bg/breadcrumb_bg01.jpg">
                 <div class="container">
@@ -74,7 +74,8 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="shop-details.html" title="Add to cart">
+                                                        <a @click="slotProps.addToCart(item.id, item.product_attributes[0].id, 1)"
+                                                            href="javascript:void(0)" title="Add to cart">
                                                             <i class="fa fa-cart-plus"></i>
                                                         </a>
                                                     </li>
@@ -250,7 +251,11 @@ import { useRoute } from 'vue-router';
 export default {
     name: 'Category',
     components: {
-        Layout
+    props: {
+        addToCart: {
+            type: Function,
+            required: true
+        },
     },
     data() {
         return {
