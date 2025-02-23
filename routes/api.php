@@ -32,6 +32,7 @@ Route::controller(HomePageController::class)->group(function () {
     Route::get('/home', 'index');
     Route::get('/header_categories', 'categories');
     Route::post('/category', 'categoryIndex');
+    Route::get('/product/{item_code?}/{slug?}', 'productIndex');
     Route::post('/get_user_data', 'getUserData');
     Route::post('/get_cart_data', 'getCartData');
     Route::post('/add_to_cart', 'addToCart');
