@@ -518,15 +518,20 @@ export default {
             }
         },
         async getUser() {
-            if (localStorage.getItem('user_info')) {
-                var user = localStorage.getItem('user_info');
-                var testUser = JSON.parse(user);
+            try {
+                if (localStorage.getItem('user_info')) {
+                    var user = localStorage.getItem('user_info');
+                    var testUser = JSON.parse(user);
 
-                this.user_info.user_id = testUser.user_id;
+                    this.user_info.user_id = testUser.user_id;
 
-                this.getUserData();
-            } else {
-                this.getUserData();
+                    this.getUserData();
+                } else {
+                    this.getUserData();
+                }
+            }
+            catch (error) {
+                console.error(error);
             }
         },
         async getUserData() {
