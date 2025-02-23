@@ -24,7 +24,7 @@
                                         data-animation-in="zoomIn" data-delay-in="1" data-duration-in="1.5">
                                     </div>
                                     <img :src="item.image" alt="" class="main-img" data-animation-in="slideInRight2"
-                                        data-delay-in="1" data-duration-in="1.5">
+                                        data-delay-in="1" data-duration-in="1.5" style="margin-right: -2rem; height: 40rem; object-fit: cover;">
                                 </div>
                             </div>
                         </div>
