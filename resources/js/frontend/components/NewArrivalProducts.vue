@@ -27,10 +27,10 @@
                         <div class="thumb mb-25">
                             <!-- <div class="discount-tag">-20%</div> -->
                             <div class="discount-tag new">New</div>
-                            <a href="shop-details.html">
+                            <router-link :to="'/product/' + item.item_code + '/' + item.slug">
                                 <img :src="item.image" :alt="item.name + '_image'"
                                     style="height: 15rem; object-fit: cover;">
-                            </a>
+                            </router-link>
                             <div class="product-overlay-action">
                                 <ul>
                                     <li>
@@ -39,9 +39,10 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="shop-details.html" title="View product">
+                                        <router-link :to="'/product/' + item.item_code + '/' + item.slug"
+                                            title="View product">
                                             <i class="far fa-eye"></i>
-                                        </a>
+                                        </router-link>
                                     </li>
                                     <li>
                                         <a @click="addToCart(item.id, item.product_attributes[0].id, 1)"
@@ -54,7 +55,9 @@
                         </div>
                         <div class="content">
                             <h5>
-                                <a href="shop-details.html">{{ item.name }}</a>
+                                <router-link :to="'/product/' + item.item_code + '/' + item.slug">
+                                    {{ item.name }}
+                                </router-link>
                             </h5>
                             <span class="price">
                                 {{ 'BDT ' + formatPrice(item.product_attributes[0].price) }}
