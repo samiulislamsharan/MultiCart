@@ -331,4 +331,23 @@ class HomePageController extends Controller
             return $this->success(['data' => ''], 'Product added to cart successfully');
         }
     }
+
+    public function productIndex($item_code = '', $slug = '')
+    {
+        $product = Product::where(['item_code' => $item_code, 'slug' => $slug])->first();
+
+        if (isset($product->id)) {
+            $data = Product::query()
+                ->where([
+                    'item_code' => $item_code,
+                    'slug' => $slug
+                ])
+                ->with('productAttributes')
+                ->first();
+
+            return $this->success(['data' => $data], 'Product fetched successfully');
+        } else {
+            return $this->error('Product not found', 404);
+        }
+    }
 }
