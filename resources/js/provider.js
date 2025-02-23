@@ -5,6 +5,7 @@ export function getUrlList() {
         header_categories: baseUrl + 'header_categories',
         home: baseUrl + 'home',
         category: baseUrl + 'category',
+        product: baseUrl + 'product',
         get_user_data: baseUrl + 'get_user_data',
         get_cart_data: baseUrl + 'get_cart_data',
         add_to_cart: baseUrl + 'add_to_cart',
