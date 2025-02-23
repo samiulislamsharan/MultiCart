@@ -525,6 +525,8 @@ export default {
                 this.user_info.user_id = testUser.user_id;
 
                 this.getUserData();
+            } else {
+                this.getUserData();
             }
         },
         async getUserData() {
