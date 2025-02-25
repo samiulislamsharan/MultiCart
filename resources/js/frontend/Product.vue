@@ -427,6 +427,19 @@ export default {
         this.getProduct();
     },
     methods: {
+        showColor(size) {
+            this.uniqueColors = [];
+            this.color.id = '';
+            this.color.text = '';
+            this.color.product_attr_id = '';
+
+            for (var item in this.colors) {
+                if (this.colors[item].size == size) {
+                    this.uniqueColors.push(this.colors[item]);
+                    this.size = size;
+                }
+            }
+        },
         async getProduct() {
             try {
                 this.slug = this.$route.params.slug;
