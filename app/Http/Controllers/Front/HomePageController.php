@@ -241,7 +241,7 @@ class HomePageController extends Controller
             $data['user_type'] = 2;
             $data['token'] = $token;
 
-            return $this->success(['data' => $data], 'User data fetched successfully');
+            return $this->success(['data' => $data], 'Guest user data fetched successfully');
         }
     }
 
