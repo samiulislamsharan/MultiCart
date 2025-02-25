@@ -41,42 +41,27 @@
                             <div class="shop-details-flex-wrap">
                                 <div class="shop-details-nav-wrap">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link active" id="item-one-tab" data-toggle="tab"
-                                                href="#item-one" role="tab" aria-controls="item-one"
-                                                aria-selected="true"><img
-                                                    src="/front_assets/img/product/sd_nav_img01.jpg" alt=""></a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="item-two-tab" data-toggle="tab" href="#item-two"
-                                                role="tab" aria-controls="item-two" aria-selected="false"><img
-                                                    src="/front_assets/img/product/sd_nav_img02.jpg" alt=""></a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="item-three-tab" data-toggle="tab" href="#item-three"
-                                                role="tab" aria-controls="item-three" aria-selected="false"><img
-                                                    src="/front_assets/img/product/sd_nav_img03.jpg" alt=""></a>
+                                        <li v-for="(item, index) in images" :key="item.id" class="nav-item"
+                                            role="presentation">
+                                            <a :class="'nav-link ' + showActiveClass(1, index)"
+                                                :id="'item-' + item.id + '-tab'" data-toggle="tab"
+                                                :href="'#item-' + item.id" role="tab" :aria-controls="'item-' + item.id"
+                                                aria-selected="true">
+                                                <img :src="item.image" style="height: 5rem; object-fit: scale-down;"
+                                                    alt="">
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="shop-details-img-wrap">
                                     <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="item-one" role="tabpanel"
-                                            aria-labelledby="item-one-tab">
+                                        <div v-for="(item, index) in images" :key="item.id"
+                                            :class="'tab-pane fade ' + showActiveClass(2, index)"
+                                            :id="'item-' + item.id" role="tabpanel"
+                                            :aria-labelledby="'item-' + item.id + '-tab'">
                                             <div class="shop-details-img">
-                                                <img src="/front_assets/img/product/shop_details_img01.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="item-two" role="tabpanel"
-                                            aria-labelledby="item-two-tab">
-                                            <div class="shop-details-img">
-                                                <img src="/front_assets/img/product/shop_details_img02.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="item-three" role="tabpanel"
-                                            aria-labelledby="item-three-tab">
-                                            <div class="shop-details-img">
-                                                <img src="/front_assets/img/product/shop_details_img03.jpg" alt="">
+                                                <img :src="item.image" style="height: 40rem; object-fit: contain;"
+                                                    alt="">
                                             </div>
                                         </div>
                                     </div>
