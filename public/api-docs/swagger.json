@@ -360,7 +360,7 @@
                 }
             }
         },
-        "/product": {
+        "/product/{item_code}/{slug}": {
             "get": {
                 "tags": [
                     "Product Page"
@@ -375,7 +375,22 @@
                         "APIKeyHeader": []
                     }
                 ],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "item_code",
+                        "in": "path",
+                        "description": "Enter Product Item Code",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "description": "Enter Category Slug",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Request Success"
