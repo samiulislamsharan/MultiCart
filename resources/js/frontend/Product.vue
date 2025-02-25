@@ -116,12 +116,15 @@
                                 <div class="perched-info">
                                     <div class="cart-plus-minus">
                                         <form action="#" class="num-block">
-                                            <input type="text" class="in-num" value="1" readonly="">
+                                            <input v-model="quantity" type="text" class="" value="{{ quantity }}"
+                                                readonly="">
                                             <div class="qtybutton-box">
-                                                <span class="plus"><img src="/front_assets/img/icon/plus.png"
-                                                        alt=""></span>
-                                                <span class="minus dis"><img src="/front_assets/img/icon/minus.png"
-                                                        alt=""></span>
+                                                <span v-on:click="quantity++" class="plus">
+                                                    <img src="/front_assets/img/icon/plus.png" alt="">
+                                                </span>
+                                                <span v-on:click="quantity--" class="minus dis">
+                                                    <img src="/front_assets/img/icon/minus.png" alt="">
+                                                </span>
                                             </div>
                                         </form>
                                     </div>
