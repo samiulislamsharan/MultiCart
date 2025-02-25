@@ -90,11 +90,13 @@
                                         <h4 class="widget-title">Product Size</h4>
                                         <div class="shop-size-list">
                                             <ul>
-                                                <li><a href="#">S</a></li>
-                                                <li><a href="#">M</a></li>
-                                                <li><a href="#">L</a></li>
-                                                <li><a href="#">XL</a></li>
-                                                <li><a href="#">XXL</a></li>
+                                                <li v-for="item in uniqueSizes">
+                                                    <a href="javascript:void(0)"
+                                                        v-on:click="showColor(item), this.size = item"
+                                                        :class="this.size == item ? sizeColor : ''">
+                                                        {{ item }}
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
