@@ -414,7 +414,8 @@ export default {
                 product_attr_id: '',
             },
             size: '',
-        return {}
+            sizeColor: 'size-color',
+            colorColor: 'color-color',
             quantity: 1,
         }
     },
@@ -508,4 +509,32 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.brand-color::before {
+    background-color: #ff5400;
+}
+
+.size-color {
+    background-color: #ff5400;
+    border-color: #ff5400 !important;
+    color: white !important;
+}
+
+.color-color {
+    border: #ff5400 1.5px solid;
+    transition: all 0.2s ease;
+}
+
+.shop-size-list ul li a {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0.4rem;
+    line-height: 28px;
+    text-align: center;
+    border: 3px solid #ebebeb;
+    font-size: 14px;
+    color: #544842;
+    font-family: "Jost", sans-serif;
+}
+</style>
