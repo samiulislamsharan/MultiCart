@@ -395,7 +395,28 @@ export default {
     },
     props: {},
     data() {
+        return {
+            slug: '',
+            item_code: '',
+            product: {
+                product_attributes: [
+                    price => ''
+                ],
+            },
+            images: [],
+            colors: [],
+            sizes: [],
+            uniqueColors: [],
+            uniqueSizes: [],
+            color: {
+                id: '',
+                text: '',
+                product_attr_id: '',
+            },
+            size: '',
         return {}
+            quantity: 1,
+        }
     },
     watch: {},
     mounted() {
