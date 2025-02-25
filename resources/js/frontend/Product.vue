@@ -418,10 +418,65 @@ export default {
             quantity: 1,
         }
     },
-    watch: {},
+    watch: {
+        '$route'() {
+            this.getProduct();
+        }
+    },
     mounted() {
+        this.getProduct();
     },
     methods: {
+        async getProduct() {
+            try {
+                this.slug = this.$route.params.slug;
+                this.item_code = this.$route.params.item_code;
+
+                if (this.slug == '' || this.item_code == '' || this.slug == undefined || this.slug == null) {
+                    this.$router.push({ name: 'Index' });
+                } else {
+                    let data = await axios.get(getUrlList().product + '/' + this.item_code + '/' + this.slug);
+
+                    console.log(data.data.data.data);
+
+                    if (data.status == 200 && data.data.data.data != undefined) {
+                        this.product = data.data.data.data;
+
+                        for (var item in this.product.product_attributes) {
+                            for (var subItem in this.product.product_attributes[item].images) {
+                                this.images.push(this.product.product_attributes[item].images[subItem]);
+                            }
+
+                            this.colors.push({
+                                id: this.product.product_attributes[item].colors.id,
+                                value: this.product.product_attributes[item].colors.value,
+                                product_attr_id: this.product.product_attributes[item].id,
+                                size: this.product.product_attributes[item].sizes.text,
+                            });
+
+                            this.sizes.push({
+                                id: this.product.product_attributes[item].sizes.id,
+                                text: this.product.product_attributes[item].sizes.text,
+                                product_attr_id: this.product.product_attributes[item].id,
+                            });
+
+                            this.uniqueSizes = [...new Set(this.sizes.map(item => item.text))];
+                            this.uniqueColors = this.colors;
+
+                            console.table(this.colors);
+                            console.table(this.sizes);
+
+                            console.table(this.uniqueSizes);
+                            console.table(this.uniqueColors);
+                        }
+                    } else {
+                        console.log('No data found');
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        },
     },
 }
 </script>
