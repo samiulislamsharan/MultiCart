@@ -42,6 +42,9 @@
                                 href="javascript:void(0)"><i class="far fa-trash-alt"></i></a>
                         </div>
                     </li>
+                    <li v-else>
+                        <p class="text-center mt-4"> <span class="font-weight-bold">Woops!</span> Nothing Here.</p>
+                    </li>
                     <li>
                         <div class="total-price">
                             <span class="f-left">Total:</span>
