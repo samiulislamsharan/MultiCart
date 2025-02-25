@@ -34,7 +34,7 @@
             <!-- breadcrumb-area-end -->
 
             <!-- shop-details-area -->
-            <section class="shop-details-area pt-100 pb-95">
+            <section class="shop-details-area mt-4 pt-100 pb-95">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7">
