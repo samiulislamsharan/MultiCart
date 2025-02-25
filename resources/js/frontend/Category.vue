@@ -34,7 +34,10 @@
                                                 <li>
                                                     <a href="#"><i class="flaticon-menu"></i> FILTER</a>
                                                 </li>
-                                                <li>Showing 1 &#45; 9 of 80 results</li>
+                                                <li>
+                                                    {{ 'Showing ' + productCount.from + ' &#45; ' + productCount.to +
+                                                        ' of ' + productCount.total + ' results' }}
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -280,6 +283,14 @@ export default {
             brandColor: 'brand-color',
             sizeColor: 'size-color',
             colorColor: 'color-color',
+            productCount: {
+                total: 0,
+                per_page: 0,
+                current_page: 0,
+                last_page: 0,
+                from: 0,
+                to: 0,
+            },
         }
     },
     watch: {
@@ -374,7 +385,12 @@ export default {
                         this.attributes = data.data.data.data.attributes;
                         this.$refs.lowPrice.value = data.data.data.data.lowPrice;
                         this.$refs.highPrice.value = data.data.data.data.highPrice;
-                        this.categoriesProductCount = data.data.data.data.categories_product_count;
+                        this.productCount.from = data.data.data.data.products.from;
+                        this.productCount.to = data.data.data.data.products.to;
+                        this.productCount.total = data.data.data.data.products.total;
+                        this.productCount.per_page = data.data.data.data.products.per_page;
+                        this.productCount.current_page = data.data.data.data.products.current_page;
+                        this.productCount.last_page = data.data.data.data.products.last_page;
                     } else {
                         this.products = [];
                         console.log('No data found');
