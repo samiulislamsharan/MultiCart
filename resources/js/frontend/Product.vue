@@ -104,10 +104,11 @@
                                         <h4 class="widget-title">Color</h4>
                                         <div class="shop-color-list">
                                             <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
+                                                <li v-for="item in uniqueColors" :key="item.id"
+                                                    :style="{ backgroundColor: item.value }"
+                                                    v-on:click="this.color.id = item.id, this.color.text = item.text, this.color.product_attr_id = item.product_attr_id"
+                                                    :class="this.color.id == item.id ? colorColor + ' shadow m-1 p-3' : 'border shadow m-1 p-3'">
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
