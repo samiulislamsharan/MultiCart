@@ -421,6 +421,11 @@ export default {
     watch: {
         '$route'() {
             this.getProduct();
+        },
+        quantity(value) {
+            if (value == 0 || value < 1) {
+                this.quantity = 1;
+            }
         }
     },
     mounted() {
