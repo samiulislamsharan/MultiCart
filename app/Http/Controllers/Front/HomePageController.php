@@ -345,6 +345,17 @@ class HomePageController extends Controller
                 ->with('productAttributes')
                 ->first();
 
+            $data['other_products'] = Product::query()
+                ->where('category_id', $data->category_id)
+                ->where('id', '!=', $data->id)
+                ->with('productAttributes')
+                ->get();
+
+            // $data['other_products'] = Product::query()
+            //     ->where('category_id', $data->category_id)
+            //     ->with('productAttributes')
+            //     ->get();
+
             return $this->success(['data' => $data], 'Product fetched successfully');
         } else {
             return $this->error('Product not found', 404);
