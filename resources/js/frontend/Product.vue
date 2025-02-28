@@ -365,12 +365,6 @@ export default {
 
                             this.uniqueSizes = [...new Set(this.sizes.map(item => item.text))];
                             this.uniqueColors = this.colors;
-
-                            console.table(this.colors);
-                            console.table(this.sizes);
-
-                            console.table(this.uniqueSizes);
-                            console.table(this.uniqueColors);
                         }
                     } else {
                         console.log('No data found');
