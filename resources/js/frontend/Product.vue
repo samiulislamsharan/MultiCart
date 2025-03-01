@@ -81,7 +81,7 @@
                                 </div>
                                 <p class="style-name">Item Code : {{ product.item_code }}</p>
                                 <div class="price">
-                                    {{ 'Price : &#2547; ' + product.product_attributes[0].price }}
+                                    {{ 'Price : &#2547; ' + slotProps.formatPrice(product.product_attributes[0].price) }}
                                 </div>
                                 <div class="product-details-info">
                                     <span>Size <a href="#">Guide</a></span>
@@ -251,7 +251,7 @@
                                     <div class="content">
                                         <h5><a href="#">{{ item.name }}</a></h5>
                                         <span class="price">
-                                            {{ '&#2547; ' + product.product_attributes[0].price }}
+                                            {{ '&#2547; ' + slotProps.formatPrice(product.product_attributes[0].price) }}
                                         </span>
                                     </div>
                                 </div>
