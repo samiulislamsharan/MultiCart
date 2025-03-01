@@ -40,34 +40,62 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr v-for="item in slotProps.cartProducts" :key="item.id">
                                                 <td class="product-thumbnail">
                                                     <a href="shop-details.html">
-                                                        <img src="/front_assets/img/product/cart_img01.jpg" alt="">
+                                                        <img :src="item.products[0].image"
+                                                            :alt="item.products[0].slug + '_image'"
+                                                            style="height: 5rem; object-fit: cover;">
                                                     </a>
                                                 </td>
                                                 <td class="product-name">
-                                                    <h4><a href="shop-details.html">Traveling Bags</a></h4>
+                                                    <h4>
+                                                        <router-link
+                                                            :to="'/product/' + item.products[0].item_code + '/' + item.products[0].slug"
+                                                            title="View product">
+                                                            {{ item.products[0].name }}
+                                                        </router-link>
+                                                    </h4>
                                                 </td>
-                                                <td class="product-price">$ 37.00</td>
+                                                <td class="product-price">
+                                                    <span class="">
+                                                        {{ '&#2547; ' +
+                                                            slotProps.formatPrice(item.products[0].product_attributes[0].price)
+                                                        }}
+                                                    </span>
+                                                </td>
                                                 <td class="product-quantity">
                                                     <div class="cart-plus-minus">
                                                         <form action="#" class="num-block">
-                                                            <input type="text" class="in-num" value="1" readonly="">
+                                                            <input type="text" class="in-num" :value="item.quantity"
+                                                                readonly="">
                                                             <div class="qtybutton-box">
-                                                                <span class="plus">
+                                                                <span
+                                                                    v-on:click="slotProps.addToCart(item.products[0].id, item.products[0].product_attributes[0].id, item.quantity + 1)"
+                                                                    class="plus">
                                                                     <img src="/front_assets/img/icon/plus.png" alt="">
                                                                 </span>
-                                                                <span class="minus dis">
+                                                                <span
+                                                                    v-on:click="slotProps.addToCart(item.products[0].id, item.products[0].product_attributes[0].id, item.quantity - 1)"
+                                                                    class="minus dis">
                                                                     <img src="/front_assets/img/icon/minus.png" alt="">
                                                                 </span>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </td>
-                                                <td class="product-subtotal"><span>$ 74.00</span></td>
+                                                <td class="product-subtotal">
+                                                    <span>
+                                                        {{ '&#2547; ' +
+                                                            slotProps.formatPrice(item.products[0].product_attributes[0].price
+                                                                * item.quantity) }}
+                                                    </span>
+                                                </td>
                                                 <td class="product-delete">
-                                                    <a href="#"><i class="flaticon-trash"></i></a>
+                                                    <a v-on:click="slotProps.removeFromCart(item.products[0].id, item.products[0].product_attributes[0].id, item.quantity)"
+                                                        href="javascript:void(0);">
+                                                        <i class="flaticon-trash"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -90,7 +118,10 @@
                                 <div class="shop-cart-widget">
                                     <form action="#">
                                         <ul>
-                                            <li class="sub-total"><span>SUBTOTAL</span> $ 136.00</li>
+                                            <li class="sub-total">
+                                                <span>SUBTOTAL</span>
+                                                {{ '&#2547; ' + slotProps.formatPrice(slotProps.cartTotal) }}
+                                            </li>
                                             <li>
                                                 <span>SHIPPING</span>
                                                 <div class="shop-check-wrap">
@@ -110,7 +141,10 @@
                                                 </div>
                                             </li>
                                             <li class="cart-total-amount">
-                                                <span>TOTAL</span> <span class="amount">$ 151.00</span>
+                                                <span>TOTAL</span>
+                                                <span class="amount">
+                                                    {{ '&#2547; ' + slotProps.formatPrice(slotProps.cartTotal) }}
+                                                </span>
                                             </li>
                                         </ul>
                                         <a href="checkout.html" class="btn">PROCEED TO CHECKOUT</a>
