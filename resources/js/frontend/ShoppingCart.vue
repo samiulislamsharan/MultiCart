@@ -2,16 +2,16 @@
     <Layout>
         <template v-slot:content="slotProps">
             <!-- breadcrumb-area -->
-            <section class="breadcrumb-area breadcrumb-bg" data-background="/front_assets/img/bg/breadcrumb_bg03.jpg">
+            <section class="breadcrumb-area breadcrumb-bg" data-background="/front_assets/img/slider/third_slider_bg.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="breadcrumb-content">
-                                <h2>Cart Page</h2>
+                                <h2>Shopping Cart</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                        <li class="breadcrumb-item"><a class="text-white" href="index.html">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
                                     </ol>
                                 </nav>
                             </div>
