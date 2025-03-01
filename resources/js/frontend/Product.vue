@@ -2,35 +2,24 @@
     <Layout>
         <template v-slot:content="slotProps">
             <!-- breadcrumb-area -->
-            <div class="breadcrumb-area breadcrumb-style-two"
-                data-background="/front_assets/img/bg/s_breadcrumb_bg01.jpg">
+            <section class="breadcrumb-area breadcrumb-bg"
+                data-background="/front_assets/img/slider/third_slider_bg.jpg" style="padding: 3.5rem 0 !important;">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 d-none d-lg-block">
-                            <div class="previous-product">
-                                <a href="shop-details.html"><i class="fas fa-angle-left"></i> previous product</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="breadcrumb-content">
+                        <div class="col-12">
+                            <!-- <div class="breadcrumb-content">
+                                <h2>Cart Page</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="breadcrumb-item"><a href="shop.html">Winter 20</a></li>
-                                        <li class="breadcrumb-item"><a href="shop.html">Women</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Tracker Jacket</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
                                     </ol>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 d-none d-lg-block">
-                            <div class="next-product">
-                                <a href="shop-details.html">Next product <i class="fas fa-angle-right"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- breadcrumb-area-end -->
 
             <!-- shop-details-area -->
