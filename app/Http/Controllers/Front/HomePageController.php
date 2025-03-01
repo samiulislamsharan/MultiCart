@@ -328,7 +328,7 @@ class HomePageController extends Controller
                 }
             }
 
-            return $this->success(['data' => ''], 'Product added to cart successfully');
+            return $this->success(['data' => ''], 'Product removed from cart successfully');
         }
     }
 
