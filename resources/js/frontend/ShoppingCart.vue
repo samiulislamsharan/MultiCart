@@ -34,8 +34,8 @@
                                                 <th class="product-thumbnail"></th>
                                                 <th class="product-name">Product</th>
                                                 <th class="product-price">Price</th>
-                                                <th class="product-quantity">QUANTITY</th>
-                                                <th class="product-subtotal">SUBTOTAL</th>
+                                                <th class="product-quantity">Quantity</th>
+                                                <th class="product-subtotal">Subtotal</th>
                                                 <th class="product-delete"></th>
                                             </tr>
                                         </thead>
