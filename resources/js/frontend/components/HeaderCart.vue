@@ -24,15 +24,12 @@
                         <div class="cart-content">
                             <h4><a href="#">{{ item.products[0].name }}</a></h4>
                             <div class="cart-price">
-                                <span class="new">{{
-                                    '&#2547; ' +
-                                    formatPrice(item.products[0].product_attributes[0].price)
-                                }}</span>
+                                <span class="new">
+                                    {{ '&#2547; ' + formatPrice(item.products[0].product_attributes[0].price) }}
+                                </span>
                                 <span>
                                     <del>
-                                        {{ '&#2547; ' +
-                                            formatPrice(item.products[0].product_attributes[0].mrp)
-                                        }}
+                                        {{ '&#2547; ' + formatPrice(item.products[0].product_attributes[0].mrp) }}
                                     </del>
                                 </span>
                             </div>
