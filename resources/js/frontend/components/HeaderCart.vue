@@ -8,10 +8,10 @@
                 </a>
             </li>
             <li class="header-shop-cart">
-                <a href="#">
+                <router-link :to="'/shopping_cart'">
                     <i class="flaticon-shopping-bag"></i>
                     <span>{{ cartCount }}</span>
-                </a>
+                </router-link>
                 <ul class="minicart">
                     <li v-if="cartCount > 0" v-for="item in cartProducts" :key="item.id"
                         class="d-flex align-items-start">
@@ -55,7 +55,7 @@
                     </li>
                     <li>
                         <div class="checkout-link">
-                            <a href="#">Shopping Cart</a>
+                            <router-link :to="'/shopping_cart'">Shopping Cart</router-link>
                             <a class="black-color" href="#">Checkout</a>
                         </div>
                     </li>
