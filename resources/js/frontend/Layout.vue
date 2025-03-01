@@ -414,27 +414,31 @@ export default {
             }
         },
         async addToCart(product_id, product_attr_id, quantity) {
-            try {
-                let data = await axios.post(
-                    getUrlList().add_to_cart,
-                    {
-                        'token': this.user_info.user_id,
-                        'auth': this.user_info.auth,
-                        'product_id': product_id,
-                        'product_attr_id': product_attr_id,
-                        'quantity': quantity,
-                    }
-                );
+            if (product_id == '' || product_attr_id == '' || quantity == '' || quantity < 1) {
+                alert('Please select Size, Color or Quantity properly');
+            } else {
+                try {
+                    let data = await axios.post(
+                        getUrlList().add_to_cart,
+                        {
+                            'token': this.user_info.user_id,
+                            'auth': this.user_info.auth,
+                            'product_id': product_id,
+                            'product_attr_id': product_attr_id,
+                            'quantity': quantity,
+                        }
+                    );
 
-                if (data.status == 200) {
-                    this.getCartData();
+                    if (data.status == 200) {
+                        this.getCartData();
+                    }
+                    else {
+                        console.error('No data found');
+                    }
                 }
-                else {
-                    console.error('No data found');
+                catch (error) {
+                    console.error(error);
                 }
-            }
-            catch (error) {
-                console.error(error);
             }
         },
         async getCartData() {
