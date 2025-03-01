@@ -275,7 +275,6 @@ export default {
     components: {
         Layout,
     },
-    props: {},
     data() {
         return {
             slug: '',
