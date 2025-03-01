@@ -387,7 +387,26 @@ export default {
     },
     methods: {
         formatPrice(value) {
-            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // Convert to number
+            let num = parseFloat(value);
+            if (isNaN(num)) {
+                return value;
+            }
+
+            // Convert to integer if needed, or to fixed decimals
+            let strVal = Math.floor(num).toString();
+
+            // Separate last 3 digits
+            let last3 = strVal.substring(strVal.length - 3);
+            let rest = strVal.substring(0, strVal.length - 3);
+
+            // Insert commas after every 2 digits in the rest
+            if (rest !== '') {
+                rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+                return rest + ',' + last3;
+            } else {
+                return last3;
+            }
         },
         async removeFromCart(product_id, product_attr_id, quantity) {
             try {
