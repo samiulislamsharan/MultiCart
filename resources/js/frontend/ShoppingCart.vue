@@ -31,7 +31,7 @@
                                     <table class="table mb-0">
                                         <thead>
                                             <tr>
-                                                <th class="product-thumbnail"></th>
+                                                <th class="product-thumbnail">Thumbnail</th>
                                                 <th class="product-name">Product</th>
                                                 <th class="product-price">Price</th>
                                                 <th class="product-quantity">Quantity</th>
