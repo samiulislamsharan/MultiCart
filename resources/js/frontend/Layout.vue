@@ -253,7 +253,8 @@
 
     <!-- main-area -->
     <main>
-        <slot name="content" :addToCart="addToCart" :formatPrice="formatPrice"></slot>
+        <slot name="content" :addToCart="addToCart" :removeFromCart="removeFromCart" :formatPrice="formatPrice"
+            :cartCount="cartCount" :cartProducts="cartProducts" :cartTotal="cartTotal"></slot>
     </main>
     <!-- main-area-end -->
 
