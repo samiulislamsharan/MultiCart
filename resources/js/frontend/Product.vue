@@ -282,7 +282,7 @@ export default {
             item_code: '',
             product: {
                 product_attributes: [
-                    price => ''
+                    price => 0
                 ],
             },
             images: [],
