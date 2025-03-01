@@ -127,7 +127,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <a href="#" class="btn">add to cart</a>
+                                    <a v-on:click="slotProps.addToCart(this.product.id, this.color.product_attr_id, this.quantity)" href="javascript:void(0);" class="btn">add to cart</a>
                                     <div class="wishlist-compare">
                                         <ul>
                                             <li><a href="#"><i class="far fa-heart"></i> Add to Wishlist</a></li>
