@@ -12,6 +12,7 @@ use App\Models\Size;
 use App\Models\Color;
 use App\Models\ProductAttr;
 use App\Models\CategoryAttribute;
+use App\Models\Coupon;
 use App\Models\ProductAttribute;
 use App\Models\TempUser;
 use App\Traits\ApiResponse;
@@ -359,6 +360,35 @@ class HomePageController extends Controller
             return $this->success(['data' => $data], 'Product fetched successfully');
         } else {
             return $this->error('Product not found', 404);
+        }
+    }
+
+    public function addCoupon(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'token'             => 'required|exists:temp_users,token',
+            'coupon'            => 'required|exists:coupons,name',
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400, []);
+        } else {
+            $coupon = Coupon::where('name', $request->coupon)->first();
+
+            if ($coupon->min_value <= $request->cart_total) {
+                $coupon_value = $coupon->value;
+
+                if ($coupon->type == 1) {
+                    $cart_total = $request->cart_total - $coupon_value;
+                } else {
+                    $coupon_value = ($coupon_value / 100) * $request->cart_total;
+                    $cart_total = $request->cart_total - $coupon_value;
+                }
+            } else {
+                return $this->error('Coupon is not applicable on this cart total', 400, []);
+            }
+
+            return $this->success(['data' => $cart_total], 'Coupon applied successfully');
         }
     }
 }
