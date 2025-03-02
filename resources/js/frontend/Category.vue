@@ -2,7 +2,7 @@
     <Layout>
         <template v-slot:content="slotProps">
             <!-- breadcrumb-area -->
-            <section class="breadcrumb-area breadcrumb-bg" data-background="/front_assets/img/bg/breadcrumb_bg01.jpg">
+            <section class="breadcrumb-area breadcrumb-bg" data-background="/front_assets/img/slider/third_slider_bg.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
