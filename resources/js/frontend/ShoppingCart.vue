@@ -106,7 +106,7 @@
                                 <div class="shop-cart-bottom mt-20">
                                     <div class="cart-coupon">
                                         <form action="#">
-                                            <input type="text" placeholder="Enter Coupon Code...">
+                                            <input v-model="couponName" type="text" placeholder="Enter Coupon Code...">
                                             <button class="btn">Apply Coupon</button>
                                         </form>
                                     </div>
@@ -171,6 +171,16 @@ export default {
     name: 'ShoppingCart',
     components: {
         Layout,
+    },
+    data() {
+        return {
+            couponName: '',
+        }
+    },
+    watch: {
+        couponName(val) {
+            this.couponName = val.replace('/\s+/g', '');
+        }
     },
 }
 </script>
