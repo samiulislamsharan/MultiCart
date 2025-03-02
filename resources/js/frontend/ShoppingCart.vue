@@ -107,7 +107,7 @@
                                     <div class="cart-coupon">
                                         <form action="#">
                                             <input v-model="couponName" type="text" placeholder="Enter Coupon Code...">
-                                            <button class="btn">Apply Coupon</button>
+                                            <button v-on:click="slotProps.addCoupon(couponName)" type="button" class="btn">Apply Coupon</button>
                                         </form>
                                     </div>
                                     <div class="continue-shopping">
