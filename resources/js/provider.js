@@ -10,6 +10,7 @@ export function getUrlList() {
         get_cart_data: baseUrl + 'get_cart_data',
         add_to_cart: baseUrl + 'add_to_cart',
         remove_from_cart: baseUrl + 'remove_from_cart',
+        add_coupon: baseUrl + 'add_coupon',
     }
 }
 
