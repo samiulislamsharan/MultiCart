@@ -37,4 +37,5 @@ Route::controller(HomePageController::class)->group(function () {
     Route::post('/get_cart_data', 'getCartData');
     Route::post('/add_to_cart', 'addToCart');
     Route::post('/remove_from_cart', 'removeFromCart');
+    Route::post('/add_coupon', 'addCoupon');
 });
