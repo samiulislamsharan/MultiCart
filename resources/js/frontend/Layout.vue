@@ -254,7 +254,7 @@
     <!-- main-area -->
     <main>
         <slot name="content" :addToCart="addToCart" :removeFromCart="removeFromCart" :formatPrice="formatPrice"
-            :cartCount="cartCount" :cartProducts="cartProducts" :cartTotal="cartTotal"></slot>
+            :cartCount="cartCount" :cartProducts="cartProducts" :cartTotal="cartTotal" :addCoupon="addCoupon"></slot>
     </main>
     <!-- main-area-end -->
 
@@ -387,6 +387,29 @@ export default {
         this.getCartData();
     },
     methods: {
+        async addCoupon(coupon) {
+            try {
+                let data = await axios.post(
+                    getUrlList().add_coupon,
+                    {
+                        'token': this.user_info.user_id,
+                        'auth': this.user_info.auth,
+                        'cart_total': this.cartTotal,
+                        'coupon': coupon,
+                    }
+                );
+
+                if (data.status == 200) {
+                    this.getCartData();
+                }
+                else {
+                    console.error('No data found');
+                }
+            }
+            catch (error) {
+                console.error(error);
+            }
+        },
         formatPrice(value) {
             // Convert to number
             let num = parseFloat(value);
