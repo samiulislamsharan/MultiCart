@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TaxController;
 use Illuminate\Support\Facades\Route;
@@ -69,4 +70,9 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
     Route::post('/get_attributes', 'getAttributes')->name('admin.products.get_attributes');
     Route::post('/remove_attr', 'removeAttr')->name('admin.products.remove_attr');
     Route::post('/remove_attr_img', 'removeAttrImg')->name('admin.products.remove_attr_img');
+});
+
+Route::prefix('coupons')->controller(CouponController::class)->group(function () {
+    Route::get('/', 'index')->name('admin.coupons.index');
+    Route::post('/store', 'store')->name('admin.coupons.store');
 });
