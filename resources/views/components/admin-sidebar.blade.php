@@ -41,6 +41,14 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('admin.coupons.index') }}">
+                <div class="parent-icon">
+                    <i class='bx bx-note'></i>
+                </div>
+                <div class="menu-title">Manage Coupons</div>
+            </a>
+        </li>
+        <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon">
                     <i class='lni lni-tag'></i>
