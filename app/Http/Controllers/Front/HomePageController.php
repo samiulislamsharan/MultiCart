@@ -15,6 +15,7 @@ use App\Models\CategoryAttribute;
 use App\Models\Coupon;
 use App\Models\ProductAttribute;
 use App\Models\TempUser;
+use App\Models\UserCouponCart;
 use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -374,6 +375,7 @@ class HomePageController extends Controller
             return $this->error($validation->errors()->first(), 400, []);
         } else {
             $coupon = Coupon::where('name', $request->coupon)->first();
+            $user = TempUser::where('token', $request->token)->first();
 
             if ($coupon->min_value <= $request->cart_total) {
                 $coupon_value = $coupon->value;
@@ -384,6 +386,21 @@ class HomePageController extends Controller
                     $coupon_value = ($coupon_value / 100) * $request->cart_total;
                     $cart_total = $request->cart_total - $coupon_value;
                 }
+
+                UserCouponCart::updateOrCreate(
+                    ['user_id' => $user->user_id],
+                    [
+                        'user_id' => $user->user_id,
+                        'coupon_id' => $coupon->id
+                    ]
+                );
+
+                return $this->success(['data' => $cart_total], 'Coupon applied successfully');
+            } else {
+                return $this->error('Coupon is not applicable', 400, []);
+            }
+        }
+    }
             } else {
                 return $this->error('Coupon is not applicable on this cart total', 400, []);
             }
