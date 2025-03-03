@@ -92,7 +92,7 @@
 
                                 <!-- cart -->
                                 <HeaderCart :cartCount="cartCount" :cartProducts="cartProducts" :cartTotal="cartTotal"
-                                    :removeFromCart="removeFromCart" :formatPrice="formatPrice"/>
+                                    :removeFromCart="removeFromCart" :formatPrice="formatPrice" />
                                 <!-- cart end -->
                             </nav>
                         </div>
