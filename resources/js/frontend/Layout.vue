@@ -254,7 +254,8 @@
     <!-- main-area -->
     <main>
         <slot name="content" :addToCart="addToCart" :removeFromCart="removeFromCart" :formatPrice="formatPrice"
-            :cartCount="cartCount" :cartProducts="cartProducts" :cartTotal="cartTotal" :addCoupon="addCoupon"></slot>
+            :getCartData="getCartData" :addCoupon="addCoupon" :removeCoupon="removeCoupon" :cartCount="cartCount"
+            :cartProducts="cartProducts" :cartTotal="cartTotal" :couponName="couponName"></slot>
     </main>
     <!-- main-area-end -->
 
