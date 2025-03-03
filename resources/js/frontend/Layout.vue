@@ -426,6 +426,14 @@ export default {
 
                 if (data.status == 200) {
                     console.log('Coupon removed');
+
+                    this.showNotification(
+                        'success',
+                        'fa fa-check',
+                        'Success',
+                        data.data.message || 'Successfully submitted.',
+                        'sound1'
+                    );
                 }
                 else {
                     console.error('No data found');
@@ -433,6 +441,13 @@ export default {
             }
             catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         },
         async getUserCoupon() {
@@ -456,6 +471,13 @@ export default {
             }
             catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         },
         async addCoupon(coupon) {
@@ -472,13 +494,34 @@ export default {
 
                 if (data.status == 200) {
                     this.cartTotal = data.data.data.data;
+
+                    this.showNotification(
+                        'success',
+                        'fa fa-check',
+                        'Success',
+                        data.data.message || 'Successfully submitted.'
+                    );
                 }
                 else {
                     console.error('No data found');
+
+                    this.showNotification(
+                        'error',
+                        'bx bx-error',
+                        response.status,
+                        response.message || 'Failed to submit.'
+                    );
                 }
             }
             catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         },
         formatPrice(value) {
@@ -518,6 +561,13 @@ export default {
 
                 if (data.status == 200) {
                     this.getCartData();
+
+                    this.showNotification(
+                        'success',
+                        'fa fa-check',
+                        'Success',
+                        data.data.message || 'Successfully submitted.'
+                    );
                 }
                 else {
                     console.error('No data found');
@@ -525,6 +575,13 @@ export default {
             }
             catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         },
         async addToCart(product_id, product_attr_id, quantity) {
@@ -545,6 +602,13 @@ export default {
 
                     if (data.status == 200) {
                         this.getCartData();
+
+                        this.showNotification(
+                            'success',
+                            'fa fa-check',
+                            'Success',
+                            data.data.message || 'Successfully submitted.'
+                        );
                     }
                     else {
                         console.error('No data found');
@@ -552,6 +616,13 @@ export default {
                 }
                 catch (error) {
                     console.error(error);
+
+                    this.showNotification(
+                        'error',
+                        'fa fa-times',
+                        error.response.data.status,
+                        error.response.data.message || 'Failed to submit.'
+                    );
                 }
             }
         },
@@ -575,6 +646,13 @@ export default {
             }
             catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         },
         async getUser() {
@@ -592,6 +670,13 @@ export default {
             }
             catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         },
         async getUserData() {
@@ -618,11 +703,23 @@ export default {
                     }
                 }
                 else {
-                    console.error('No data found');
+                    this.showNotification(
+                        'error',
+                        'fa fa-times',
+                        'Error',
+                        'No data found.'
+                    );
                 }
             }
             catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         },
         async getCategories() {
@@ -636,6 +733,13 @@ export default {
                 }
             } catch (error) {
                 console.error(error);
+
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    error.response.data.status,
+                    error.response.data.message || 'Failed to submit.'
+                );
             }
         }
     }
