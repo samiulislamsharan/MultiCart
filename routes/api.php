@@ -38,4 +38,6 @@ Route::controller(HomePageController::class)->group(function () {
     Route::post('/add_to_cart', 'addToCart');
     Route::post('/remove_from_cart', 'removeFromCart');
     Route::post('/add_coupon', 'addCoupon');
+    Route::post('/remove_coupon', 'removeCoupon');
+    Route::post('/get_user_coupon', 'getUserCoupon');
 });
