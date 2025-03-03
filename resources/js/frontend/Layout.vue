@@ -344,6 +344,8 @@ export default {
             cartCount: 0,
             cartProducts: [],
             cartTotal: 0,
+            oldCartTotal: 0,
+            couponName: '',
         }
     },
     watch: {
@@ -353,6 +355,8 @@ export default {
             for (var item in value) {
                 this.cartTotal += value[item].quantity * value[item].products[0].product_attributes[0].price;
             }
+
+            this.oldCartTotal = this.cartTotal;
         }
     },
     mounted() {
@@ -387,6 +391,54 @@ export default {
         this.getCartData();
     },
     methods: {
+        async removeCoupon() {
+            try {
+                this.couponName = '';
+
+                let data = await axios.post(
+                    getUrlList().remove_coupon,
+                    {
+                        'token': this.user_info.user_id,
+                        'auth': this.user_info.auth,
+                    }
+                );
+
+                console.log(data);
+
+                if (data.status == 200) {
+                    console.log('Coupon removed');
+                }
+                else {
+                    console.error('No data found');
+                }
+            }
+            catch (error) {
+                console.error(error);
+            }
+        },
+        async getUserCoupon() {
+            try {
+                let data = await axios.post(
+                    getUrlList().get_user_coupon,
+                    {
+                        'token': this.user_info.user_id,
+                        'auth': this.user_info.auth,
+                        'cart_total': this.oldCartTotal,
+                    }
+                );
+
+                if (data.status == 200) {
+                    this.cartTotal = data.data.data.data;
+                    this.couponName = data.data.data.coupon_name;
+                }
+                else {
+                    console.error('No data found');
+                }
+            }
+            catch (error) {
+                console.error(error);
+            }
+        },
         async addCoupon(coupon) {
             try {
                 let data = await axios.post(
