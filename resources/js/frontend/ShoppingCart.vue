@@ -106,8 +106,10 @@
                                 <div class="shop-cart-bottom mt-20">
                                     <div class="cart-coupon">
                                         <form action="#">
-                                            <input v-model="couponName" type="text" placeholder="Enter Coupon Code...">
-                                            <button v-on:click="slotProps.addCoupon(couponName)" type="button" class="btn">Apply Coupon</button>
+                                            <input type="text" placeholder="Enter Coupon Code..."
+                                                :value="slotProps.couponName" ref="couponName">
+                                            <button v-on:click="slotProps.addCoupon(this.$refs.couponName.value)" type="button"
+                                                class="btn">Apply Coupon</button>
                                         </form>
                                     </div>
                                     <div class="continue-shopping">
