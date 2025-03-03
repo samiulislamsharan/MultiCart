@@ -357,6 +357,7 @@ export default {
             }
 
             this.oldCartTotal = this.cartTotal;
+            this.getUserCoupon();
         }
     },
     mounted() {
