@@ -358,6 +358,9 @@ export default {
 
             this.oldCartTotal = this.cartTotal;
             this.getUserCoupon();
+        },
+        couponName(val) {
+            this.couponName = val.replace('/\s+/g', '');
         }
     },
     mounted() {
