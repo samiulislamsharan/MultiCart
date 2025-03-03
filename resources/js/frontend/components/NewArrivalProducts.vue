@@ -47,7 +47,7 @@
                                     <li>
                                         <a @click="addToCart(item.id, item.product_attributes[0].id, 1)"
                                             href="javascript:void(0)" title="Add to cart">
-                                            <i class="fa fa fa-cart-plus"></i>
+                                            <i class="fa fa-cart-plus"></i>
                                         </a>
                                     </li>
                                 </ul>
