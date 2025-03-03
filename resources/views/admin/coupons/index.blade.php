@@ -157,7 +157,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="coupon_min_value" class="col-sm-3 col-form-label">Value</label>
+                                <label for="coupon_min_value" class="col-sm-3 col-form-label">Minimum Value</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="min_value" class="form-control" id="coupon_min_value"
                                         placeholder="Enter Coupon Minimum Value" required>
