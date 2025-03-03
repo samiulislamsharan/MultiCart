@@ -401,11 +401,57 @@ class HomePageController extends Controller
             }
         }
     }
+
+    public function removeCoupon(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'token' => 'required|exists:temp_users,token',
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400, []);
+        } else {
+            $user = TempUser::where('token', $request->token)->first();
+            $couponUser = UserCouponCart::where('user_id', $user->user_id)->delete();
+
+            return $this->success([], 'Coupon removed successfully');
+        }
+    }
+
+    public function getUserCoupon(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'token' => 'required|exists:temp_users,token',
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400, []);
+        } else {
+            $user = TempUser::where('token', $request->token)->first();
+            $couponUser = UserCouponCart::where('user_id', $user->user_id)->first();
+            $coupon_name = '';
+
+            if (isset($couponUser->id)) {
+                $coupon = Coupon::where('id', $couponUser->coupon_id)->first();
+                $coupon_name = $coupon->name;
+
+                if ($coupon->min_value <= $request->cart_total) {
+                    $coupon_value = $coupon->value;
+
+                    if ($coupon->type == 1) {
+                        $cart_total = $request->cart_total - $coupon_value;
+                    } else {
+                        $coupon_value = ($coupon_value / 100) * $request->cart_total;
+                        $cart_total = $request->cart_total - $coupon_value;
+                    }
+                } else {
+                    $cart_total = $request->cart_total;
+                }
             } else {
-                return $this->error('Coupon is not applicable on this cart total', 400, []);
+                $cart_total = $request->cart_total;
             }
 
-            return $this->success(['data' => $cart_total], 'Coupon applied successfully');
+            return $this->success(['data' => $cart_total, 'coupon_name' => $coupon_name], 'Coupon applied successfully');
         }
     }
 }
