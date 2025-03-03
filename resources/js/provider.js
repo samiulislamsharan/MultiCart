@@ -11,6 +11,8 @@ export function getUrlList() {
         add_to_cart: baseUrl + 'add_to_cart',
         remove_from_cart: baseUrl + 'remove_from_cart',
         add_coupon: baseUrl + 'add_coupon',
+        remove_coupon: baseUrl + 'remove_coupon',
+        get_user_coupon: baseUrl + 'get_user_coupon',
     }
 }
 
