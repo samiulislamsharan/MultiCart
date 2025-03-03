@@ -113,7 +113,8 @@
                                         </form>
                                     </div>
                                     <div class="continue-shopping">
-                                        <a href="shop.html" class="btn">update shopping</a>
+                                        <a v-on:click="slotProps.getCartData(), slotProps.removeCoupon(), this.$refs.couponName.value = ''"
+                                            href="javascript:void(0);" class="btn">Remove Coupon</a>
                                     </div>
                                 </div>
                             </div>
