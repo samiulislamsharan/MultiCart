@@ -381,6 +381,10 @@ export default {
             '/front_assets/js/nav-tool.js',
             '/front_assets/js/plugins.js',
             '/front_assets/js/main.js',
+            '/front_assets/js/notifications/notifications.min.js',
+            '/front_assets/js/notifications/lobibox.min.js',
+            '/front_assets/js/notifications/messageboxes.min.js',
+            '/front_assets/js/notifications/notification-custom-script.js',
         ];
 
         for (var i = 0; i < src.length; i++) {

@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('front_assets/css/default.css') }}">
     <link rel="stylesheet" href="{{ asset('front_assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('front_assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('front_assets/css/notifications/lobibox.min.css') }}">
     <script src="{{ asset('front_assets/js/vendor/jquery-3.5.0.min.js') }}"></script>
 </head>
 
