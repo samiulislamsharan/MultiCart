@@ -27,7 +27,6 @@
 
 @yield('footer-js')
 
-<!--Form Validation-->
 <script>
     $(document).ready(function(f) {
         $('#formSubmit').on('submit', function(e) {
@@ -104,8 +103,7 @@
             }
         });
     });
-</script>
-<script>
+
     function showNotification(notificationType, notificationIcon, status, message) {
         Lobibox.notify(notificationType, {
             pauseDelayOnHover: true,
@@ -117,9 +115,7 @@
             size: 'mini'
         });
     }
-</script>
-<!-- DataTable -->
-<script>
+
     $(document).ready(function() {
         var table = $('#dataTable').DataTable({
             lengthChange: false,
@@ -129,8 +125,7 @@
         table.buttons().container()
             .appendTo('#dataTable_wrapper .col-md-6:eq(0)');
     });
-</script>
-<script>
+
     function deleteData(id, table) {
         if (confirm("Are you sure you want to delete this record?") == true) {
             $.ajax({
@@ -183,8 +178,7 @@
             return false;
         }
     }
-</script>
-<script>
+
     function previewImage(sourceInput, targetImage) {
         $(sourceInput).change(function(e) {
             file = this.files[0];
@@ -205,8 +199,7 @@
             }
         });
     }
-</script>
-<script>
+
     function showOptions(dropdown_id, id) {
         if (id !== '') {
             $(dropdown_id).val(id);
@@ -214,9 +207,7 @@
             $(dropdown_id).val('');
         }
     }
-</script>
 
-<script>
     if (window.matchMedia('(prefers-color-scheme: light)').matches) {
         $('html').removeClass('dark-theme');
     } else {
