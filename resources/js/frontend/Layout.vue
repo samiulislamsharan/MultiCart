@@ -446,7 +446,7 @@ export default {
                     {
                         'token': this.user_info.user_id,
                         'auth': this.user_info.auth,
-                        'cart_total': this.cartTotal,
+                        'cart_total': this.oldCartTotal,
                         'coupon': coupon,
                     }
                 );
