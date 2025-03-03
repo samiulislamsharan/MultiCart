@@ -456,7 +456,7 @@ export default {
                 );
 
                 if (data.status == 200) {
-                    this.getCartData();
+                    this.cartTotal = data.data.data.data;
                 }
                 else {
                     console.error('No data found');
