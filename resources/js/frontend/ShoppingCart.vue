@@ -152,7 +152,7 @@
                                                 </span>
                                             </li>
                                         </ul>
-                                        <a href="checkout.html" class="btn">PROCEED TO CHECKOUT</a>
+                                        <router-link :to="'/checkout'" class="btn">PROCEED TO CHECKOUT</router-link>
                                     </form>
                                 </div>
                             </div>
@@ -167,8 +167,6 @@
 
 <script>
 import Layout from './Layout.vue';
-import axios from 'axios';
-import getUrlList from '../provider.js';
 
 export default {
     name: 'ShoppingCart',
