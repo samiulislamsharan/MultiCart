@@ -3,6 +3,7 @@ import Index from './frontend/Index.vue';
 import Category from './frontend/Category.vue';
 import Product from './frontend/Product.vue';
 import ShoppingCart from './frontend/ShoppingCart.vue';
+import Checkout from './frontend/Checkout.vue';
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         name: 'ShoppingCart',
         path: '/shopping_cart',
         component: ShoppingCart
+    },
+    {
+        name: 'Checkout',
+        path: '/checkout',
+        component: Checkout
     },
 ];
 
