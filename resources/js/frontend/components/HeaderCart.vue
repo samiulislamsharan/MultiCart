@@ -53,7 +53,7 @@
                     <li>
                         <div class="checkout-link">
                             <router-link :to="'/shopping_cart'">Shopping Cart</router-link>
-                            <a class="black-color" href="#">Checkout</a>
+                            <router-link :to="'/checkout'" class="black-color" href="#">Checkout</router-link>
                         </div>
                     </li>
                 </ul>
