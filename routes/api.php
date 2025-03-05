@@ -40,4 +40,5 @@ Route::controller(HomePageController::class)->group(function () {
     Route::post('/add_coupon', 'addCoupon');
     Route::post('/remove_coupon', 'removeCoupon');
     Route::post('/get_user_coupon', 'getUserCoupon');
+    Route::post('/get_post_code_details', 'getPostCodeDetails');
 });
