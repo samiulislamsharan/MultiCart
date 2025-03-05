@@ -39,78 +39,57 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-grp">
-                                                <label for="fName">FIRST NAME <span>*</span></label>
-                                                <input type="text" id="fName">
+                                                <label for="fName">First Name <span>*</span></label>
+                                                <input required type="text" id="fName" v-model="firstName">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-grp">
-                                                <label for="lName">Last NAME <span>*</span></label>
-                                                <input type="text" id="lName">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-grp">
-                                                <label for="cName">COMPANY NAME <small>(OPTIONAL)</small></label>
-                                                <input type="text" id="cName">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-grp">
-                                                <label>Country / Region <span>*</span></label>
-                                                <select class="custom-select">
-                                                    <option value="Bangladesh">Bangladesh</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-grp">
-                                                <label for="address">Street Address <span>*</span></label>
-                                                <input type="text" id="address">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-grp">
-                                                <label>Town / City <span>*</span></label>
-                                                <select class="custom-select">
-                                                    <option value="Illinois">Illinois</option>
-                                                    <option value="New York">New York</option>
-                                                    <option value="California">California</option>
-                                                    <option value="Los Angeles">Los Angeles</option>
-                                                    <option value="Chicago">Chicago</option>
-                                                    <option value="Houston">Houston</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-grp">
-                                                <label>State / Division <span>*</span></label>
-                                                <select class="custom-select">
-                                                    <option value="New York">New York</option>
-                                                    <option value="California">California</option>
-                                                    <option value="Los Angeles">Los Angeles</option>
-                                                    <option value="Chicago">Chicago</option>
-                                                    <option value="Illinois">Illinois</option>
-                                                    <option value="Houston">Houston</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-grp">
-                                                <label for="zip">Postal / ZIP Code <span>*</span></label>
-                                                <input type="text" id="zip">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-grp">
-                                                <label for="phone">Your Phone <span>*</span></label>
-                                                <input type="text" id="phone">
+                                                <label for="lName">Last Name <span>*</span></label>
+                                                <input required type="text" id="lName" v-model="lastName">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-grp">
                                                 <label for="email">E-Mail Address <span>*</span></label>
-                                                <input type="email" id="email">
+                                                <input required type="email" id="email" v-model="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-grp">
+                                                <label>Country / Region <span>*</span></label>
+                                                <input required type="text" id="country" v-model="country" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-grp">
+                                                <label for="zip">Postal / ZIP Code <span>*</span></label>
+                                                <input required type="number" id="zip" v-model.number="postalZipCode"
+                                                    >
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-grp">
+                                                <label for="phone">Your Phone <span>*</span></label>
+                                                <input required type="number" id="phone" v-model.number="phone">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-grp">
+                                                <label>Town / City <span>*</span></label>
+                                                <input disabled type="text" id="townCity" v-model="townCity">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-grp">
+                                                <label>State / Division <span>*</span></label>
+                                                <input disabled type="text" id="stateDivision" v-model="stateDivision">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-grp">
+                                                <label for="address">Address <span>*</span></label>
+                                                <input required type="text" id="address" v-model="address">
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -125,7 +104,7 @@
                                                 <label for="message">Order you have Notes
                                                     <small>(Optional)</small></label>
                                                 <textarea name="message" id="message"
-                                                    placeholder="About Your Special Delivery Notes"></textarea>
+                                                    placeholder="About Your Special Delivery Notes" v-model="deliveryNotes"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -213,6 +192,26 @@ export default {
     name: 'Checkout',
     components: {
         Layout,
+    },
+    data() {
+        return {
+            token: false,
+            user_info: {
+                'user_id': '',
+                'auth': false
+            },
+            firstName: '',
+            lastName: '',
+            country: 'Bangladesh',
+            address: '',
+            townCity: '',
+            stateDivision: '',
+            postalZipCode: '',
+            phone: '',
+            email: '',
+            deliveryNotes: '',
+            paymentMethod: 'COD',
+        }
     },
 }
 </script>
