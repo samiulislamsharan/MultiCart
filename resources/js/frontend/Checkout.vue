@@ -65,7 +65,7 @@
                                             <div class="form-grp">
                                                 <label for="zip">Postal / ZIP Code <span>*</span></label>
                                                 <input required type="number" id="zip" v-model.number="postalZipCode"
-                                                    >
+                                                    @blur="getPostCodeDetails()">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -187,6 +187,8 @@
 
 <script>
 import Layout from './Layout.vue';
+import axios from 'axios';
+import getUrlList from '../provider.js';
 
 export default {
     name: 'Checkout',
@@ -225,6 +227,56 @@ export default {
         this.getUser();
     },
     methods: {
+        async getPostCodeDetails() {
+            if (this.postalZipCode.length !== '') {
+                try {
+                    let data = await axios.post(
+                        getUrlList().get_post_code_details,
+                        {
+                            'token': this.user_info.user_id,
+                            'auth': this.user_info.auth,
+                            'post_code': this.postalZipCode
+                        }
+                    );
+
+                    if (data.status == 200) {
+                        this.townCity = data.data.data.data.city;
+                        this.stateDivision = data.data.data.data.division;
+
+                        this.showNotification(
+                            'success',
+                            'fa fa-check',
+                            'Success',
+                            data.data.message || 'Successfully submitted.',
+                        );
+                    } else {
+                        this.showNotification(
+                            'error',
+                            'fa fa-times',
+                            'Error',
+                            'No data found.'
+                        );
+                    }
+                }
+                catch (error) {
+                    console.error(error);
+
+                    this.showNotification(
+                        'error',
+                        'fa fa-times',
+                        error.response.data.status,
+                        error.response.data.message || 'Failed to submit.'
+                    );
+                }
+            } else {
+                this.showNotification(
+                    'error',
+                    'fa fa-times',
+                    'Error',
+                    'Please fill up the required fields.'
+                );
+            }
+        },
         async getUser() {
             try {
                 if (localStorage.getItem('user_info')) {
