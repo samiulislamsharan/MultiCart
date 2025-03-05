@@ -13,6 +13,7 @@ use App\Models\Color;
 use App\Models\ProductAttr;
 use App\Models\CategoryAttribute;
 use App\Models\Coupon;
+use App\Models\Postcode;
 use App\Models\ProductAttribute;
 use App\Models\TempUser;
 use App\Models\UserCouponCart;
@@ -453,5 +454,23 @@ class HomePageController extends Controller
 
             return $this->success(['data' => $cart_total, 'coupon_name' => $coupon_name], 'Coupon applied successfully');
         }
+    }
+
+    public function getPostCodeDetails(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'token'         => 'required|exists:temp_users,token',
+            'post_code'   => 'required|exists:postcodes,post_code',
+        ]);
+
+        if ($validation->fails()) {
+            return $this->error($validation->errors()->first(), 400, []);
+        } else {
+            $data = Postcode::where('post_code', $request->post_code)->first();
+
+            return $this->success(['data' => $data], 'Post code fetched successfully', 200);
+        }
+    }
+
     }
 }
