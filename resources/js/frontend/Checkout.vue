@@ -213,5 +213,13 @@ export default {
             paymentMethod: 'COD',
         }
     },
+    watch: {
+        postalZipCode(val) {
+            if (val.length < 4) {
+                this.townCity = '';
+                this.stateDivision = '';
+            }
+        }
+    },
 }
 </script>
