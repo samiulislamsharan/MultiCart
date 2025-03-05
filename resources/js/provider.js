@@ -13,6 +13,7 @@ export function getUrlList() {
         add_coupon: baseUrl + 'add_coupon',
         remove_coupon: baseUrl + 'remove_coupon',
         get_user_coupon: baseUrl + 'get_user_coupon',
+        get_post_code_details: baseUrl + 'get_post_code_details',
     }
 }
 
