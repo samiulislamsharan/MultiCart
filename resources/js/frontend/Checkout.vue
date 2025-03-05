@@ -221,5 +221,18 @@ export default {
             }
         }
     },
+    methods: {
+        showNotification(notificationType, notificationIcon, status, message, sound = false) {
+            Lobibox.notify(notificationType, {
+                pauseDelayOnHover: true,
+                continueDelayOnInactiveTab: false,
+                position: 'top right',
+                icon: notificationIcon,
+                msg: '<strong>' + status + '</strong>' + ':' + ' ' + message,
+                sound: sound,
+                size: 'mini'
+            });
+        },
+    },
 }
 </script>
